@@ -1,0 +1,94 @@
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+
+*.svd
+*.suo
+*.pdb
+rollout_Data/
+*.swp
+*.exe
+
+ 
+![Ll]ibrary/*.asset
+![Ll]ibrary/AssetImportState
+![Ll]ibrary/AssetVersioning.db
+![Ll]ibrary/BuildPlayer.prefs
+![Ll]ibrary/ScriptMapper
+![Ll]ibrary/assetservercachev3
+![Ll]ibrary/expandedItems
+![Ll]ibrary/guidmapper
+![Ll]ibrary/unity default resources
+![Ll]ibrary/unity editor resources
+ 
+ 
+ 
+/Project/Project.userprefs
+/Project/Assembly-CSharp.csproj
+/Project/Assembly-CSharp.pidb
+/Project/Assembly-CSharp-Editor.csproj
+/Project/Assembly-CSharp-Editor.pidb
+/Project/Assembly-CSharp-Editor-vs.csproj
+/Project/Assembly-CSharp-firstpass.csproj
+/Project/Assembly-CSharp-firstpass.pidb
+/Project/Assembly-CSharp-firstpass-vs.csproj
+/Project/Assembly-CSharp-vs.csproj
+/Project/Assembly-UnityScript-firstpass.pidb
+/Project/Assembly-UnityScript-firstpass.unityproj
+/Project/Assembly-UnityScript-firstpass-vs.unityproj
+/Project/Project.suo
+Assembly-CSharp-Editor-vs.csproj
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp-firstpass-vs.csproj
+Assembly-CSharp-firstpass.csproj
+Assembly-CSharp-vs.csproj
+Assembly-CSharp.csproj
+Assembly-UnityScript-Editor-vs.unityproj
+Assembly-UnityScript-Editor.unityproj
+Assembly-UnityScript-firstpass-vs.unityproj
+Assembly-UnityScript-firstpass.unityproj
+Assembly-UnityScript-vs.unityproj
+Assembly-UnityScript.unityproj
+rollout-csharp.sln
+rollout.sln
+*.sln
+Assembly-CSharp-Editor.pidb
+Assembly-CSharp-firstpass.pidb
+Assembly-CSharp.pidb
+Assembly-UnityScript-Editor.pidb
+Assembly-UnityScript-firstpass.pidb
+Assembly-UnityScript.pidb
+Assembly-CSharp-Editor-firstpass-vs.csproj
+Assembly-CSharp-Editor-firstpass.csproj
+*.pidb
+*.userprefs
+Assembly-CSharp-Editor-firstpass.pidb
+ProjectSettings/ProjectSettings.asset
+Rollout.userprefs
+
+
+Assets/Rollout Core/Models/Racer/Bodies/Materials.meta
+Assets/Static/General Models/Materials/lambert1.mat
+Assets/Static/General Models/Materials/lambert1.mat.meta
+Assets/Props/Models/Big Cone.fbm.meta
+Assets/Props/Models/Big Cone.fbm.meta
+Assets/Props/Models/Big Cone.fbm/ConeLarge.png
+Assets/Props/Models/Big Cone.fbm/ConeLarge.png.meta
+Assets/Props/Models/Materials/ConeLarge.mat
+Assets/Props/Models/Materials/ConeLarge.mat.meta
+Assets/Rollout Core/Hub/Materials/ground.mat
+Assets/Rollout Core/Hub/Materials/ground.mat.meta
+Assets/Rollout Core/Models/Racer/Bodies/Materials/Orb_Glow_Green.mat
+Assets/Rollout Core/Models/Racer/Bodies/Materials/Orb_Glow_Green.mat.meta
+Assets/Rollout Core/Models/Racer/Bodies/Materials/Orb_Lambert.mat
+Assets/Rollout Core/Models/Racer/Bodies/Materials/Orb_Lambert.mat.meta
+Assets/Standard Assets/Terrain Assets/Terrain Textures/Materials/Grass&Rock.mat
+Assets/Standard Assets/Terrain Assets/Terrain Textures/Materials/Grass&Rock.mat.meta
+Assets/Static/City/City 1-1/Materials/lambert1.mat
+Assets/Static/City/City 1-1/Materials/lambert1.mat.meta
+Assets/Static/City/City 1-1/Materials/mat_basic.mat
+Assets/Static/City/City 1-1/Materials/mat_basic.mat.meta
+Assets/Static/General Models/Materials/roof.mat
+Assets/Static/General Models/Materials/roof.mat.meta
+Assets/Static/General Models/Materials/wall-moss.mat
+Assets/Static/General Models/Materials/wall-moss.mat.meta
