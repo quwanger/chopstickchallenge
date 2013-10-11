@@ -3,13 +3,33 @@ using System.Collections;
 
 public class CC_Level : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	//public List<GameObject> _sushi = new List<GameObject>();
+	//public List<GameObject> _chopsticks = new List<GameObject>();
+	//public List<GameObject> _players = new List<GameObject>();
+
+	public bool DebugMode = true;
 	
+	public static CC_Level instance { get; private set;}
+	
+	void Awake() {
+		instance = this;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	void Start() {	
+		//start
 	}
+	
+	public CC_Level level {
+		get {
+			return instance;
+		}
+		set {
+			ThrowSetException("level");
+		}
+	}
+	
+	private void ThrowSetException(string source) {
+		Debug.LogError("Tried to set a read-only property: " + source);
+	}
+	
 }
