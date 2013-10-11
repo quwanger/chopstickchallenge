@@ -1,9 +1,9 @@
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class CC_Level : MonoBehaviour {
 
-	//public List<GameObject> _sushi = new List<GameObject>();
+	public List<GameObject> _sushi = new List<GameObject>();
 	//public List<GameObject> _chopsticks = new List<GameObject>();
 	//public List<GameObject> _players = new List<GameObject>();
 
@@ -28,8 +28,21 @@ public class CC_Level : MonoBehaviour {
 		}
 	}
 	
+	public GameObject[] sushi {
+		get {
+			return _sushi.ToArray();
+		}
+		set {
+			ThrowSetException("sushi");
+		}
+	}
+	
 	private void ThrowSetException(string source) {
 		Debug.LogError("Tried to set a read-only property: " + source);
 	}
 	
+	public void RegisterSushi(GameObject go) {
+		//ONLY to be called by the TTSRacer class
+		_sushi.Add(go);
+	}
 }

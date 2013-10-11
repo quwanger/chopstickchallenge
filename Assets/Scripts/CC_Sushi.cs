@@ -2,14 +2,12 @@ using UnityEngine;
 using System.Collections;
 
 public class CC_Sushi : CC_Behaviour {
+	
+	public int PointValue = 10000;
+	public float GripConstant = 1.0f;
+	
+	void Awake () {
+		level.RegisterSushi(this.gameObject);
+	}
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
