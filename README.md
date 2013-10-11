@@ -1,4 +1,11 @@
-chopstickchallenge
-==================
+Chopstick Challenge: Best Game Evar
+===================================
 
-Best game evar
+To Do
+=====
+- Scene setup
+- Camera setup
+- Animation access in Unity
+- Upper body rigging
+
+
