@@ -1,11 +1,10 @@
 Chopstick Challenge: Best Game Evar
 ===================================
 
-To Do
-=====
-- Scene setup
-- Camera setup
-- Animation access in Unity
-- Upper body rigging
+Status Report
+=============
+- Scene setup (if the CCLevel script throws an error, just delete it from the scene and drag in a new one)
+- Kitchen scene implemented
+- Hand modelling began
 
 
