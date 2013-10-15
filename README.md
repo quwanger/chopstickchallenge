@@ -8,4 +8,11 @@ Status Report
 - Kitchen scene implemented
 - Hand modelling began
 
+To Do for Next Week
+===================
+- Camera controls
+- Control implementation
+- More models
+- Hand progress
+
 
