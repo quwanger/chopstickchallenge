@@ -1,6 +1,10 @@
 Chopstick Challenge: Best Game Evar
 ===================================
 
+Project Plan
+============
+You can view our project plan [here](https://docs.google.com/document/d/12QMTBDCQUk7S3488XZd7tFo29l291c_bcXHjOQl9XkI/edit?usp=sharing)
+
 Status Report
 =============
 ![alt tag](http://puu.sh/4QJ5H.png)
