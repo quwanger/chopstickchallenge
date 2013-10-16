@@ -7,7 +7,11 @@ public class CC_Sushi : CC_Behaviour {
 	public float GripConstant = 1.0f;
 	
 	void Awake () {
-		level.RegisterSushi(this.gameObject);
+		level.RegisterSushi(this);
+		Debug.Log("SUSHI " + sushi.Length);
+	}
+
+	void Update() {
 	}
 
 }
