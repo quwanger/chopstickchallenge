@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 public class CC_Level : MonoBehaviour {
 
-	public List<GameObject> _sushi = new List<GameObject>();
-	//public List<GameObject> _chopsticks = new List<GameObject>();
+	public List<CC_Sushi> sushi = new List<CC_Sushi>();
+	public List<CC_Chopstick> chopsticks = new List<CC_Chopstick>();
+	public CC_Mouth mouth;
 	//public List<GameObject> _players = new List<GameObject>();
 
 	public bool DebugMode = true;
@@ -28,21 +29,37 @@ public class CC_Level : MonoBehaviour {
 		}
 	}
 	
-	public GameObject[] sushi {
+	private void ThrowSetException(string source) {
+		Debug.LogError("Tried to set a read-only property: " + source);
+	}
+
+	// Register
+	public void RegisterSushi(CC_Sushi obj) {
+		//ONLY to be called by the CC_Sushi class
+		sushi.Add(obj);
+	}
+
+	public void RegisterChopstick(CC_Chopstick obj) {
+		//ONLY to be called by the CC_Chopstick class
+		chopsticks.Add(obj);
+	}
+
+	// Array Converters
+	public CC_Sushi[] sushiArray {
 		get {
-			return _sushi.ToArray();
+			return sushi.ToArray();
 		}
 		set {
 			ThrowSetException("sushi");
 		}
 	}
-	
-	private void ThrowSetException(string source) {
-		Debug.LogError("Tried to set a read-only property: " + source);
-	}
-	
-	public void RegisterSushi(GameObject go) {
-		//ONLY to be called by the TTSRacer class
-		_sushi.Add(go);
+
+	public CC_Chopstick[] chopstickArray {
+		get {
+			return chopsticks.ToArray();
+		}
+		set {
+			ThrowSetException("chopstick");
+		}
 	}
 }
