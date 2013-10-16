@@ -10,7 +10,7 @@ Status Report
 - Hand modelling began
 ![alt tag](http://puu.sh/4RuKE.png)
 - Camera is averaging between two models moving between them. We'll be using this functionality to move the camera when moving the arms.
-![alt tag](http://puu.sh/4RuOW.png)
+![alt tag](http://puu.sh/4RuXI.png)
 - Basic controller functionality with the XBOX controller. Had some issues using UniWii that we will look into.
 ![alt tag](http://puu.sh/4RuVa.png)
 - Basic layout for website.
