@@ -20,6 +20,14 @@ ModelImporter:
     100028: sink_counter
     100030: table
     100032: walls
+    100034: group1
+    100036: group2
+    100038: group3
+    100040: polySurface1
+    100042: polySurface1 1
+    100044: polySurface1 2
+    100046: walls 1
+    100048: walls 2
     400000: f_window
     400002: fridge
     400004: ground
@@ -37,6 +45,14 @@ ModelImporter:
     400028: sink_counter
     400030: table
     400032: walls
+    400034: group1
+    400036: group2
+    400038: group3
+    400040: polySurface1
+    400042: polySurface1 1
+    400044: polySurface1 2
+    400046: walls 1
+    400048: walls 2
     2300000: f_window
     2300002: fridge
     2300004: ground
@@ -53,6 +69,11 @@ ModelImporter:
     2300026: sink_counter
     2300028: table
     2300030: walls
+    2300032: polySurface1
+    2300034: polySurface1 1
+    2300036: polySurface1 2
+    2300038: walls 1
+    2300040: walls 2
     3300000: f_window
     3300002: fridge
     3300004: ground
@@ -69,6 +90,11 @@ ModelImporter:
     3300026: sink_counter
     3300028: table
     3300030: walls
+    3300032: polySurface1
+    3300034: polySurface1 1
+    3300036: polySurface1 2
+    3300038: walls 1
+    3300040: walls 2
     4300000: ground
     4300002: r_window
     4300004: l_window
@@ -85,6 +111,11 @@ ModelImporter:
     4300026: sink
     4300028: knife_block
     4300030: fridge
+    4300032: polySurface1
+    4300034: walls
+    4300036: polySurface1
+    4300038: walls
+    4300040: polySurface1
     6400000: f_window
     6400002: fridge
     6400004: ground
@@ -101,6 +132,11 @@ ModelImporter:
     6400026: sink_counter
     6400028: table
     6400030: walls
+    6400032: polySurface1
+    6400034: polySurface1 1
+    6400036: polySurface1 2
+    6400038: walls 1
+    6400040: walls 2
     9500000: //RootNode
   materials:
     importMaterials: 1
