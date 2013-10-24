@@ -28,6 +28,7 @@ ModelImporter:
     100044: polySurface1 2
     100046: walls 1
     100048: walls 2
+    100050: stove
     400000: f_window
     400002: fridge
     400004: ground
@@ -53,6 +54,7 @@ ModelImporter:
     400044: polySurface1 2
     400046: walls 1
     400048: walls 2
+    400050: stove
     2300000: f_window
     2300002: fridge
     2300004: ground
@@ -74,6 +76,7 @@ ModelImporter:
     2300036: polySurface1 2
     2300038: walls 1
     2300040: walls 2
+    2300042: stove
     3300000: f_window
     3300002: fridge
     3300004: ground
@@ -95,6 +98,7 @@ ModelImporter:
     3300036: polySurface1 2
     3300038: walls 1
     3300040: walls 2
+    3300042: stove
     4300000: ground
     4300002: r_window
     4300004: l_window
@@ -116,6 +120,7 @@ ModelImporter:
     4300036: polySurface1
     4300038: walls
     4300040: polySurface1
+    4300042: stove
     6400000: f_window
     6400002: fridge
     6400004: ground
@@ -137,6 +142,7 @@ ModelImporter:
     6400036: polySurface1 2
     6400038: walls 1
     6400040: walls 2
+    6400042: stove
     9500000: //RootNode
   materials:
     importMaterials: 1
