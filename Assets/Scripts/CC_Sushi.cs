@@ -8,7 +8,7 @@ public class CC_Sushi : CC_Behaviour {
 	
 	void Awake () {
 		level.RegisterSushi(this);
-		Debug.Log("SUSHI " + sushi.Length);
+		//Debug.Log("SUSHI " + sushi.Length);
 	}
 
 	void Update() {
