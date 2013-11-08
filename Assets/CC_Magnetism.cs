@@ -13,10 +13,10 @@ public class CC_Magnetism : CC_Behaviour {
 			foreach(CC_Sushi go in sushi) {
 	       		go.rigidbody.AddExplosionForce (force, transform.position, range);
 	  		}
-		}/*else if(magnetType = Hand){
+		}else if(magnet == MagnetType.Hand){
 			foreach(CC_Chopstick cs in chopsticks) {
 	       		cs.rigidbody.AddExplosionForce (force, transform.position, range);
 	  		}
-		}*/
+		}
 	}
 }
