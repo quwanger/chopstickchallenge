@@ -13,8 +13,12 @@ public class CC_Level : MonoBehaviour {
 	public bool DebugMode = true;
 	
 	public int playerScore = 0;
-	
 	public int pointsToAdd = 0;
+	
+	//points needed to beat the level
+	public int pointsToWin = 1000000;
+	//time the player has to beat the level
+	public int levelTime = 180;
 	
 	public static CC_Level instance { get; private set;}
 	
