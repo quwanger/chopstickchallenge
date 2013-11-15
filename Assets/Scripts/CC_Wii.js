@@ -1,71 +1,99 @@
-static var whichRemote	: int;
-var motionPlus			: Transform;
-var WiiObject			: GameObject;
-
-var speed				: float;
-
+var whichRemote		: int;
+var motionPlus		: Transform;
+var WiiObject		: GameObject;
+var speed			: Vector3;
+var zDepth			: float;
 var Wii;
-var totalRemotes = 0;
-whichRemote = 0;
 
-Wii = WiiObject.GetComponent("Wii");
+/* todo: move velocity to each hand */
+var lastInput		:Vector3;
+var handVel			:Vector3;
 
 function OnGUI () {
 
 }
 
 function Start () {
+	var totalRemotes = 0;
+	whichRemote = 0;
+	Wii = WiiObject.GetComponent("Wii");
 	
+	zDepth = 15;
 }
 
 function Update () {
-	var wiiAccel
 
-	if(Wii.GetButtonDown(whichRemote, "PLUS")) {
-		Wii.StartSearch();
-	}
-
-	pointerArray = Wii.GetRawIRData(whichRemote);		
-	mainPointer = Wii.GetIRPosition(whichRemote);
-	
-	Debug.Log("01: " + pointerArray[0]);
-	
-	///Debug.Log(mainPointer);
-	
-	//1010 -> 960
-	var lerpX = pointerArray[0].x;
-	
-	if(lerpX>=0){
-		var targetX = 1010*(1-lerpX) + 960*(lerpX);
+	if(Wii.IsActive(whichRemote)) {
+		// Recalibaration
+		if(Wii.GetButtonDown(whichRemote, "PLUS")) {
+			Wii.StartSearch();
+		}
 		
-		motionPlus.transform.position = Vector3.Lerp(
-			motionPlus.transform.position,
-			Vector3(targetX,motionPlus.transform.position.y,motionPlus.transform.position.z),
-			0.03
+		var p = motionPlus.transform.position;
+		var a = Wii.GetWiimoteAcceleration(whichRemote);
+		
+		handVel.x = (a.x)*2;
+		handVel.y = (a.y+0.2)*2;
+		
+		
+		motionPlus.transform.position = Vector3(p.x-handVel.x,p.y-handVel.y,p.z);
+		
+	
+		/*
+		// IR pointer data
+		pointerArray = Wii.GetRawIRData(whichRemote);		
+		var wiiIRPos = pointerArray[0];
+		// Target position to lerp to
+		var target : Vector3;
+		
+		// If IR value is out of range,
+		if(wiiIRPos.x >= 0) { 
+			// Range set to left most and right most positions
+			target.x = 1010 * (1-wiiIRPos.x) + 960 * (wiiIRPos.x); 
+			target.y = -144 * (1-wiiIRPos.y) + -115 * (wiiIRPos.y);
+			
+			speed = target - motionPlus.position;
+			
+			// Lerping to the target position
+			motionPlus.transform.position = Vector3.Lerp(
+				motionPlus.transform.position,
+				Vector3(target.x,target.y,motionPlus.position.z),
+				0.03
 			);
+		}
+		// When wiimote is not visible
+		else{
+			// Lerp at a default speed
+			motionPlus.transform.position = Vector3.Lerp(
+				motionPlus.transform.position,
+				Vector3(motionPlus.position.x + speed.x,motionPlus.position.y + speed.y,motionPlus.position.z),
+				0.03
+			);
+			
+			speed *= 0.95f;
+		}
+		*/
+		
+		// Z-Depth movement
+		// If button is pressed, increase or decrease z-depth
+		if(Wii.GetButton(whichRemote, "A")) {
+			motionPlus.transform.position = Vector3.Lerp(
+				motionPlus.transform.position, 
+				Vector3(motionPlus.position.x + speed.x,motionPlus.position.y + speed.y,motionPlus.position.z + (-zDepth)),
+				0.03
+			);
+		}
+	
+		if(Wii.GetButton(whichRemote, "B")) {
+			motionPlus.transform.position = Vector3.Lerp(
+				motionPlus.transform.position, 
+				Vector3(motionPlus.position.x + speed.x,motionPlus.position.y + speed.y,motionPlus.position.z + zDepth),
+				0.03
+			);
+		}
 	}
-	
-	//motionPlus.transform.position = motionPlus.transform.position + new Vector3(
 
-	/*theIRMain.pixelInset = Rect(mainPointer.x*Screen.width-25.0f,mainPointer.y*Screen.height-25.0f,50.0,50.0);
-	var sizeScale = 5.0f;
-	
-	theIR1.pixelInset = Rect (pointerArray[0].x*Screen.width-(pointerArray[0].z*sizeScale/2.0f),
-	 							pointerArray[0].y*Screen.height-(pointerArray[0].z*sizeScale/2.0f),
-	 							pointerArray[0].z*sizeScale*10, pointerArray[0].z*sizeScale*10);
-	 							
-	theIR2.pixelInset = Rect (pointerArray[1].x*Screen.width-(pointerArray[1].z*sizeScale/2.0f),
-								pointerArray[1].y*Screen.height-(pointerArray[1].z*sizeScale/2.0f),
-								pointerArray[1].z*sizeScale*10, pointerArray[1].z*sizeScale*10);
-								
-	theIR3.pixelInset = Rect (pointerArray[2].x*Screen.width-(pointerArray[2].z*sizeScale/2.0f),
-								pointerArray[2].y*Screen.height-(pointerArray[2].z*sizeScale/2.0f),
-								pointerArray[2].z*sizeScale*10, pointerArray[2].z*sizeScale*10);
-								
-	theIR4.pixelInset = Rect (pointerArray[3].x*Screen.width-(pointerArray[3].z*sizeScale/2.0f),
-								pointerArray[3].y*Screen.height-(pointerArray[3].z*sizeScale/2.0f),
-								pointerArray[3].z*sizeScale*10, pointerArray[3].z*sizeScale*10);*/
-
+	// Rotations
 	if(Wii.HasMotionPlus(whichRemote))
 	{	
 		if(Wii.IsMotionPlusCalibrated(whichRemote)) {
