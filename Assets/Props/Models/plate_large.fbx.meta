@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c87fff6d98d744ca78818368de07142c
+guid: 6e7ca6419f42b43faa0917f5b81f121e
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: soya_sauce
+    4300000: plate_large
     9500000: //RootNode
   materials:
     importMaterials: 1
