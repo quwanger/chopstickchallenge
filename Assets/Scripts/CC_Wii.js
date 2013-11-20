@@ -1,47 +1,53 @@
-var whichRemote		: int;
-var motionPlus		: Transform;
+var rightRemote		: int;
+var leftRemote		: int;
+var leftArm			: Transform;
+var rightArm		: Transform;
 var WiiObject		: GameObject;
 var speed			: Vector3;
 var zDepth			: float;
 var Wii;
 
 /* todo: move velocity to each hand */
-var lastInput		:Vector3;
-var handVel			:Vector3;
+var lastInput		: Vector3;
+var handVelLeft		: Vector3;
+var handVelRight    : Vector3;
 
 function OnGUI () {
 
 }
 
 function Start () {
-	var totalRemotes = 0;
-	whichRemote = 0;
+	leftRemote = 0;
+	rightRemote = 1;
 	Wii = WiiObject.GetComponent("Wii");
 	
 	zDepth = 15;
 }
 
 function Update () {
-
-	if(Wii.IsActive(whichRemote)) {
+	if(Wii.IsActive(leftRemote) || Wii.IsActive(rightRemote)) {
 		// Recalibaration
-		if(Wii.GetButtonDown(whichRemote, "PLUS")) {
+		if(Wii.GetButtonDown(leftRemote, "PLUS") || Wii.GetButtonDown(rightRemote, "PLUS")) {
 			Wii.StartSearch();
 		}
 		
-		var p = motionPlus.transform.position;
-		var a = Wii.GetWiimoteAcceleration(whichRemote);
+		var posL = leftArm.transform.position;
+		var accL = Wii.GetWiimoteAcceleration(leftRemote);
+
+		var posR = rightArm.transform.position;
+		var accR = Wii.GetWiimoteAcceleration(rightRemote);
 		
-		handVel.x = (a.x)*2;
-		handVel.y = (a.y+0.2)*2;
+		handVelRight.x = (accR.x)*1.2;
+		handVelRight.y = (accR.y+0.1)*1.2;
+		handVelLeft.x = (accL.x)*1.2;
+		handVelLeft.y = (accL.y+0.1)*1.2;
 		
-		
-		motionPlus.transform.position = Vector3(p.x-handVel.x,p.y-handVel.y,p.z);
-		
+		//leftArm.transform.position = Vector3(posL.x-handVelLeft.x,posL.y-handVelLeft.y,posL.z);
+		rightArm.transform.position = Vector3(posR.x-handVelRight.x,posR.y-handVelRight.y,posR.z);
 	
 		/*
 		// IR pointer data
-		pointerArray = Wii.GetRawIRData(whichRemote);		
+		pointerArray = Wii.GetRawIRData(leftRemote);		
 		var wiiIRPos = pointerArray[0];
 		// Target position to lerp to
 		var target : Vector3;
@@ -52,21 +58,21 @@ function Update () {
 			target.x = 1010 * (1-wiiIRPos.x) + 960 * (wiiIRPos.x); 
 			target.y = -144 * (1-wiiIRPos.y) + -115 * (wiiIRPos.y);
 			
-			speed = target - motionPlus.position;
+			speed = target - leftArm.position;
 			
 			// Lerping to the target position
-			motionPlus.transform.position = Vector3.Lerp(
-				motionPlus.transform.position,
-				Vector3(target.x,target.y,motionPlus.position.z),
+			leftArm.transform.position = Vector3.Lerp(
+				leftArm.transform.position,
+				Vector3(target.x,target.y,leftArm.position.z),
 				0.03
 			);
 		}
 		// When wiimote is not visible
 		else{
 			// Lerp at a default speed
-			motionPlus.transform.position = Vector3.Lerp(
-				motionPlus.transform.position,
-				Vector3(motionPlus.position.x + speed.x,motionPlus.position.y + speed.y,motionPlus.position.z),
+			leftArm.transform.position = Vector3.Lerp(
+				leftArm.transform.position,
+				Vector3(leftArm.position.x + speed.x,leftArm.position.y + speed.y,leftArm.position.z),
 				0.03
 			);
 			
@@ -76,40 +82,57 @@ function Update () {
 		
 		// Z-Depth movement
 		// If button is pressed, increase or decrease z-depth
-		if(Wii.GetButton(whichRemote, "A")) {
-			motionPlus.transform.position = Vector3.Lerp(
-				motionPlus.transform.position, 
-				Vector3(motionPlus.position.x + speed.x,motionPlus.position.y + speed.y,motionPlus.position.z + (-zDepth)),
+		if(Wii.GetButton(leftRemote, "A") || Wii.GetButton(rightRemote, "A")) {
+			leftArm.transform.position = Vector3.Lerp(
+				leftArm.transform.position, 
+				Vector3(leftArm.position.x + speed.x,leftArm.position.y + speed.y,leftArm.position.z + (-zDepth)),
+				0.03
+			);
+			
+			rightArm.transform.position = Vector3.Lerp(
+				rightArm.transform.position, 
+				Vector3(rightArm.position.x + speed.x,rightArm.position.y + speed.y,rightArm.position.z + (-zDepth)),
 				0.03
 			);
 		}
 	
-		if(Wii.GetButton(whichRemote, "B")) {
-			motionPlus.transform.position = Vector3.Lerp(
-				motionPlus.transform.position, 
-				Vector3(motionPlus.position.x + speed.x,motionPlus.position.y + speed.y,motionPlus.position.z + zDepth),
+		if(Wii.GetButton(leftRemote, "B") || Wii.GetButton(rightRemote, "B")) {
+			leftArm.transform.position = Vector3.Lerp(
+				leftArm.transform.position, 
+				Vector3(leftArm.position.x + speed.x,leftArm.position.y + speed.y,leftArm.position.z + zDepth),
+				0.03
+			);
+			
+			rightArm.transform.position = Vector3.Lerp(
+				rightArm.transform.position, 
+				Vector3(rightArm.position.x + speed.x,rightArm.position.y + speed.y,rightArm.position.z + zDepth),
 				0.03
 			);
 		}
 	}
 
 	// Rotations
-	if(Wii.HasMotionPlus(whichRemote))
-	{	
-		if(Wii.IsMotionPlusCalibrated(whichRemote)) {
+	if(Wii.HasMotionPlus(leftRemote) || Wii.HasMotionPlus(rightRemote)) {
+		if(Wii.IsMotionPlusCalibrated(leftRemote) || Wii.IsMotionPlusCalibrated(rightRemote)) {
 			// Get motion data
-			motion = Wii.GetMotionPlus(whichRemote);
+			motionLeft = Wii.GetMotionPlus(leftRemote);
+			motionRight = Wii.GetMotionPlus(rightRemote);
 			
 			// To manually calibrate during the game. This will be put in the pause menu once it's implemented
-			if(Input.GetKeyDown("space") || Wii.GetButtonDown(whichRemote,"HOME"))
+			if(Input.GetKeyDown("space") || Wii.GetButtonDown(leftRemote,"HOME") || Wii.GetButtonDown(rightRemote, "HOME"))
 			{
-				motionPlus.localRotation = Quaternion.identity;
+				leftArm.localRotation = Quaternion.identity;
+				rightArm.localRotation = Quaternion.identity;
 			}
 			
 			// Rotate the object
-			motionPlus.RotateAround(motionPlus.position,motionPlus.right,-motion.x);
-			motionPlus.RotateAround(motionPlus.position,motionPlus.up,-motion.y);
-			motionPlus.RotateAround(motionPlus.position,motionPlus.forward,-motion.z);
+			//leftArm.RotateAround(leftArm.position,leftArm.right,-motionLeft.x);
+			//leftArm.RotateAround(leftArm.position,leftArm.up,-motionLeft.y);
+			//leftArm.RotateAround(leftArm.position,leftArm.forward,-motionLeft.z);
+			
+			rightArm.RotateAround(rightArm.position,rightArm.right,-motionRight.x);
+			rightArm.RotateAround(rightArm.position,rightArm.up,-motionRight.y);
+			rightArm.RotateAround(rightArm.position,rightArm.forward,-motionRight.z);
 		}
 	}
 }
