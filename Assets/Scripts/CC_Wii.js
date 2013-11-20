@@ -27,7 +27,9 @@ function Start () {
 function Update () {
 	if(Wii.IsActive(leftRemote) || Wii.IsActive(rightRemote)) {
 		// Recalibaration
-		if(Wii.GetButtonDown(leftRemote, "PLUS") || Wii.GetButtonDown(rightRemote, "PLUS")) {
+		if(Wii.GetButtonDown(leftRemote, "PLUS")) {
+			Wii.StartSearch();
+		} else if(Wii.GetButtonDown(rightRemote, "MINUS")) {
 			Wii.StartSearch();
 		}
 		
@@ -42,7 +44,7 @@ function Update () {
 		handVelLeft.x = (accL.x)*1.2;
 		handVelLeft.y = (accL.y+0.1)*1.2;
 		
-		//leftArm.transform.position = Vector3(posL.x-handVelLeft.x,posL.y-handVelLeft.y,posL.z);
+		leftArm.transform.position = Vector3(posL.x-handVelLeft.x,posL.y-handVelLeft.y,posL.z);
 		rightArm.transform.position = Vector3(posR.x-handVelRight.x,posR.y-handVelRight.y,posR.z);
 	
 		/*
@@ -112,24 +114,38 @@ function Update () {
 	}
 
 	// Rotations
-	if(Wii.HasMotionPlus(leftRemote) || Wii.HasMotionPlus(rightRemote)) {
-		if(Wii.IsMotionPlusCalibrated(leftRemote) || Wii.IsMotionPlusCalibrated(rightRemote)) {
+	if(Wii.HasMotionPlus(leftRemote)) {
+		Debug.Log(Wii.GetMotionPlus(leftRemote));
+
+		if(Wii.IsMotionPlusCalibrated(leftRemote)) {
 			// Get motion data
 			motionLeft = Wii.GetMotionPlus(leftRemote);
+			
+			// To manually calibrate during the game. This will be put in the pause menu once it's implemented
+			if(Input.GetKeyDown("space") || Wii.GetButtonDown(leftRemote,"HOME")) {
+				leftArm.localRotation = Quaternion.identity;
+			}
+			
+			// Rotate the object
+			leftArm.RotateAround(leftArm.position,leftArm.right,-motionLeft.x);
+			leftArm.RotateAround(leftArm.position,leftArm.up,-motionLeft.y);
+			leftArm.RotateAround(leftArm.position,leftArm.forward,-motionLeft.z);
+		}
+	}
+
+	if(Wii.HasMotionPlus(rightRemote)) {
+		//Debug.Log(Wii.GetMotionPlus(rightRemote));
+
+		if(Wii.IsMotionPlusCalibrated(rightRemote)) {
+			//Get motion data
 			motionRight = Wii.GetMotionPlus(rightRemote);
 			
 			// To manually calibrate during the game. This will be put in the pause menu once it's implemented
-			if(Input.GetKeyDown("space") || Wii.GetButtonDown(leftRemote,"HOME") || Wii.GetButtonDown(rightRemote, "HOME"))
-			{
-				leftArm.localRotation = Quaternion.identity;
+			if(Input.GetKeyDown("space") || Wii.GetButtonDown(rightRemote,"HOME")) {
 				rightArm.localRotation = Quaternion.identity;
 			}
 			
 			// Rotate the object
-			//leftArm.RotateAround(leftArm.position,leftArm.right,-motionLeft.x);
-			//leftArm.RotateAround(leftArm.position,leftArm.up,-motionLeft.y);
-			//leftArm.RotateAround(leftArm.position,leftArm.forward,-motionLeft.z);
-			
 			rightArm.RotateAround(rightArm.position,rightArm.right,-motionRight.x);
 			rightArm.RotateAround(rightArm.position,rightArm.up,-motionRight.y);
 			rightArm.RotateAround(rightArm.position,rightArm.forward,-motionRight.z);
