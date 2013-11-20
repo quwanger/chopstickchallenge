@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CC_Score : MonoBehaviour {
 	
-	private int score;
+	private long score;
 	
 	// Use this for initialization
 	void Start () {

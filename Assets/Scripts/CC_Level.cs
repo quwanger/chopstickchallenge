@@ -12,7 +12,7 @@ public class CC_Level : MonoBehaviour {
 
 	public bool DebugMode = true;
 	
-	public int playerScore = 0;
+	public long playerScore = 0;
 	public int pointsToAdd = 0;
 	
 	//points needed to beat the level

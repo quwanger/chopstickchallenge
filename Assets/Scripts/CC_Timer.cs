@@ -15,8 +15,6 @@ public class CC_Timer : MonoBehaviour {
 		t = GameObject.Find("CC_Level").GetComponent<CC_TimeManager>().timeInMillis;
 		this.GetComponent<GUIText>().text = GameObject.Find("CC_Level").GetComponent<CC_TimeManager>().GetCurrentTimeString();
 		
-		Color c;
-		
 		if(t < 60){
 			this.GetComponent<GUIText>().material.color = Color.red;
 		}
