@@ -19,6 +19,7 @@ function OnGUI () {
 function Start () {
 	leftRemote = 0;
 	rightRemote = 1;
+
 	Wii = WiiObject.GetComponent("Wii");
 	
 	zDepth = 15;
@@ -27,10 +28,22 @@ function Start () {
 function Update () {
 	if(Wii.IsActive(leftRemote) || Wii.IsActive(rightRemote)) {
 		// Recalibaration
-		if(Wii.GetButtonDown(leftRemote, "PLUS")) {
-			Wii.StartSearch();
-		} else if(Wii.GetButtonDown(rightRemote, "MINUS")) {
-			Wii.StartSearch();
+		Wii.CheckForMotionPlus(leftRemote);
+		Wii.CheckForMotionPlus(rightRemote);
+
+		if(Wii.GetButtonDown(leftRemote, "ONE")) {
+			Debug.Log("Calibrate Left Remote");
+			Wii.CalibrateMotionPlus(leftRemote);
+		} else if(Wii.GetButtonDown(leftRemote, "TWO")) {
+			Debug.Log("Uncalibrate Left Remote");
+			Wii.UncalibrateMotionPlus(leftRemote);
+		}
+
+		if(Wii.GetButtonDown(rightRemote, "PLUS")) {
+			Wii.CalibrateMotionPlus(rightRemote);
+		} else if (Wii.GetButtonDown(rightRemote, "MINUS")) {
+			Debug.Log("Calibrate Right Remote");
+			Wii.UncalibrateMotionPlus(rightRemote);
 		}
 		
 		var posL = leftArm.transform.position;
@@ -115,7 +128,7 @@ function Update () {
 
 	// Rotations
 	if(Wii.HasMotionPlus(leftRemote)) {
-		Debug.Log(Wii.GetMotionPlus(leftRemote));
+		//Debug.Log(Wii.GetMotionPlus(leftRemote));
 
 		if(Wii.IsMotionPlusCalibrated(leftRemote)) {
 			// Get motion data
