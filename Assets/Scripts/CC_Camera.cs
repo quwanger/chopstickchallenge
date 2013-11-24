@@ -69,7 +69,7 @@ public class CC_Camera : CC_Behaviour
 	}
 
 	private float getHorizontalFOV() {
-		return 2 * Mathf.Atan(Mathf.Tan(camera.fieldOfView * Mathf.Deg2Rad / 2) * camera.aspect);
+		return 2 * Mathf.Atan(Mathf.Tan(camera.fieldOfView * Mathf.Deg2Rad / 2) * camera.aspect * Mathf.Rad2Deg);
 		//float hFOV = hFOVInRads * Mathf.Rad2Deg;
 	}
 }
