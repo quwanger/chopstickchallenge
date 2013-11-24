@@ -13,7 +13,6 @@ public class CC_Camera : CC_Behaviour
 	private Vector3 target;
 
 	public float edgeBoundAngle = 0.0f;
-	public float setBackDistance = 0.0f;
 
 	public GameObject obj1;
 	public GameObject obj2;
@@ -29,16 +28,12 @@ public class CC_Camera : CC_Behaviour
 		distance = defaultDistance;
 		camera = GetComponent<Camera>();
 		depthEffect = GetComponent<DepthOfFieldScatter>();
-		depthEffect = GetComponent<DepthOfFieldScatter>();
-
-		if(depthEffect == null)
-			Debug.Log("No DoF attached to camera. Attach DoF scatter if desired.");
 	}
 
 	// Update is called once per frame
 	void Update() {
 		// Get target
-		target = Vector3.Lerp(obj1.transform.position - Vector3.back * setBackDistance, obj2.transform.position - Vector3.back * setBackDistance, 0.5f);
+		target = Vector3.Lerp(obj1.transform.position, obj2.transform.position, 0.5f);
 		//transform.position = target;
 
 		// Find Distance needed
@@ -57,8 +52,7 @@ public class CC_Camera : CC_Behaviour
 		transform.LookAt(target);
 
 		// Depth of Field
-		if(depthEffect != null)
-			depthEffect.focalLength = (target - position).magnitude;
+		depthEffect.focalLength = (target - position).magnitude;
 	}
 
 	void OnDrawGizmos() {
@@ -66,16 +60,16 @@ public class CC_Camera : CC_Behaviour
 		Gizmos.DrawLine(transform.position, target);
 
 		Gizmos.color = Color.red;
-		Gizmos.DrawLine(transform.position, obj1.transform.position - Vector3.back * setBackDistance);
+		Gizmos.DrawLine(transform.position, obj1.transform.position);
 		Gizmos.color = Color.red;
-		Gizmos.DrawLine(transform.position, obj2.transform.position - Vector3.back * setBackDistance);
+		Gizmos.DrawLine(transform.position, obj2.transform.position);
 
 		Gizmos.color = Color.red;
 		Gizmos.DrawCube(target, new Vector3(0.1f, 0.1f, 0.1f));
 	}
 
 	private float getHorizontalFOV() {
-		return 2 * Mathf.Atan(Mathf.Tan(camera.fieldOfView * Mathf.Deg2Rad / 2) * camera.aspect) * Mathf.Rad2Deg;
+		return 2 * Mathf.Atan(Mathf.Tan(camera.fieldOfView * Mathf.Deg2Rad / 2) * camera.aspect * Mathf.Rad2Deg);
 		//float hFOV = hFOVInRads * Mathf.Rad2Deg;
 	}
 }
