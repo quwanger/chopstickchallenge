@@ -28,7 +28,32 @@ ModelImporter:
     100044: polySurface1 2
     100046: walls 1
     100048: walls 2
-    100050: stove
+    100050: polySurface2
+    100052: transform1
+    100054: transform2
+    100056: transform3
+    100058: group4
+    100060: group5
+    100062: group6
+    100064: group7
+    100066: pCube1
+    100068: pCylinder7
+    100070: pCylinder7 1
+    100072: pCylinder7 2
+    100074: pCylinder7 3
+    100076: pPipe1
+    100078: pPipe1 1
+    100080: pPipe1 2
+    100082: pPipe1 3
+    100084: pPipe2
+    100086: pPipe2 1
+    100088: pPipe2 2
+    100090: pPipe2 3
+    100092: pPipe3
+    100094: pPipe3 1
+    100096: pPipe3 2
+    100098: pPipe3 3
+    100100: stove
     400000: f_window
     400002: fridge
     400004: ground
@@ -54,7 +79,32 @@ ModelImporter:
     400044: polySurface1 2
     400046: walls 1
     400048: walls 2
-    400050: stove
+    400050: polySurface2
+    400052: transform1
+    400054: transform2
+    400056: transform3
+    400058: group4
+    400060: group5
+    400062: group6
+    400064: group7
+    400066: pCube1
+    400068: pCylinder7
+    400070: pCylinder7 1
+    400072: pCylinder7 2
+    400074: pCylinder7 3
+    400076: pPipe1
+    400078: pPipe1 1
+    400080: pPipe1 2
+    400082: pPipe1 3
+    400084: pPipe2
+    400086: pPipe2 1
+    400088: pPipe2 2
+    400090: pPipe2 3
+    400092: pPipe3
+    400094: pPipe3 1
+    400096: pPipe3 2
+    400098: pPipe3 3
+    400100: stove
     2300000: f_window
     2300002: fridge
     2300004: ground
@@ -76,7 +126,25 @@ ModelImporter:
     2300036: polySurface1 2
     2300038: walls 1
     2300040: walls 2
-    2300042: stove
+    2300042: polySurface2
+    2300044: pCube1
+    2300046: pCylinder7
+    2300048: pCylinder7 1
+    2300050: pCylinder7 2
+    2300052: pCylinder7 3
+    2300054: pPipe1
+    2300056: pPipe1 1
+    2300058: pPipe1 2
+    2300060: pPipe1 3
+    2300062: pPipe2
+    2300064: pPipe2 1
+    2300066: pPipe2 2
+    2300068: pPipe2 3
+    2300070: pPipe3
+    2300072: pPipe3 1
+    2300074: pPipe3 2
+    2300076: pPipe3 3
+    2300078: stove
     3300000: f_window
     3300002: fridge
     3300004: ground
@@ -98,7 +166,25 @@ ModelImporter:
     3300036: polySurface1 2
     3300038: walls 1
     3300040: walls 2
-    3300042: stove
+    3300042: polySurface2
+    3300044: pCube1
+    3300046: pCylinder7
+    3300048: pCylinder7 1
+    3300050: pCylinder7 2
+    3300052: pCylinder7 3
+    3300054: pPipe1
+    3300056: pPipe1 1
+    3300058: pPipe1 2
+    3300060: pPipe1 3
+    3300062: pPipe2
+    3300064: pPipe2 1
+    3300066: pPipe2 2
+    3300068: pPipe2 3
+    3300070: pPipe3
+    3300072: pPipe3 1
+    3300074: pPipe3 2
+    3300076: pPipe3 3
+    3300078: stove
     4300000: ground
     4300002: r_window
     4300004: l_window
@@ -120,7 +206,25 @@ ModelImporter:
     4300036: polySurface1
     4300038: walls
     4300040: polySurface1
-    4300042: stove
+    4300042: polySurface2
+    4300044: pCube1
+    4300046: pCylinder7
+    4300048: pPipe1
+    4300050: pPipe2
+    4300052: pPipe3
+    4300054: pCylinder7
+    4300056: pPipe1
+    4300058: pPipe2
+    4300060: pPipe3
+    4300062: pCylinder7
+    4300064: pPipe1
+    4300066: pPipe2
+    4300068: pPipe3
+    4300070: pCylinder7
+    4300072: pPipe1
+    4300074: pPipe2
+    4300076: pPipe3
+    4300078: stove
     6400000: f_window
     6400002: fridge
     6400004: ground
@@ -142,7 +246,25 @@ ModelImporter:
     6400036: polySurface1 2
     6400038: walls 1
     6400040: walls 2
-    6400042: stove
+    6400042: polySurface2
+    6400044: pCube1
+    6400046: pCylinder7
+    6400048: pCylinder7 1
+    6400050: pCylinder7 2
+    6400052: pCylinder7 3
+    6400054: pPipe1
+    6400056: pPipe1 1
+    6400058: pPipe1 2
+    6400060: pPipe1 3
+    6400062: pPipe2
+    6400064: pPipe2 1
+    6400066: pPipe2 2
+    6400068: pPipe2 3
+    6400070: pPipe3
+    6400072: pPipe3 1
+    6400074: pPipe3 2
+    6400076: pPipe3 3
+    6400078: stove
     9500000: //RootNode
   materials:
     importMaterials: 1
