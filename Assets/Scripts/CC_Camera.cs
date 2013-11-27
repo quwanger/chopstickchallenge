@@ -17,6 +17,8 @@ public class CC_Camera : CC_Behaviour
 	public GameObject obj1;
 	public GameObject obj2;
 
+	public float debugRayDistance = 5.0f;
+
 	public Vector3 position {
 		get {
 			return transform.position;
@@ -56,8 +58,9 @@ public class CC_Camera : CC_Behaviour
 	}
 
 	void OnDrawGizmos() {
+		Vector3 temp = (target - position) * debugRayDistance + target;
 		Gizmos.color = Color.blue;
-		Gizmos.DrawLine(transform.position, target);
+		Gizmos.DrawLine(transform.position, temp);
 
 		Gizmos.color = Color.red;
 		Gizmos.DrawLine(transform.position, obj1.transform.position);
@@ -65,7 +68,7 @@ public class CC_Camera : CC_Behaviour
 		Gizmos.DrawLine(transform.position, obj2.transform.position);
 
 		Gizmos.color = Color.red;
-		Gizmos.DrawCube(target, new Vector3(0.1f, 0.1f, 0.1f));
+		Gizmos.DrawCube(temp, new Vector3(0.1f, 0.1f, 0.1f));
 	}
 
 	private float getHorizontalFOV() {
