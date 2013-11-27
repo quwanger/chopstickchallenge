@@ -4,6 +4,9 @@ using System.Collections;
 public class CC_Mouth : CC_Behaviour {
 
 	private Vector3 origPosition; // Prototype code
+	public GameObject celebrate;
+	
+	public AudioClip[] successSounds;
 
 	// Use this for initialization
 	void Start () {
@@ -14,5 +17,18 @@ public class CC_Mouth : CC_Behaviour {
 	// Update is called once per frame
 	void Update () {
 		this.transform.position = origPosition + new Vector3(Mathf.Sin(Time.time*2), Mathf.Sin(Time.time*2 + 1), Mathf.Sin(Time.time + 2));
+	}
+	
+	void OnTriggerEnter(Collider other){
+		if(other.gameObject.GetComponent<CC_Sushi>()){
+			//creates fireworks on feeding success
+			Instantiate(celebrate, other.transform.position, other.transform.rotation);
+			
+			//plays random success sound
+			//this.GetComponent<AudioSource>().PlayOneShot(sounds[Random.Range(0, sounds.Length)]);
+			
+			//adds the points to the point counter
+			level.pointsToAdd += other.GetComponent<CC_Sushi>().PointValue;
+		}
 	}
 }
