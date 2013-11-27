@@ -70,7 +70,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
-  m_Convex: 0
+  m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 0dcdcd4fbe44b4d028bd77b920a31959, type: 3}
 --- !u!95 &9500000
 Animator:
@@ -95,6 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a7ae239ed8e45028dffef7fbe82290, type: 3}
   m_Name: 
   players: []
+  celebrate: {fileID: 0}
+  successSounds: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -6,7 +6,7 @@ public class CC_Mouth : CC_Behaviour {
 	private Vector3 origPosition; // Prototype code
 	public GameObject celebrate;
 	
-	public AudioClip[] sounds;
+	public AudioClip[] successSounds;
 
 	// Use this for initialization
 	void Start () {
@@ -21,10 +21,14 @@ public class CC_Mouth : CC_Behaviour {
 	
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.GetComponent<CC_Sushi>()){
-			//Debug.Log(other.gameObject);
+			//creates fireworks on feeding success
 			Instantiate(celebrate, other.transform.position, other.transform.rotation);
-			//this.GetComponent<AudioSource>().audio.clip = sounds[Random.Range(0, sounds.Length)];
+			
+			//plays random success sound
 			//this.GetComponent<AudioSource>().PlayOneShot(sounds[Random.Range(0, sounds.Length)]);
+			
+			//adds the points to the point counter
+			level.pointsToAdd += other.GetComponent<CC_Sushi>().PointValue;
 		}
 	}
 }

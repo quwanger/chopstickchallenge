@@ -982,7 +982,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_SmoothSphereCollisions: 0
-  m_Convex: 0
+  m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 0dcdcd4fbe44b4d028bd77b920a31959, type: 3}
 --- !u!114 &206995217
 MonoBehaviour:
@@ -996,6 +996,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a7ae239ed8e45028dffef7fbe82290, type: 3}
   m_Name: 
   players: []
+  celebrate: {fileID: 100000, guid: 9c5bd6070cd5d481abdb8755ff51fd7a, type: 2}
+  successSounds: []
 --- !u!1 &273373171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,6 +1188,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 74c257cce6c2649d0ae839b71bdb3a6e, type: 2}
+      propertyPath: celebrate
+      value: 
+      objectReference: {fileID: 100000, guid: 9c5bd6070cd5d481abdb8755ff51fd7a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 74c257cce6c2649d0ae839b71bdb3a6e, type: 2}
   m_RootGameObject: {fileID: 206995211}
@@ -1602,7 +1608,6 @@ MonoBehaviour:
   mouth: {fileID: 0}
   slot_machine: {fileID: 8300000, guid: c9d5e26a5c2e34320b812a6e963ed2f7, type: 3}
   DebugMode: 1
-  playerScore: 0
   pointsToAdd: 0
   pointsToWin: 1000000
   levelTime: 180
