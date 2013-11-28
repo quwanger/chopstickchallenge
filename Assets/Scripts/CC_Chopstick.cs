@@ -14,4 +14,12 @@ public class CC_Chopstick : CC_Behaviour {
 	void Update () {
 	
 	}
+	
+	void OnCollisionEnter(Collision collision){
+		if(collision.gameObject.GetComponent<CC_Chopstick>()){
+			level.soundManager.playSound(CC_Level.SoundType.chopstickCollide);
+		}else{
+			//hits anything else
+		}
+	}
 }

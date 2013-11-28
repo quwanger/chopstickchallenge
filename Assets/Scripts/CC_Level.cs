@@ -6,8 +6,18 @@ public class CC_Level : MonoBehaviour {
 	public List<CC_Sushi> sushi = new List<CC_Sushi>();
 	public List<CC_Chopstick> chopsticks = new List<CC_Chopstick>();
 	public CC_Mouth mouth;
+	public Camera mainCamera;
 	
-	public AudioClip slot_machine;
+	public GUIText results;
+	public GameObject goWin;
+	public GameObject goLose;
+	public bool gameOver = false;
+	
+	public enum SoundType {accept, back, chopstickClick, chopstickCollide, demotivational, dish, eating, fireworksExplosions, hover, intro, levelStart, lose, motivational, scoreIncrement, sushiCollide, sushiDrop, win};
+	
+	public CC_SoundManager soundManager;
+	
+	//public AudioClip slot_machine;
 	//public List<GameObject> _players = new List<GameObject>();
 
 	public bool DebugMode = true;
@@ -24,10 +34,12 @@ public class CC_Level : MonoBehaviour {
 	
 	void Awake() {
 		instance = this;
+		soundManager = this.GetComponent<CC_SoundManager>();
 	}
 	
 	void Start() {	
 		//start
+		soundManager.playSound(SoundType.levelStart);
 	}
 	
 	void Update() {
@@ -44,9 +56,31 @@ public class CC_Level : MonoBehaviour {
 				
 				playerScore += g;
 				pointsToAdd -= g;
-				if(pointsToAdd%(g*5) == 0)
-					this.audio.PlayOneShot(slot_machine);
+				if(pointsToAdd%(g*10) == 0)
+					soundManager.playSound(SoundType.scoreIncrement);
 			}
+		}
+		
+		if(playerScore >= pointsToWin && gameOver == false){
+			//player wins
+			gameOver = true;
+			results.text = "YOU ARE WINNER!";
+			Vector3 tempV = new Vector3(0, 0, -3.0f);
+			Vector3 tempW = tempV + mainCamera.transform.position;
+			Instantiate(goWin, tempW, Quaternion.identity);
+			soundManager.playSound(SoundType.win);
+			//STILL TO DO
+			//	pause timer
+			//	stop controls
+			//	stop all other sounds
+		}else if(levelTime <= 0 && gameOver == false){
+			//player loses
+			gameOver = true;
+			results.text = "YOU LOSE.";
+			Vector3 tempV = new Vector3(0, 0, -3.0f);
+			Vector3 tempW = tempV + mainCamera.transform.position;
+			Instantiate(goLose, tempW, Quaternion.identity);
+			soundManager.playSound(SoundType.lose);
 		}
 	}
 	

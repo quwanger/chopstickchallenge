@@ -4,9 +4,8 @@ using System.Collections;
 public class CC_Behaviour : MonoBehaviour {
 	
 	public enum SushiType {Sushi1, Sushi2, Sushi3, Sushi4, Sushi5, Sushi6, Sushi7, Sushi8};
-	
+		
 	public enum MagnetType {Hand, Chopstick};
-
 	
 	public CC_Sushi[] sushi {
 		get {

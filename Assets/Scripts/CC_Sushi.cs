@@ -13,4 +13,23 @@ public class CC_Sushi : CC_Behaviour {
 	void Update() {
 	}
 	
+	void OnCollisionEnter(Collision collision){
+		if(collision.gameObject.GetComponent<CC_Sushi>()){
+			//sushi hit other sushi
+			level.soundManager.playSound(CC_Level.SoundType.sushiDrop);
+		}else if(collision.gameObject.GetComponent<CC_Chopstick>()){
+			level.soundManager.playSound(CC_Level.SoundType.sushiCollide);
+		}else if(collision.gameObject.name == "ground"){
+			level.soundManager.playSound(CC_Level.SoundType.demotivational);
+		}else{
+			level.soundManager.playSound(CC_Level.SoundType.sushiDrop);
+		}
+	}
+	
+	void OnCollsionExit(Collision collision){
+		if(collision.gameObject.GetComponent<CC_Chopstick>()){
+			//sushi leaves the chopstick
+			level.soundManager.playSound(CC_Level.SoundType.demotivational);
+		}
+	}
 }
