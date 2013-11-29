@@ -1085,11 +1085,13 @@ MonoBehaviour:
   chopsticks: []
   mouth: {fileID: 206995217}
   mainCamera: {fileID: 1205669404}
+  nextLevel: Sushi_Restaurant
   results: {fileID: 1520499441}
   finishMenu: {fileID: 1594163402}
   goWin: {fileID: 100000, guid: c2aad19bf7a9a4a5a84957d251eaa965, type: 2}
   goLose: {fileID: 100000, guid: c586d0f916e5b4c4da1497a56a7e2e11, type: 2}
   gameOver: 0
+  isWinner: 0
   soundManager: {fileID: 0}
   DebugMode: 1
   pointsToAdd: 0
@@ -1233,7 +1235,7 @@ Renderer:
   - {fileID: 2100000, guid: 2804be29fa51442d2a1f1eb055bd6b7c, type: 2}
   - {fileID: 2100000, guid: 94ab89adc214c40b0b60026719d975c9, type: 2}
   - {fileID: 2100000, guid: cc317b6eb104f4cc8983740390826121, type: 2}
-  - {fileID: 2100000, guid: 6524dfd62f74948dd8a1e40b55e20d6d, type: 2}
+  - {fileID: 2100000, guid: 0ac372a7c33904fca871246c4ae34448, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -4015,6 +4017,10 @@ Prefab:
       propertyPath: finishMenu
       value: 
       objectReference: {fileID: 1594163402}
+    - target: {fileID: 11400000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
+      propertyPath: nextLevel
+      value: Sushi_Restaurant
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
   m_RootGameObject: {fileID: 501305223}

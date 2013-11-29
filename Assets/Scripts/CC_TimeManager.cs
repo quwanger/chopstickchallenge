@@ -8,17 +8,12 @@ public class CC_TimeManager : MonoBehaviour {
 	private float startTime; //in seconds
 	private CC_Level level;
 	
-	private bool running = true;
+	private bool running = false;
 	
 	void Start () {
-		level = GameObject.Find("CC_Level").GetComponent<CC_Level>();
-		startTime = level.GetComponent<CC_Level>().levelTime;
 	}
 	
 	void Update () {
-		
-		if(level.gameOver)
-			running=false;
 		
 		if(running)
 			timeInMillis = startTime - Time.time;
@@ -34,7 +29,8 @@ public class CC_TimeManager : MonoBehaviour {
 	
 	public void StartTimer() {
 		running = true;
-		startTime = Time.time;
+		level = GameObject.Find("CC_Level").GetComponent<CC_Level>();
+		startTime = Time.time + level.GetComponent<CC_Level>().levelTime;
 	}
 	
 	public void StopTimer() {
