@@ -810,7 +810,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_Strength: 1
     m_Bias: .0500000007
@@ -1445,6 +1445,7 @@ MonoBehaviour:
   mouth: {fileID: 1408874901}
   mainCamera: {fileID: 1452118081}
   results: {fileID: 954686107}
+  finishMenu: {fileID: 0}
   goWin: {fileID: 100000, guid: c2aad19bf7a9a4a5a84957d251eaa965, type: 2}
   goLose: {fileID: 100000, guid: c586d0f916e5b4c4da1497a56a7e2e11, type: 2}
   gameOver: 0
@@ -1453,6 +1454,7 @@ MonoBehaviour:
   pointsToAdd: 0
   pointsToWin: 1000000
   levelTime: 180
+  availablePoints: 0
 --- !u!4 &633293670
 Transform:
   m_ObjectHideFlags: 0
@@ -2543,7 +2545,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_Strength: 1
     m_Bias: .0500000007
@@ -3187,7 +3189,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_Strength: 1
     m_Bias: .0500000007
@@ -3390,7 +3392,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_Strength: 1
     m_Bias: .0500000007
@@ -4376,6 +4378,7 @@ MonoBehaviour:
   m_Name: 
   players: []
   celebrate: {fileID: 100000, guid: 9c5bd6070cd5d481abdb8755ff51fd7a, type: 2}
+  sushiSplosion: {fileID: 0}
 --- !u!64 &1408874902
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4857,7 +4860,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 2
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
 --- !u!4 &1452118082
@@ -4902,7 +4905,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_Strength: 1
     m_Bias: .0500000007
@@ -5364,6 +5367,10 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: c913b403771284540821623e90efbdf0, type: 3}
+    - target: {fileID: 2000000, guid: 123bfe9824e6a488084d12771fb22780, type: 2}
+      propertyPath: m_RenderingPath
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 123bfe9824e6a488084d12771fb22780, type: 2}
   m_RootGameObject: {fileID: 1452118073}
@@ -5400,7 +5407,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_Strength: 1
     m_Bias: .0500000007
