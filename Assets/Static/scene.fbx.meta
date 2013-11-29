@@ -54,6 +54,7 @@ ModelImporter:
     100096: pPipe3 2
     100098: pPipe3 3
     100100: stove
+    100102: scene
     400000: f_window
     400002: fridge
     400004: ground
@@ -105,6 +106,7 @@ ModelImporter:
     400096: pPipe3 2
     400098: pPipe3 3
     400100: stove
+    400102: scene
     2300000: f_window
     2300002: fridge
     2300004: ground
@@ -145,6 +147,7 @@ ModelImporter:
     2300074: pPipe3 2
     2300076: pPipe3 3
     2300078: stove
+    2300080: scene
     3300000: f_window
     3300002: fridge
     3300004: ground
@@ -185,6 +188,7 @@ ModelImporter:
     3300074: pPipe3 2
     3300076: pPipe3 3
     3300078: stove
+    3300080: scene
     4300000: ground
     4300002: r_window
     4300004: l_window
@@ -225,6 +229,7 @@ ModelImporter:
     4300074: pPipe2
     4300076: pPipe3
     4300078: stove
+    4300080: scene
     6400000: f_window
     6400002: fridge
     6400004: ground
@@ -265,6 +270,7 @@ ModelImporter:
     6400074: pPipe3 2
     6400076: pPipe3 3
     6400078: stove
+    6400080: scene
     9500000: //RootNode
   materials:
     importMaterials: 1
