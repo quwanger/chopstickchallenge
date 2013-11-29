@@ -29,6 +29,8 @@ public class CC_Level : MonoBehaviour {
 	public int pointsToWin = 1000000;
 	//time the player has to beat the level
 	public int levelTime = 180;
+	//available points
+	public int availablePoints;
 	
 	public static CC_Level instance { get; private set;}
 	
@@ -40,6 +42,12 @@ public class CC_Level : MonoBehaviour {
 	void Start() {	
 		//start
 		soundManager.playSound(SoundType.levelStart);
+		
+		foreach(CC_Sushi s in sushi){
+			availablePoints += s.GetComponent<CC_Sushi>().PointValue;
+		}
+		
+		Debug.Log(availablePoints);
 	}
 	
 	void Update() {
@@ -64,18 +72,19 @@ public class CC_Level : MonoBehaviour {
 		if(playerScore >= pointsToWin && gameOver == false){
 			//player wins
 			gameOver = true;
+			pointsToAdd = 0;
 			results.text = "YOU ARE WINNER!";
 			Vector3 tempV = new Vector3(0, 0, -3.0f);
 			Vector3 tempW = tempV + mainCamera.transform.position;
 			Instantiate(goWin, tempW, Quaternion.identity);
 			soundManager.playSound(SoundType.win);
-			//STILL TO DO
-			//	pause timer
+
 			//	stop controls
 			//	stop all other sounds
-		}else if(levelTime <= 0 && gameOver == false){
+		}else if((levelTime <= 0 && gameOver == false) || (availablePoints < pointsToWin && gameOver == false)){
 			//player loses
 			gameOver = true;
+			pointsToAdd = 0;
 			results.text = "YOU LOSE.";
 			Vector3 tempV = new Vector3(0, 0, -3.0f);
 			Vector3 tempW = tempV + mainCamera.transform.position;

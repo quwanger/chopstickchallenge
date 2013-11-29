@@ -6,6 +6,8 @@ public class CC_Sushi : CC_Behaviour {
 	public int PointValue = 10000;
 	public float GripConstant = 1.0f;
 	
+	private bool hitTheFloor = false;
+	
 	void Awake () {
 		level.RegisterSushi(this);
 	}
@@ -19,8 +21,11 @@ public class CC_Sushi : CC_Behaviour {
 			level.soundManager.playSound(CC_Level.SoundType.sushiDrop);
 		}else if(collision.gameObject.GetComponent<CC_Chopstick>()){
 			level.soundManager.playSound(CC_Level.SoundType.sushiCollide);
-		}else if(collision.gameObject.name == "ground"){
+		}else if(collision.gameObject.name == "ground" && !hitTheFloor){
 			level.soundManager.playSound(CC_Level.SoundType.demotivational);
+			level.availablePoints -= this.PointValue;
+			Debug.Log(level.availablePoints);
+			hitTheFloor = true;
 		}else{
 			level.soundManager.playSound(CC_Level.SoundType.sushiDrop);
 		}

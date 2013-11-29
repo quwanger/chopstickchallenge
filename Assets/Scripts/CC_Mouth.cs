@@ -5,6 +5,7 @@ public class CC_Mouth : CC_Behaviour {
 
 	private Vector3 origPosition; // Prototype code
 	public GameObject celebrate;
+	public ParticleSystem sushiSplosion;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,7 @@ public class CC_Mouth : CC_Behaviour {
 		if(other.gameObject.GetComponent<CC_Sushi>()){
 			//creates fireworks on feeding success
 			Instantiate(celebrate, other.transform.position, other.transform.rotation);
+			Instantiate(sushiSplosion, other.transform.position, other.transform.rotation);
 			
 			//plays random success sound
 			level.soundManager.playSound(CC_Level.SoundType.fireworksExplosions);
@@ -29,6 +31,9 @@ public class CC_Mouth : CC_Behaviour {
 			
 			//adds the points to the point counter
 			level.pointsToAdd += other.GetComponent<CC_Sushi>().PointValue;
+			
+			//removes the sushi
+			DestroyObject(other.gameObject);
 		}
 	}
 }

@@ -2586,7 +2586,7 @@ GameObject:
   - 23: {fileID: 854289301}
   - 64: {fileID: 854289303}
   m_Layer: 0
-  m_Name: floor
+  m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5071,6 +5071,10 @@ Prefab:
     - target: {fileID: 400208, guid: 3c4f54c9317c04ffc92d190b717dd446, type: 3}
       propertyPath: m_LocalScale.z
       value: 7.32000017
+      objectReference: {fileID: 0}
+    - target: {fileID: 100210, guid: 3c4f54c9317c04ffc92d190b717dd446, type: 3}
+      propertyPath: m_Name
+      value: ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c4f54c9317c04ffc92d190b717dd446, type: 3}
