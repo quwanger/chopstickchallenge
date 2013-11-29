@@ -103,7 +103,7 @@ MonoBehaviour:
   nextLevel: 
   results: {fileID: 0}
   finishMenu: {fileID: 0}
-  goWin: {fileID: 100004, guid: c2aad19bf7a9a4a5a84957d251eaa965, type: 2}
+  goWin: {fileID: 100006, guid: c2aad19bf7a9a4a5a84957d251eaa965, type: 2}
   goLose: {fileID: 100000, guid: c586d0f916e5b4c4da1497a56a7e2e11, type: 2}
   gameOver: 0
   isWinner: 0
