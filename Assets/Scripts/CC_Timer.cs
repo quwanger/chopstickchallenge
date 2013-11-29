@@ -17,6 +17,8 @@ public class CC_Timer : MonoBehaviour {
 		
 		if(t < 60){
 			this.GetComponent<GUIText>().material.color = Color.red;
+		}else{
+			this.GetComponent<GUIText>().material.color = Color.white;
 		}
 	}
 }

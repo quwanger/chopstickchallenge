@@ -9,6 +9,7 @@ public class CC_Level : MonoBehaviour {
 	public Camera mainCamera;
 	
 	public GUIText results;
+	public GUIText finishMenu;
 	public GameObject goWin;
 	public GameObject goLose;
 	public bool gameOver = false;
@@ -74,6 +75,7 @@ public class CC_Level : MonoBehaviour {
 			gameOver = true;
 			pointsToAdd = 0;
 			results.text = "YOU ARE WINNER!";
+			finishMenu.text = "1 - Next Level      2 - Main Menu";
 			Vector3 tempV = new Vector3(0, 0, -3.0f);
 			Vector3 tempW = tempV + mainCamera.transform.position;
 			Instantiate(goWin, tempW, Quaternion.identity);
@@ -86,6 +88,7 @@ public class CC_Level : MonoBehaviour {
 			gameOver = true;
 			pointsToAdd = 0;
 			results.text = "YOU LOSE.";
+			finishMenu.text = "1 - Replay        2 - Main Menu";
 			Vector3 tempV = new Vector3(0, 0, -3.0f);
 			Vector3 tempW = tempV + mainCamera.transform.position;
 			Instantiate(goLose, tempW, Quaternion.identity);
