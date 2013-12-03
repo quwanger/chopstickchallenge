@@ -5,7 +5,7 @@ public class CC_ArmController : MonoBehaviour {
 	public GameObject arm;
 	public float speed;
 	public Transform Arm{ get{ return transform.GetChild(0); } }
-	public Transform Root{ get{ return transform.GetChild(2); } }
+	public Transform Root{ get{ return transform.GetChild(1); } }
 	public Transform Elbow{ get{ return Root.GetChild(0); } }
 	public Transform Forearm{ get{ return Elbow.GetChild(0); } }
 	public Transform Wrist{ get{ return Forearm.GetChild(0); } }
@@ -32,10 +32,6 @@ public class CC_ArmController : MonoBehaviour {
 
 	void Awake() {
 		
-	}
-
-	public void SetWrist(Vector3 angles) {
-		Wrist.eulerAngles = angles;
 	}
 
 	void Start () {
