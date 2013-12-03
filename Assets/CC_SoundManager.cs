@@ -34,6 +34,9 @@ public class CC_SoundManager : MonoBehaviour {
 			case CC_Level.SoundType.demotivational:
 				this.audio.PlayOneShot(demotivational[Random.Range(0, demotivational.Length)]);
 				break;
+			case CC_Level.SoundType.motivational:
+				this.audio.PlayOneShot(motivational[Random.Range(0, motivational.Length)]);
+				break;
 			case CC_Level.SoundType.dish:
 				this.audio.PlayOneShot(dish[Random.Range(0, dish.Length)]);
 				break;

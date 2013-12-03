@@ -11,6 +11,9 @@ public class CC_Level : MonoBehaviour {
 	public Camera mainCamera;
 	public string nextLevel;
 	
+	public GameObject[] cutouts;
+	public bool isBeingMotivated = false;
+	
 	public GUIText results;
 	public GUIText finishMenu;
 	public GameObject goWin;
@@ -68,6 +71,12 @@ public class CC_Level : MonoBehaviour {
 		//make sure it doesn't go over max score
 		if(playerScore < 10000000000){
 			if(pointsToAdd > 0){
+				
+				//if you are getting points, there is a 1% chance you will be motivated
+				float r = Random.Range(0.0f, 100.0f);
+				if(r<1.0f && !isBeingMotivated)
+					StartCoroutine(CardboardCutout());
+				
 				int f = pointsToAdd.ToString().Length;
 				int g = 0;
 				if(f < 3){
@@ -139,6 +148,8 @@ public class CC_Level : MonoBehaviour {
 				//StartCoroutine(doFade("Heaven"));
 			}else if(Input.GetKeyDown(KeyCode.P)){
 				pointsToAdd += 10000;
+			}else if(Input.GetKeyDown(KeyCode.C)){
+				StartCoroutine(CardboardCutout());
 			}
 		}
 	}
@@ -191,6 +202,21 @@ public class CC_Level : MonoBehaviour {
 		set {
 			ThrowSetException("chopstick");
 		}
+	}
+	
+	public IEnumerator CardboardCutout(){
+		isBeingMotivated = true;
+		GameObject c = cutouts[Random.Range(0, cutouts.Length)];
+		soundManager.playSound(SoundType.motivational);
+		iTween.MoveTo(c, iTween.Hash("x", c.GetComponent<CC_Cardboard>().targetX, "time", 1.0f));
+		yield return new WaitForSeconds(1.2f);
+		CardboardReturn(c);
+	}
+	
+	public void CardboardReturn(GameObject c){
+		Debug.Log("WOOOOOOO");
+		iTween.MoveTo(c, iTween.Hash("x", c.GetComponent<CC_Cardboard>().initialX, "time", 1.0f));
+		isBeingMotivated = false;
 	}
 	
 	public void AddPoints(int pta){
