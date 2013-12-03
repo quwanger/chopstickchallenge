@@ -45,6 +45,7 @@ public class Menu : MonoBehaviour {
 	private Vector3 optionsPos;
 	private Vector3 levelPos;
 	private bool mmActive = true;
+	
 	// 0 = top 
 	// 1 = middle
 	// 2 = bottom
@@ -96,12 +97,14 @@ public class Menu : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Backspace))
 		{
 			mainMenu();
+			this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.back);
 		}
 		
 		StartCoroutine(doFade());
 
 		if(Input.GetKeyDown(KeyCode.W))
 		{
+			this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
 			if(index == 1){
 				index -= 1;
 				iTween.MoveTo(chopstick, iTween.Hash("position",startPos, "time", 0.0f, "onComplete", "TweenComplete", "onCompleteTarget", gameObject));
@@ -115,6 +118,7 @@ public class Menu : MonoBehaviour {
 
 		if(Input.GetKeyDown(KeyCode.S))
 		{
+			this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
 			if(index == 1){
 				index += 1;
 				iTween.MoveTo(chopstick, iTween.Hash("position",optionsPos, "time", 0.0f, "onComplete", "TweenComplete", "onCompleteTarget", gameObject));	
@@ -130,6 +134,7 @@ public class Menu : MonoBehaviour {
 		{
 			if(Input.GetKeyDown(KeyCode.Return))
 			{
+				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.accept);
 				Application.LoadLevel("main");
 			}
 		}
@@ -138,6 +143,7 @@ public class Menu : MonoBehaviour {
 		{
 			if(Input.GetKeyDown(KeyCode.Return))
 			{
+				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.accept);
 				levelSelect();
 			}
 		}
@@ -146,6 +152,7 @@ public class Menu : MonoBehaviour {
 		{
 			if(Input.GetKeyDown(KeyCode.Return))
 			{
+				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.accept);
 				options();
 			}
 		}
@@ -155,16 +162,19 @@ public class Menu : MonoBehaviour {
 		{
 			if(Input.GetKeyDown(KeyCode.Alpha1))
 			{
+				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.accept);
 				Application.LoadLevel("main");
 			}
 			
 			if(Input.GetKeyDown(KeyCode.Alpha2))
 			{
+				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.accept);
 				Application.LoadLevel("Sushi_Restaurant");
 			}
 			
 			if(Input.GetKeyDown(KeyCode.Alpha3))
 			{
+				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.accept);
 				Application.LoadLevel("Hospital");
 			}
 		}
