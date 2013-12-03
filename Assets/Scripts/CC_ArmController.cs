@@ -11,9 +11,10 @@ public class CC_ArmController : MonoBehaviour {
 		}
 	}
 
+	#region Joints
 	private Transform Arm{ get{ return transform.GetChild(0); } }
 
-	private Transform Root{ get{ return transform.GetChild(2); } }
+	private Transform Root{ get{ return transform.GetChild(1); } }
 
 	private Transform Elbow{ get{ return Root.GetChild(0); } }
 
@@ -47,7 +48,15 @@ public class CC_ArmController : MonoBehaviour {
 
 	private Transform Palm{ get{ return Wrist.GetChild(2); } }
 
+	#endregion
+
 	public bool clenched = false;
+
+	public float palmDistance = 0.62f;
+
+	// private SphereCollider PalmZone;
+
+	GameObject heldObj;
 	
 	void Awake() {
 		
@@ -55,11 +64,16 @@ public class CC_ArmController : MonoBehaviour {
 
 	void Start () {
 		speed = 0.5f;
+		// PalmZone = Wrist.GetComponent<SphereCollider>();
+		// Debug.Log(PalmZone.gameObject);
 	}
 	
 	void Update () {
 		InputHandle();
-		if (Input.GetKey (KeyCode.W)){
+
+		if (Input.GetKey(KeyCode.W) || Input.GetAxis("Fire1") == 1) {
+			PickUp();
+			MoveObj();
 			if(!animation.IsPlaying("Clench") && clenched == false){
 				animation.Play("Clench");
 			}
@@ -67,6 +81,7 @@ public class CC_ArmController : MonoBehaviour {
 			animation["Clench"].speed = 1.0f;
 		}
 		else{
+			LetGo();
 			if(!animation.IsPlaying("Clench") && clenched == true){
 				animation.Play("Clench");
 				animation["Clench"].time = animation["Clench"].length;
@@ -74,6 +89,38 @@ public class CC_ArmController : MonoBehaviour {
 
 			clenched = false;
 			animation["Clench"].speed = -1.0f;
+		}
+	}
+
+	private void MoveObj() {
+		if (heldObj == null)
+			return;
+
+		heldObj.transform.position = Index1.position;
+	}
+
+	private void PickUp(){
+		RaycastHit hit;
+		//if (Physics.SphereCast(Wrist.position, palmDistance, Wrist.up, out hit, CCUtils.LayerMask(8))) {
+		//	Debug.Log(hit.collider.gameObject);
+		//}
+		int[] asdf = {8, 9};
+
+		if (Physics.Raycast(Wrist.position, -Wrist.up, out hit, palmDistance, CCUtils.LayerMask(asdf))) {
+			Debug.Log(hit.collider.gameObject);
+			HoldObj(hit.collider.gameObject);
+		}
+	}
+
+	private void HoldObj(GameObject obj) {
+		heldObj = obj;
+		heldObj.rigidbody.freezeRotation = true;
+	}
+
+	private void LetGo() {
+		if (heldObj != null) {
+			heldObj.rigidbody.freezeRotation = false;
+			heldObj = null;
 		}
 	}
 
@@ -104,6 +151,17 @@ public class CC_ArmController : MonoBehaviour {
 		if(Input.GetAxis("TriggerL") == 1){
  			this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, (transform.position.z+0.5f));
 		}
+	}
+
+	void OnDrawGizmos() {
+		Gizmos.color = Color.cyan;
+		Gizmos.DrawRay(Palm.position, Palm.forward * 5);
+		Gizmos.color = Color.red;
+		Gizmos.DrawRay(Palm.position, Palm.up * 5);
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawRay(Palm.position, Palm.right * 5);
+		Gizmos.color = Color.white;
+		Gizmos.DrawRay(Palm.position, -Wrist.up * palmDistance);
 	}
 }
 

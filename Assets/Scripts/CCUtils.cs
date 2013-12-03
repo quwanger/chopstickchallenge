@@ -27,4 +27,18 @@ class CCUtils
 
 		return angle;
 	}
+
+	public static int LayerMask(int[] layers) {
+		int mask = (1 << layers[0]);
+
+		for (int i = 1; i < layers.Length; i++) {
+			mask |= (1 << layers[i]);
+		}
+
+		return ~mask;
+	}
+
+	public static int LayerMask(int layer) {
+		return ~(1 << layer);
+	}
 }
