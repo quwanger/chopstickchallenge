@@ -111,29 +111,29 @@ public class CC_Wii : MonoBehaviour{
 			// Z-Depth movement
 			// If button is pressed, increase or decrease z-depth
 			if(Wii.GetButton(leftRemote, "UP")) {
-				leftArmController.Root.position = Vector3.Lerp(
-					leftArmController.Root.position, 
-					new Vector3(leftArmController.Root.position.x + speed.x,leftArmController.Root.position.y + speed.y,leftArmController.Root.position.z + (-zDepth)),
+				leftArmController.transform.position = Vector3.Lerp(
+					leftArmController.transform.position, 
+					new Vector3(leftArmController.transform.position.x + speed.x,leftArmController.transform.position.y + speed.y,leftArmController.transform.position.z + (-zDepth)),
 					0.03f
 				);
 			} else if(Wii.GetButton(rightRemote, "UP")) {
-				rightArmController.Root.position = Vector3.Lerp(
-					rightArmController.Root.position, 
-					new Vector3(rightArmController.Root.position.x + speed.x,rightArmController.Root.position.y + speed.y,rightArmController.Root.position.z + (-zDepth)),
+				rightArmController.transform.position = Vector3.Lerp(
+					rightArmController.transform.position, 
+					new Vector3(rightArmController.transform.position.x + speed.x,rightArmController.transform.position.y + speed.y,rightArmController.transform.position.z + (-zDepth)),
 					0.03f
 				);
 			}
 		
 			if(Wii.GetButton(leftRemote, "DOWN")) {
-				leftArmController.Root.position = Vector3.Lerp(
-					leftArmController.Root.position, 
-					new Vector3(leftArmController.Root.position.x + speed.x,leftArmController.Root.position.y + speed.y,leftArmController.Root.position.z + zDepth),
+				leftArmController.transform.position = Vector3.Lerp(
+					leftArmController.transform.position, 
+					new Vector3(leftArmController.transform.position.x + speed.x,leftArmController.transform.position.y + speed.y,leftArmController.transform.position.z + zDepth),
 					0.03f
 				);
 			} else if(Wii.GetButton(rightRemote, "DOWN")) {
-				rightArmController.Root.position = Vector3.Lerp(
-					rightArmController.Root.position, 
-					new Vector3(rightArmController.Root.position.x + speed.x,rightArmController.Root.position.y + speed.y,rightArmController.Root.position.z + zDepth),
+				rightArmController.transform.position = Vector3.Lerp(
+					rightArmController.transform.position, 
+					new Vector3(rightArmController.transform.position.x + speed.x,rightArmController.transform.position.y + speed.y,rightArmController.transform.position.z + zDepth),
 					0.03f
 				);
 			}
