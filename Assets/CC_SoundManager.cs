@@ -31,6 +31,9 @@ public class CC_SoundManager : MonoBehaviour {
 			case CC_Level.SoundType.hover:
 				this.audio.PlayOneShot(hover[Random.Range(0, hover.Length)]);
 				break;
+			case CC_Level.SoundType.intro:
+				this.audio.PlayOneShot(intro[Random.Range(0, intro.Length)]);
+				break;
 			case CC_Level.SoundType.chopstickCollide:
 				this.audio.PlayOneShot(chopstickCollide[Random.Range(0, chopstickCollide.Length)]);
 				break;
