@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CC_Sushi : CC_Behaviour {
+public class CC_Sushi : CC_Pickup {
 	
 	public int PointValue = 10000;
 	public float GripConstant = 1.0f;
