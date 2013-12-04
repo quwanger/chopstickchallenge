@@ -74,7 +74,7 @@ public class CC_Level : MonoBehaviour {
 				
 				//if you are getting points, there is a 1% chance you will be motivated
 				float r = Random.Range(0.0f, 100.0f);
-				if(r<1.0f && !isBeingMotivated)
+				if(r<0.2f && !isBeingMotivated)
 					StartCoroutine(CardboardCutout());
 				
 				int f = pointsToAdd.ToString().Length;

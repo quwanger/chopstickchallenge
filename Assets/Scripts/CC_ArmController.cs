@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 
 public class CC_ArmController : MonoBehaviour {
-	public GameObject arm;
 	public float speed;
 
 	private Vector3 position {
@@ -14,13 +13,13 @@ public class CC_ArmController : MonoBehaviour {
 	#region Joints
 	private Transform Arm{ get{ return transform.GetChild(0); } }
 
-	private Transform Root{ get{ return transform.GetChild(1); } }
+	public Transform Root{ get{ return transform.GetChild(1); } }
 
 	private Transform Elbow{ get{ return Root.GetChild(0); } }
 
 	private Transform Forearm{ get{ return Elbow.GetChild(0); } }
 
-	private Transform Wrist{ get{ return Forearm.GetChild(0); } }
+	public Transform Wrist{ get{ return Forearm.GetChild(0); } }
 
 	private Transform Index1{ get{ return Wrist.GetChild(0); } }
 	private Transform Index2{ get{ return Index1.GetChild(0); } }
@@ -51,6 +50,7 @@ public class CC_ArmController : MonoBehaviour {
 	#endregion
 
 	public bool clenched = false;
+	public bool wiiClench = false;
 
 	public float palmDistance = 0.62f;
 
@@ -71,7 +71,7 @@ public class CC_ArmController : MonoBehaviour {
 	void Update () {
 		InputHandle();
 
-		if (Input.GetKey(KeyCode.W) || Input.GetAxis("Fire1") == 1) {
+		if (wiiClench || Input.GetKey(KeyCode.W) || Input.GetAxis("Fire1") == 1) {
 			PickUp();
 			MoveObj();
 			if(!animation.IsPlaying("Clench") && clenched == false){
@@ -90,6 +90,14 @@ public class CC_ArmController : MonoBehaviour {
 			clenched = false;
 			animation["Clench"].speed = -1.0f;
 		}
+	}
+
+	public void Clench(){
+		wiiClench = true;
+	}
+
+	public void Unclench(){
+		wiiClench = false;
 	}
 
 	private void MoveObj() {
