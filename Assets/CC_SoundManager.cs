@@ -22,11 +22,23 @@ public class CC_SoundManager : MonoBehaviour {
 	
 	public void playSound(CC_Level.SoundType s){
 		switch(s){
+			case CC_Level.SoundType.accept:
+				this.audio.PlayOneShot(accept[Random.Range(0, accept.Length)]);
+				break;
+			case CC_Level.SoundType.back:
+				this.audio.PlayOneShot(back[Random.Range(0, back.Length)]);
+				break;
+			case CC_Level.SoundType.hover:
+				this.audio.PlayOneShot(hover[Random.Range(0, hover.Length)]);
+				break;
 			case CC_Level.SoundType.chopstickCollide:
 				this.audio.PlayOneShot(chopstickCollide[Random.Range(0, chopstickCollide.Length)]);
 				break;
 			case CC_Level.SoundType.demotivational:
 				this.audio.PlayOneShot(demotivational[Random.Range(0, demotivational.Length)]);
+				break;
+			case CC_Level.SoundType.motivational:
+				this.audio.PlayOneShot(motivational[Random.Range(0, motivational.Length)]);
 				break;
 			case CC_Level.SoundType.dish:
 				this.audio.PlayOneShot(dish[Random.Range(0, dish.Length)]);
