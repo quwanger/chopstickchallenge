@@ -14,8 +14,8 @@ public class CC_Camera : CC_Behaviour
 
 	public float edgeBoundAngle = 0.0f;
 
-	public GameObject obj1;
-	public GameObject obj2;
+	public Transform obj1;
+	public Transform obj2;
 
 	public float debugRayDistance = 5.0f;
 

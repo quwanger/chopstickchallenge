@@ -1,16 +1,17 @@
-var rightRemote		: int;
-var leftRemote		: int;
-var leftArm			: Transform;
-var rightArm		: Transform;
-var WiiObject		: GameObject;
-var speed			: Vector3;
-var zDepth			: float;
+var rightRemote			: int;
+var leftRemote			: int;
+var leftArm				: Transform;
+var rightArm			: Transform;
+var WiiObject			: GameObject;
+var speed				: Vector3;
+var zDepth				: float;
 var Wii;
+var leftArmController;
 
 /* todo: move velocity to each hand */
-var lastInput		: Vector3;
-var handVelLeft		: Vector3;
-var handVelRight    : Vector3;
+var lastInput			: Vector3;
+var handVelLeft			: Vector3;
+var handVelRight    	: Vector3;
 
 function OnGUI () {
 
@@ -59,41 +60,6 @@ function Update () {
 		
 		leftArm.transform.position = Vector3(posL.x-handVelLeft.x,posL.y-handVelLeft.y,posL.z);
 		rightArm.transform.position = Vector3(posR.x-handVelRight.x,posR.y-handVelRight.y,posR.z);
-	
-		/*
-		// IR pointer data
-		pointerArray = Wii.GetRawIRData(leftRemote);		
-		var wiiIRPos = pointerArray[0];
-		// Target position to lerp to
-		var target : Vector3;
-		
-		// If IR value is out of range,
-		if(wiiIRPos.x >= 0) { 
-			// Range set to left most and right most positions
-			target.x = 1010 * (1-wiiIRPos.x) + 960 * (wiiIRPos.x); 
-			target.y = -144 * (1-wiiIRPos.y) + -115 * (wiiIRPos.y);
-			
-			speed = target - leftArm.position;
-			
-			// Lerping to the target position
-			leftArm.transform.position = Vector3.Lerp(
-				leftArm.transform.position,
-				Vector3(target.x,target.y,leftArm.position.z),
-				0.03
-			);
-		}
-		// When wiimote is not visible
-		else{
-			// Lerp at a default speed
-			leftArm.transform.position = Vector3.Lerp(
-				leftArm.transform.position,
-				Vector3(leftArm.position.x + speed.x,leftArm.position.y + speed.y,leftArm.position.z),
-				0.03
-			);
-			
-			speed *= 0.95f;
-		}
-		*/
 		
 		// Z-Depth movement
 		// If button is pressed, increase or decrease z-depth
