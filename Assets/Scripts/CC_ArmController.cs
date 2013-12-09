@@ -52,6 +52,11 @@ public class CC_ArmController : MonoBehaviour {
 	public bool clenched = false;
 	public bool clenchButton = false;
 
+	private float restZPosition;
+	public float zSpeed = 0.0f;
+	public float zLimit = 100.0f;
+	public float zSpring = 0.05f;
+
 	private int clenchTimer = 10;
 
 	public float palmDistance = 2.5f;
@@ -61,7 +66,7 @@ public class CC_ArmController : MonoBehaviour {
 	CC_Pickup heldObj;
 	
 	void Awake() {
-		
+		restZPosition = position.z;
 	}
 
 	void Start () {
@@ -95,14 +100,9 @@ public class CC_ArmController : MonoBehaviour {
 			clenched = false;
 			animation["Clench"].speed = -1.0f;
 		}
-	}
 
-	public void Clench(){
-		clenchButton = true;
-	}
-
-	public void Unclench(){
-		clenchButton = false;
+		// Z Direction
+		//transform.position = new Vector3(position.x, position.y, (position.z - zSpeed, 2));
 	}
 
 	private void MoveObj() {
@@ -191,6 +191,20 @@ public class CC_ArmController : MonoBehaviour {
 		Gizmos.color = Color.magenta;
 		Gizmos.DrawRay(Palm.position+Wrist.up*1.5f - Wrist.right * 5, -Wrist.up * palmDistance);
 	}
+
+	#region InputHandlers
+	public void TranslateZ(float speed){
+		zSpeed = speed;
+	}
+
+	public void Clench(){
+		clenchButton = true;
+	}
+
+	public void Unclench(){
+		clenchButton = false;
+	}
+	#endregion
 }
 
 

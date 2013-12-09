@@ -15,6 +15,7 @@ public class CC_Controller : MonoBehaviour {
 
 	public float TranslateSpeed = 15.0f;
 	public float RotateSpeed = 2.0f;
+	public float ZTranslateSpeed = 0.07f;
 
 	//public CC_ArmController leftArmController;
 	//public CC_ArmController rightArmController;
@@ -132,31 +133,41 @@ public class CC_Controller : MonoBehaviour {
 	}
 
 	private void XboxHandler() {
-		//Left joystick, movement in x-axis 
-		this.transform.position = this.transform.position + new Vector3(Input.GetAxis("HorizontalL") * Sensitivity, Input.GetAxis("VerticalL") * Sensitivity, 0);
+		// //Left joystick, movement in x-axis 
+		// this.transform.position = this.transform.position + new Vector3(Input.GetAxis("HorizontalL") * Sensitivity, Input.GetAxis("VerticalL") * Sensitivity, 0);
 
-		//Right Joystick, rotation (right)
-		if (Input.GetAxis("HorizontalR") == 1) {
-			float rot = this.transform.rotation.x;
-			rot += 2.0f;
-			this.transform.Rotate(rot, 0, 0);
-		}
+		// //Right Joystick, rotation (right)
+		// if (Input.GetAxis("HorizontalR") == 1) {
+		// 	float rot = this.transform.rotation.x;
+		// 	rot += 2.0f;
+		// 	this.transform.Rotate(rot, 0, 0);
+		// }
 
-		//Right Joystick, rotation (left)
-		if (Input.GetAxis("HorizontalR") == -1) {
-			float rot = this.transform.rotation.z;
-			rot -= 2.0f;
-			this.transform.Rotate(rot, 0, 0);
-		}
+		// //Right Joystick, rotation (left)
+		// if (Input.GetAxis("HorizontalR") == -1) {
+		// 	float rot = this.transform.rotation.z;
+		// 	rot -= 2.0f;
+		// 	this.transform.Rotate(rot, 0, 0);
+		// }
 
-		//Right Trigger, forward
-		if (Input.GetAxis("TriggerR") == 1) {
-			this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, (transform.position.z - 0.5f));
-		}
+		if(side == Side.left){
+			translateArm(
+				Input.GetAxis("HorizontalL") * Sensitivity * TranslateSpeed,
+				Input.GetAxis("VerticalL") * Sensitivity * TranslateSpeed,
+				(Mathf.Pow(Input.GetAxis("TriggerL"), 2) - Mathf.Pow(Input.GetAxis("TriggerR"), 2)) * Sensitivity * TranslateSpeed
+			);
 
-		//Left Trigger, reverse
-		if (Input.GetAxis("TriggerL") == 1) {
-			this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, (transform.position.z + 0.5f));
+			if(Input.GetAxis("Fire1") == 1){
+				arm.Clench();
+			} else {
+				arm.Unclench();
+			}
+
+			if(Input.GetKey(KeyCode.Space))
+				rotateWrist(Input.GetAxis("HorizontalR") * RotateSpeed, -Input.GetAxis("VerticalR") * RotateSpeed, RotateSpeed * (Input.GetAxis("Fire3") - Input.GetAxis("Fire2")));
+			else
+				rotateArm(Input.GetAxis("HorizontalR") * RotateSpeed, -Input.GetAxis("VerticalR") * RotateSpeed, RotateSpeed * (Input.GetAxis("Fire3") - Input.GetAxis("Fire2")));
+
 		}
 	}
 
