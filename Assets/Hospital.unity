@@ -570,6 +570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5ff744995ad4b0d8be8f83e12866f1, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   MagneticConstant: 1
 --- !u!64 &98212508
 MeshCollider:
@@ -886,6 +888,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 20000
   GripConstant: 1
 --- !u!95 &116027001
@@ -1016,6 +1020,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5ff744995ad4b0d8be8f83e12866f1, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   MagneticConstant: 1
 --- !u!64 &135166524
 MeshCollider:
@@ -1488,6 +1494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 10000
   GripConstant: 1
 --- !u!64 &249673449
@@ -2332,6 +2340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 10000
   GripConstant: 1
 --- !u!64 &417769934
@@ -4463,6 +4473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 50000
   GripConstant: 1
 --- !u!95 &609293817
@@ -4551,6 +4563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 10000
   GripConstant: 1
 --- !u!64 &610019445
@@ -4873,6 +4887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 20000
   GripConstant: 1
 --- !u!95 &677378856
@@ -5911,6 +5927,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 20000
   GripConstant: 1
 --- !u!95 &822238317
@@ -6170,6 +6188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 15000
   GripConstant: 1
 --- !u!95 &890991963
@@ -6425,6 +6445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 50000
   GripConstant: 1
 --- !u!95 &992239537
@@ -6792,6 +6814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 50000
   GripConstant: 1
 --- !u!95 &1073753437
@@ -6950,6 +6974,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 15000
   GripConstant: 1
 --- !u!95 &1096792891
@@ -7472,6 +7498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 25000
   GripConstant: 1
 --- !u!95 &1366948058
@@ -8596,6 +8624,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 30000
   GripConstant: 1
 --- !u!95 &1746566003
@@ -8941,6 +8971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 50000
   GripConstant: 1
 --- !u!95 &1822074346
@@ -10407,6 +10439,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 30000
   GripConstant: 1
 --- !u!95 &1944026008
@@ -12831,7 +12865,7 @@ GameObject:
   - 114: {fileID: 2103151141}
   - 111: {fileID: 2103151140}
   m_Layer: 0
-  m_Name: LeftArm
+  m_Name: leftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12960,6 +12994,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 25000
   GripConstant: 1
 --- !u!95 &2107836685
@@ -13120,6 +13156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 30000
   GripConstant: 1
 --- !u!95 &2130104002
