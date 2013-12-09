@@ -1,4 +1,3 @@
-#if UNITY_STANDALONE_OSX
 using UnityEditor;
 using UnityEngine;
 using System.Collections;
@@ -8,6 +7,7 @@ using System.Runtime.InteropServices;
 [System.Serializable]
 
 public class WiiBuddy : Editor{
+	#if UNITY_STANDALONE_OSX
 
 	string feedback = "Ready";
 	private static bool amAwake;
@@ -973,5 +973,5 @@ public class WiiBuddy : Editor{
     
     [DllImport(pluginName)]
     private static extern void setForceFeedback(int thisRemote, bool enabled);
+	#endif
 }
-#endif

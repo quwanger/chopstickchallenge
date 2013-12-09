@@ -1,5 +1,3 @@
-#if UNITY_STANDALONE_OSX
-
 using UnityEngine;
 using System.Collections;
 using System;
@@ -8,7 +6,7 @@ using System.Runtime.InteropServices;
 
 public class Wii : MonoBehaviour
 {	
-
+	#if UNITY_STANDALONE_OSX
 	public static void StartSearch()
     {
 		if(!isAwake)
@@ -2787,5 +2785,5 @@ public class Wii : MonoBehaviour
 	   		}
     	}
     }
+	#endif
 }
-#endif
