@@ -1,3 +1,5 @@
+#if UNITY_STANDALONE_OSX
+
 using UnityEngine;
 using System.Collections;
 
@@ -197,3 +199,4 @@ public class CC_Wii : MonoBehaviour{
 		}
 	}
 }
+#endif

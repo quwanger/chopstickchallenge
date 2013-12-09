@@ -1,3 +1,4 @@
+#if UNITY_STANDALONE_OSX
 using UnityEditor;
 using UnityEngine;
 using System.Collections;
@@ -973,3 +974,4 @@ public class WiiBuddy : Editor{
     [DllImport(pluginName)]
     private static extern void setForceFeedback(int thisRemote, bool enabled);
 }
+#endif
