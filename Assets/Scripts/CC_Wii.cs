@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class CC_Wii : MonoBehaviour{
-
+	#if UNITY_STANDALONE_OSX
 	public int rightRemote;
 	public int leftRemote;
 	public GameObject wiiObject;
@@ -196,4 +196,5 @@ public class CC_Wii : MonoBehaviour{
 			}
 		}
 	}
+	#endif
 }
