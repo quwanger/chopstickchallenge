@@ -21,29 +21,29 @@ public class CC_ArmController : MonoBehaviour {
 
 	public Transform Wrist{ get{ return Forearm.GetChild(0); } }
 
-	private Transform Index1{ get{ return Wrist.GetChild(0); } }
-	private Transform Index2{ get{ return Index1.GetChild(0); } }
-	private Transform Index3{ get{ return Index2.GetChild(0); } }
-	private Transform Index4{ get{ return Index3.GetChild(0); } }
+	private Transform Index1{ get{ return Wrist.GetChild(1); } }
+	private Transform Index2{ get{ return Index1.GetChild(1); } }
+	private Transform Index3{ get{ return Index2.GetChild(1); } }
+	private Transform Index4{ get{ return Index3.GetChild(1); } }
 
-	private Transform Middle1{ get{ return Wrist.GetChild(1); } }
-	private Transform Middle2{ get{ return Middle1.GetChild(0); } }
-	private Transform Middle3{ get{ return Middle2.GetChild(0); } }
-	private Transform Middle4{ get{ return Middle3.GetChild(0); } }
+	private Transform Middle1{ get{ return Wrist.GetChild(2); } }
+	private Transform Middle2{ get{ return Middle1.GetChild(1); } }
+	private Transform Middle3{ get{ return Middle2.GetChild(1); } }
+	private Transform Middle4{ get{ return Middle3.GetChild(1); } }
 
 	private Transform Ring1{ get{ return Wrist.GetChild(4); } }
-	private Transform Ring2{ get{ return Ring1.GetChild(0); } }
-	private Transform Ring3{ get{ return Ring2.GetChild(0); } }
-	private Transform Ring4{ get{ return Ring3.GetChild(0); } }
+	private Transform Ring2{ get{ return Ring1.GetChild(1); } }
+	private Transform Ring3{ get{ return Ring2.GetChild(1); } }
+	private Transform Ring4{ get{ return Ring3.GetChild(1); } }
 
 	private Transform Pinkie1{ get{ return Wrist.GetChild(3); } }
-	private Transform Pinkie2{ get{ return Pinkie1.GetChild(0); } }
-	private Transform Pinkie3{ get{ return Pinkie2.GetChild(0); } }
-	private Transform Pinkie4{ get{ return Pinkie3.GetChild(0); } }
+	private Transform Pinkie2{ get{ return Pinkie1.GetChild(1); } }
+	private Transform Pinkie3{ get{ return Pinkie2.GetChild(1); } }
+	private Transform Pinkie4{ get{ return Pinkie3.GetChild(1); } }
 
 	private Transform Thumb1{ get{ return Wrist.GetChild(5); } }
-	private Transform Thumb2{ get{ return Thumb1.GetChild(0); } }
-	private Transform Thumb3{ get{ return Thumb2.GetChild(0); } }
+	private Transform Thumb2{ get{ return Thumb1.GetChild(1); } }
+	private Transform Thumb3{ get{ return Thumb2.GetChild(1); } }
 
 	private Transform Palm{ get{ return Wrist.GetChild(2); } }
 
@@ -61,7 +61,7 @@ public class CC_ArmController : MonoBehaviour {
 	CC_Pickup heldObj;
 	
 	void Awake() {
-		
+		Debug.Log(Elbow.GetChildCount());
 	}
 
 	void Start () {
