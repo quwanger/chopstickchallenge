@@ -50,7 +50,7 @@ public class CC_ArmController : MonoBehaviour {
 	#endregion
 
 	public bool clenched = false;
-	public bool wiiClench = false;
+	public bool clenchButton = false;
 
 	private int clenchTimer = 10;
 
@@ -71,9 +71,10 @@ public class CC_ArmController : MonoBehaviour {
 	}
 	
 	void Update () {
-		InputHandle();
+		//InputHandle();
 
-		if (wiiClench || Input.GetKey(KeyCode.W) || Input.GetAxis("Fire1") == 1) {
+		// if (wiiClench || Input.GetKey(KeyCode.W) || Input.GetAxis("Fire1") == 1) {
+		if (clenchButton) {
 			if(animation["Clench"].time != 0)
 				PickUp();
 
@@ -97,11 +98,11 @@ public class CC_ArmController : MonoBehaviour {
 	}
 
 	public void Clench(){
-		wiiClench = true;
+		clenchButton = true;
 	}
 
 	public void Unclench(){
-		wiiClench = false;
+		clenchButton = false;
 	}
 
 	private void MoveObj() {
