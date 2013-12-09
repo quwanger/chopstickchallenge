@@ -388,7 +388,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 111: {fileID: 11100000}
   m_Layer: 0
-  m_Name: LeftArm
+  m_Name: leftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -570,9 +570,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100050}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 992.552246, y: -136.850067, z: -80.7394638}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: -1.62920685e-07}
+  m_LocalPosition: {x: 998.718628, y: -132.674591, z: -58.4455414}
+  m_LocalScale: {x: 6.75782728, y: 6.75782728, z: 6.75782728}
   m_Children:
   - {fileID: 400042}
   - {fileID: 400024}
@@ -725,8 +725,9 @@ Animation:
   m_GameObject: {fileID: 100050}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
+  m_Animation: {fileID: 7400000, guid: 878e29177f363e44989938da2a0acbf2, type: 3}
+  m_Animations:
+  - {fileID: 7400000, guid: 878e29177f363e44989938da2a0acbf2, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -746,6 +747,10 @@ MonoBehaviour:
   m_Name: 
   speed: 0
   clenched: 0
+  clenchButton: 0
+  zSpeed: 0
+  zLimit: 100
+  zSpring: .0500000007
   palmDistance: .620000005
 --- !u!137 &13700000
 SkinnedMeshRenderer:
@@ -759,7 +764,7 @@ SkinnedMeshRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 4d53595fbaf679e4ca9b855d4208ddf3, type: 2}
+  - {fileID: 2100000, guid: 2718edb2b6fa949d5b9696dbf6554d14, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
