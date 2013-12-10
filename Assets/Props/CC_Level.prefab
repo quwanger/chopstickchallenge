@@ -12,6 +12,7 @@ GameObject:
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: CC_Level
   m_TagString: Untagged
@@ -101,6 +102,8 @@ MonoBehaviour:
   mouth: {fileID: 0}
   mainCamera: {fileID: 0}
   nextLevel: 
+  cutouts: []
+  isBeingMotivated: 0
   results: {fileID: 0}
   finishMenu: {fileID: 0}
   goWin: {fileID: 100006, guid: c2aad19bf7a9a4a5a84957d251eaa965, type: 2}
@@ -265,6 +268,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb7e342457e840dc94ac4ce02db602f, type: 3}
   m_Name: 
   timeInMillis: 0
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5421aabf9c17d4682f5f1c4d8fa5fd, type: 3}
+  m_Name: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

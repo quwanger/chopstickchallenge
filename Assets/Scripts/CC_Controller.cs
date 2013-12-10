@@ -70,7 +70,6 @@ public class CC_Controller : MonoBehaviour {
 
 			// Rotate Wrist
 			if (Input.GetKey(KeyCode.LeftShift)) {
-				Debug.Log(Input.GetKey(KeyCode.F));
 				if (Input.GetKey(KeyCode.F)) {
 					rotateWrist(-RotateSpeed, 0.0f, 0.0f);
 				}
@@ -93,7 +92,6 @@ public class CC_Controller : MonoBehaviour {
 
 			// Rotate Arm
 			else {
-				Debug.Log(Input.GetKey(KeyCode.F));
 				if (Input.GetKey(KeyCode.F)) {
 					rotateArm(-RotateSpeed, 0.0f, 0.0f);
 				}

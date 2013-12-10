@@ -21,15 +21,15 @@ public class CC_ArmController : MonoBehaviour {
 
 	public Transform Wrist{ get{ return Forearm.GetChild(0); } }
 
-	private Transform Index1{ get{ return Wrist.GetChild(1); } }
+	private Transform Index1{ get{ return Wrist.GetChild(0); } }
 	private Transform Index2{ get{ return Index1.GetChild(1); } }
 	private Transform Index3{ get{ return Index2.GetChild(1); } }
 	private Transform Index4{ get{ return Index3.GetChild(1); } }
 
-	private Transform Middle1{ get{ return Wrist.GetChild(2); } }
-	private Transform Middle2{ get{ return Middle1.GetChild(1); } }
-	private Transform Middle3{ get{ return Middle2.GetChild(1); } }
-	private Transform Middle4{ get{ return Middle3.GetChild(1); } }
+	private Transform Middle1{ get{ return Wrist.GetChild(1); } }
+	private Transform Middle2{ get{ return Middle1.GetChild(0); } }
+	private Transform Middle3{ get{ return Middle2.GetChild(0); } }
+	private Transform Middle4{ get{ return Middle3.GetChild(0); } }
 
 	private Transform Ring1{ get{ return Wrist.GetChild(4); } }
 	private Transform Ring2{ get{ return Ring1.GetChild(1); } }
@@ -42,15 +42,31 @@ public class CC_ArmController : MonoBehaviour {
 	private Transform Pinkie4{ get{ return Pinkie3.GetChild(1); } }
 
 	private Transform Thumb1{ get{ return Wrist.GetChild(5); } }
-	private Transform Thumb2{ get{ return Thumb1.GetChild(1); } }
-	private Transform Thumb3{ get{ return Thumb2.GetChild(1); } }
+	private Transform Thumb2{ get{ return Thumb1.GetChild(0); } }
+	private Transform Thumb3{ get{ return Thumb2.GetChild(0); } }
 
 	private Transform Palm{ get{ return Wrist.GetChild(2); } }
+
+	#region colliders
+
+	private Transform PalmCollider{ get{ return Palm.GetChild(0); } }
+	private Transform Finger1Collider{ get{ return Middle1.GetChild(1); } }
+	private Transform Finger2Collider{ get{ return Middle2.GetChild(1); } }
+	private Transform Finger3Collider{ get{ return Middle3.GetChild(1); } }
+	private Transform Finger4Collider{ get{ return Middle4.GetChild(0); } }
+
+	private Transform Thumb1Collider{ get{ return Thumb1.GetChild(1); } }
+	private Transform Thumb2Collider{ get{ return Thumb2.GetChild(1); } }
+	private Transform Thumb3Collider{ get{ return Thumb3.GetChild(0); } }
+
+	#endregion
 
 	#endregion
 
 	public bool clenched = false;
 	public bool clenchButton = false;
+
+	public bool isHandClosed = false;
 
 	private float restZPosition;
 	public float zSpeed = 0.0f;
@@ -80,8 +96,12 @@ public class CC_ArmController : MonoBehaviour {
 
 		// if (wiiClench || Input.GetKey(KeyCode.W) || Input.GetAxis("Fire1") == 1) {
 		if (clenchButton) {
+
 			if(animation["Clench"].time != 0)
 				PickUp();
+			else{
+				isHandClosed = true;
+			}
 
 			MoveObj();
 			if(!animation.IsPlaying("Clench") && clenched == false){
@@ -89,6 +109,7 @@ public class CC_ArmController : MonoBehaviour {
 			}
 			clenched = true;
 			animation["Clench"].speed = 1.0f;
+			SetHandTrigger(clenched);
 		}
 		else{
 			LetGo();
@@ -96,13 +117,14 @@ public class CC_ArmController : MonoBehaviour {
 				animation.Play("Clench");
 				animation["Clench"].time = animation["Clench"].length;
 			}
+			else if(animation["Clench"].time == 0){
+				isHandClosed = false;
+				SetHandTrigger(isHandClosed);
+			}
 
 			clenched = false;
 			animation["Clench"].speed = -1.0f;
 		}
-
-		// Z Direction
-		//transform.position = new Vector3(position.x, position.y, (position.z - zSpeed, 2));
 	}
 
 	private void MoveObj() {
@@ -140,6 +162,19 @@ public class CC_ArmController : MonoBehaviour {
 			heldObj.rigidbody.freezeRotation = false;
 			heldObj = null;
 		}
+	}
+
+	private void SetHandTrigger(bool clench){
+		PalmCollider.GetComponent<BoxCollider>().isTrigger = clench;
+
+		Finger1Collider.GetComponent<Collider>().isTrigger = clench;
+		Finger2Collider.GetComponent<Collider>().isTrigger = clench;
+		Finger3Collider.GetComponent<Collider>().isTrigger = clench;
+		Finger4Collider.GetComponent<Collider>().isTrigger = clench;
+
+		Thumb1Collider.GetComponent<Collider>().isTrigger = clench;
+		Thumb2Collider.GetComponent<Collider>().isTrigger = clench;
+		Thumb3Collider.GetComponent<Collider>().isTrigger = clench;
 	}
 
 	private void InputHandle(){
