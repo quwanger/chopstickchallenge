@@ -13,13 +13,15 @@ public class CC_Level : MonoBehaviour {
 	
 	public GameObject[] cutouts;
 	public bool isBeingMotivated = false;
-	
+		
 	public GUIText results;
 	public GUIText finishMenu;
 	public GameObject goWin;
 	public GameObject goLose;
 	public bool gameOver = false;
 	public bool isWinner = false;
+	
+	public bool searchingForWiimotes = false;
 	
 	private float alphaFadeValue = 0.0f;
     private float transitionTimeIn = 2.0f;
@@ -137,6 +139,13 @@ public class CC_Level : MonoBehaviour {
 			}
 		}
 		
+		if(searchingForWiimotes){
+			if(!Wii.IsSearching()){
+				searchingForWiimotes=false;
+				Debug.Log("Wiimote Search Over");
+			}	
+		}
+		
 		if(DebugMode){
 			if(Input.GetKeyDown(KeyCode.Alpha6)){
 				StartCoroutine(doFade("Main"));
@@ -151,6 +160,12 @@ public class CC_Level : MonoBehaviour {
 			}else if(Input.GetKeyDown(KeyCode.C)){
 				StartCoroutine(CardboardCutout());
 			}
+		}
+		
+		if(Input.GetKeyDown(KeyCode.BackQuote)){
+			Debug.Log("Begin Wiimote Calibration");
+			Wii.StartSearch();
+			searchingForWiimotes = true;
 		}
 	}
 	

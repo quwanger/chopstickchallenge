@@ -2375,8 +2375,11 @@ public class Wii : MonoBehaviour
     [DllImport(pluginName)]
     private static extern void setForceFeedback(int thisRemote, bool enabled);
 
-	[DllImport(pluginName)]	private static extern void deactivateMotionPlus(int thisRemote);	
-	[DllImport(pluginName)]	private static extern void checkForMotionPlus(int thisRemote);
+	[DllImport(pluginName)]
+	private static extern void deactivateMotionPlus(int thisRemote);	
+
+	[DllImport(pluginName)]
+	private static extern void checkForMotionPlus(int thisRemote);
     
     [DllImport(pluginName)]
     private static extern void setMotionPlusCalibration(int thisRemote,float rollZero,float yawZero, float pitchZero);
