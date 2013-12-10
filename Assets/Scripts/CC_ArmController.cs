@@ -63,6 +63,8 @@ public class CC_ArmController : MonoBehaviour {
 
 	#endregion
 
+	private CC_PickupHandler pickupHandler;
+
 	public bool clenched = false;
 	public bool clenchButton = false;
 
@@ -83,6 +85,7 @@ public class CC_ArmController : MonoBehaviour {
 	
 	void Awake() {
 		restZPosition = position.z;
+		pickupHandler = Middle1.GetComponent<CC_PickupHandler>();
 	}
 
 	void Start () {
@@ -131,36 +134,34 @@ public class CC_ArmController : MonoBehaviour {
 		if (heldObj == null)
 			return;
 
-		heldObj.transform.position = Index1.position + heldObj.fromHand;
+		// heldObj.transform.position = Index1.position + heldObj.fromHand;
 	}
 
 	private void PickUp(){
-		RaycastHit hit;
-		//if (Physics.SphereCast(Wrist.position, palmDistance, Wrist.up, out hit, CCUtils.LayerMask(8))) {
-		//	Debug.Log(hit.collider.gameObject);
-		//}
-		int[] mask = {8, 9};
-
-		Debug.Log("PickUp");
-		if (Physics.Raycast(Palm.position + Wrist.up*1.5f, -Wrist.up, out hit, palmDistance, CCUtils.LayerMask(mask)) ||
-			Physics.Raycast(Palm.position + Wrist.up*1.5f -  Wrist.right * 5, -Wrist.up, out hit, palmDistance, CCUtils.LayerMask(mask)) ||
-			Physics.Raycast(Palm.position + Wrist.up*1.5f  + Wrist.right * 5, -Wrist.up, out hit, palmDistance, CCUtils.LayerMask(mask))) {
-			Debug.Log("PickUp obj " + hit.collider.gameObject);
-			if(hit.collider.gameObject.GetComponent<CC_Pickup>() != null && heldObj == null)
-				HoldObj(hit.collider.gameObject.GetComponent<CC_Pickup>());
+		CC_Pickup obj = pickupHandler.GetItem();
+		if(obj != null){
+			if(obj.gameObject.GetComponent<CC_Pickup>() != null && heldObj == null)
+				HoldObj(obj.gameObject.GetComponent<CC_Pickup>());
 		}
 	}
 
 	private void HoldObj(CC_Pickup obj) {
-		heldObj = obj;
-		heldObj.rigidbody.freezeRotation = true;
-		heldObj.fromHand = heldObj.transform.position - Palm.position;
+		if(heldObj == null){
+			heldObj = obj;
+			// heldObj.rigidbody.freezeRotation = true;
+			heldObj.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+			heldObj.transform.parent = Palm;
+			// heldObj.fromHand = heldObj.transform.position - Palm.position;
+		}
 	}
 
 	private void LetGo() {
 		if (heldObj != null) {
-			heldObj.rigidbody.freezeRotation = false;
+			heldObj.rigidbody.constraints = RigidbodyConstraints.None;
+			heldObj.transform.parent = null;
+			// heldObj.rigidbody.freezeRotation = false;
 			heldObj = null;
+			pickupHandler.Empty();
 		}
 	}
 
