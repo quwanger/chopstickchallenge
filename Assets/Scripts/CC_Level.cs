@@ -123,17 +123,17 @@ public class CC_Level : MonoBehaviour {
 		
 		if(gameOver){
 			if(isWinner){
-				if(Input.GetKeyDown(KeyCode.Alpha1)){
+				if(Input.GetKeyDown(KeyCode.Alpha1) || Wii.GetButton(0, "ONE") || Wii.GetButton(1, "ONE")){
 					soundManager.playSound(SoundType.accept);
 					StartCoroutine(doFade(nextLevel));
 				}
 			}else{
-				if(Input.GetKeyDown(KeyCode.Alpha1)){
+				if(Input.GetKeyDown(KeyCode.Alpha1) || Wii.GetButton(0, "ONE") || Wii.GetButton(1, "ONE")){
 					soundManager.playSound(SoundType.accept);
 					StartCoroutine(doFade(Application.loadedLevel.ToString()));
 				}
 			}
-			if(Input.GetKeyDown(KeyCode.Alpha2)){
+			if(Input.GetKeyDown(KeyCode.Alpha2) || Wii.GetButton(0, "TWO") || Wii.GetButton(1, "TWO")){
 				soundManager.playSound(SoundType.back);
 				StartCoroutine(doFade("Menu"));
 			}

@@ -49,14 +49,14 @@ public class CC_Wii : MonoBehaviour{
 				Wii.CalibrateMotionPlus(leftRemote);
 			} else if(Wii.GetButtonDown(leftRemote, "TWO")) {
 				Debug.Log("Uncalibrate Left Remote");
-				Wii.UncalibrateMotionPlus(leftRemote);
+				//Wii.UncalibrateMotionPlus(leftRemote);
 			}
 
 			if(Wii.GetButtonDown(rightRemote, "PLUS")) {
 				Wii.CalibrateMotionPlus(rightRemote);
 			} else if (Wii.GetButtonDown(rightRemote, "MINUS")) {
 				Debug.Log("Calibrate Right Remote");
-				Wii.UncalibrateMotionPlus(rightRemote);
+				//Wii.UncalibrateMotionPlus(rightRemote);
 			}
 			
 			/************************* IR ******************************/
