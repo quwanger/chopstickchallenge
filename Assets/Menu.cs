@@ -61,7 +61,7 @@ public class Menu : MonoBehaviour {
 			
 		if(inputActive)
 		{	
-			if(Input.GetKeyDown(KeyCode.K))
+			if(Input.GetKeyDown(KeyCode.A))
 			{
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
 				if(inputIndex == 1){
@@ -73,7 +73,7 @@ public class Menu : MonoBehaviour {
 				}	
 			}
 	
-			if(Input.GetKeyDown(KeyCode.L))
+			if(Input.GetKeyDown(KeyCode.D))
 			{	
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
 				if(inputIndex == 1){
@@ -197,7 +197,7 @@ public class Menu : MonoBehaviour {
 		// options
 		if(optionsActive == true)
 		{
-			if(Input.GetKeyDown(KeyCode.K))
+			if(Input.GetKeyDown(KeyCode.A))
 			{
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
 				if(optionsIndex == 1){
@@ -209,7 +209,7 @@ public class Menu : MonoBehaviour {
 				}	
 			}
 	
-			if(Input.GetKeyDown(KeyCode.L))
+			if(Input.GetKeyDown(KeyCode.D))
 			{	
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
 				if(optionsIndex == 1){
