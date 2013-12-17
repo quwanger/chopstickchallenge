@@ -21,7 +21,7 @@ public class CC_Sushi : CC_Pickup {
 			level.soundManager.playSound(CC_Level.SoundType.sushiDrop);
 		}else if(collision.gameObject.GetComponent<CC_Chopstick>()){
 			level.soundManager.playSound(CC_Level.SoundType.sushiCollide);
-		}else if(collision.gameObject.name == "ground" && !hitTheFloor){
+		}else if((collision.gameObject.name == "ground" || collision.gameObject.name == "floor")&& !hitTheFloor){
 			level.soundManager.playSound(CC_Level.SoundType.demotivational);
 			level.availablePoints -= this.PointValue;
 			Debug.Log(level.availablePoints);

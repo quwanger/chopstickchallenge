@@ -314,6 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5ff744995ad4b0d8be8f83e12866f1, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   MagneticConstant: 1
 --- !u!1001 &163124969
 Prefab:
@@ -882,6 +884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5ff744995ad4b0d8be8f83e12866f1, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   MagneticConstant: 1
 --- !u!1 &274036802
 GameObject:
@@ -1004,6 +1008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 10000
   GripConstant: 1
 --- !u!64 &303591835
@@ -1335,6 +1341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 50000
   GripConstant: 1
 --- !u!95 &469538330
@@ -1590,6 +1598,7 @@ MonoBehaviour:
   goLose: {fileID: 100000, guid: c586d0f916e5b4c4da1497a56a7e2e11, type: 2}
   gameOver: 0
   isWinner: 0
+  searchingForWiimotes: 0
   fadeOut: 0
   Overlay: {fileID: 2800000, guid: d120701c4a5c44ae3a0bc33caf1af7cb, type: 3}
   soundManager: {fileID: 0}
@@ -1872,6 +1881,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 50000
   GripConstant: 1
 --- !u!95 &517046751
@@ -2170,6 +2181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 20000
   GripConstant: 1
 --- !u!95 &662670054
@@ -3552,6 +3565,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 50000
   GripConstant: 1
 --- !u!95 &1159864445
@@ -4153,6 +4168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 10000
   GripConstant: 1
 --- !u!64 &1338257095
@@ -4343,6 +4360,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 10000
   GripConstant: 1
 --- !u!64 &1474077451
@@ -4440,7 +4459,7 @@ GameObject:
   - 114: {fileID: 1488367057}
   - 111: {fileID: 1488367059}
   m_Layer: 0
-  m_Name: LeftArm
+  m_Name: leftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5539,6 +5558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 10000
   GripConstant: 1
 --- !u!64 &1829465230
@@ -5911,6 +5932,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 20000
   GripConstant: 1
 --- !u!95 &1944949795
@@ -6090,6 +6113,14 @@ Prefab:
       propertyPath: DebugMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
+      propertyPath: goWin
+      value: 
+      objectReference: {fileID: 100006, guid: c2aad19bf7a9a4a5a84957d251eaa965, type: 2}
+    - target: {fileID: 11400000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
+      propertyPath: goLose
+      value: 
+      objectReference: {fileID: 100000, guid: c586d0f916e5b4c4da1497a56a7e2e11, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
   m_RootGameObject: {fileID: 501305223}
