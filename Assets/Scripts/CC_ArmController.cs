@@ -13,7 +13,8 @@ public class CC_ArmController : MonoBehaviour {
 	private CC_Controller.Side side;
 
 	#region Joints
-	private Transform Arm, Root, Elbow, Forearm, Wrist;
+	public Transform Root, Wrist;
+	private Transform Arm, Elbow, Forearm;
 
 	private Transform Index1, Index2, Index3, Index4;
 
@@ -28,16 +29,9 @@ public class CC_ArmController : MonoBehaviour {
 	private Transform Palm;
 
 	#region colliders
-
-	private Transform PalmCollider{ get{ return Palm.GetChild(0); } }
-	private Transform Finger1Collider{ get{ return Middle1.GetChild(1); } }
-	private Transform Finger2Collider{ get{ return Middle2.GetChild(1); } }
-	private Transform Finger3Collider{ get{ return Middle3.GetChild(1); } }
-	private Transform Finger4Collider{ get{ return Middle4.GetChild(0); } }
-
-	private Transform Thumb1Collider{ get{ return Thumb1.GetChild(1); } }
-	private Transform Thumb2Collider{ get{ return Thumb2.GetChild(1); } }
-	private Transform Thumb3Collider{ get{ return Thumb3.GetChild(0); } }
+	private Transform PalmCollider;
+	private Transform Finger1Collider, Finger2Collider, Finger3Collider, Finger4Collider;
+	private Transform Thumb1Collider, Thumb2Collider, Thumb3Collider;
 
 	#endregion
 
@@ -82,28 +76,37 @@ public class CC_ArmController : MonoBehaviour {
 		Arm = transform.FindChild("Arm_" + s);
 		Root = transform.FindChild("Root_" + s);
 		Elbow = Root.FindChild("Elbow_" + s);
-		//Forearm
-		//Wrist
-		//Index1
-		//Index2
-		//Index3
-		//Index4
-		//Middle1
-		//Middle2
-		//Middle3
-		//Middle4
-		//Ring1
-		//Ring2
-		//Ring3
-		//Ring4
-		//Pinkie1
-		//Pinkie2
-		//Pinkie3
-		//Pinkie4
-		//Thumb1
-		//Thumb2
-		//Thumb3
-		//Palm
+		Forearm = Elbow.FindChild("Forearm_" + s);
+		Wrist = Forearm.FindChild("Wrist_" + s);
+		Index1 = Wrist.FindChild(s + "_index1");
+		Index2 = Index1.FindChild(s + "_index2");
+		Index3 = Index2.FindChild(s + "_index3");
+		Index4 = Index3.FindChild(s + "_index4");
+		Middle1 = Wrist.FindChild(s + "_middle1");
+		Middle2 = Middle1.FindChild(s + "_middle2");
+		Middle3 = Middle2.FindChild(s + "_middle3");
+		Middle4 = Middle3.FindChild(s + "_middle4");
+		Palm = Wrist.FindChild(s + "_Palm_pnt");
+		Pinkie1 = Wrist.FindChild(s + "_pinkie1");
+		Pinkie2 = Pinkie1.FindChild(s + "_pinkie2");
+		Pinkie3 = Pinkie2.FindChild(s + "_pinkie3");
+		Pinkie4 = Pinkie3.FindChild(s + "_pinkie4");
+		Ring1 = Wrist.FindChild(s + "_ring1");
+		Ring2 = Ring1.FindChild(s + "_ring2");
+		Ring3 = Ring2.FindChild(s + "_ring3");
+		Ring4 = Ring3.FindChild(s + "_ring4");
+		Thumb1 = Wrist.FindChild(s + "_thumb1");
+		Thumb2 = Thumb1.FindChild(s + "_thumb2");
+		Thumb3 = Thumb2.FindChild(s + "_thumb3");
+
+		PalmCollider = Palm.FindChild("Arm_Box_Palm");
+		Finger1Collider = Middle1.FindChild("Arm_Box_Middle01");
+		Finger2Collider = Middle2.FindChild("Arm_Box_Middle02");
+		Finger3Collider = Middle3.FindChild("Arm_Box_Middle03");
+		Finger4Collider = Middle4.FindChild("Arm_Box_Middle04");
+		Thumb1Collider = Thumb1.FindChild("Arm_Box_Thumb01");
+		Thumb2Collider = Thumb2.FindChild("Arm_Box_Thumb02");
+		Thumb3Collider = Thumb3.FindChild("Arm_Box_Thumb03");
 	}
 	
 	void Update () {
@@ -222,22 +225,25 @@ public class CC_ArmController : MonoBehaviour {
 	void OnDrawGizmos() {
 		// Gizmos.color = Color.red;
 		// Gizmos.DrawRay(Palm.position, Palm.up * 5);
-		Gizmos.color = Color.cyan;
-		Gizmos.DrawRay(Palm.position, Palm.forward * 5);
-		Gizmos.color = Color.yellow;
-		Gizmos.DrawRay(Palm.position, Palm.right * 5);
+		if(Palm != null) {
+			Gizmos.color = Color.cyan;
+			Gizmos.DrawRay(Palm.position, Palm.forward * 5);
+			Gizmos.color = Color.yellow;
+			Gizmos.DrawRay(Palm.position, Palm.right * 5);
 
-		Gizmos.color= Color.red;
-		Gizmos.DrawCube(Palm.position+Wrist.up*1.5f, new Vector3(0.5f, 0.5f, 0.5f));
+			Gizmos.color= Color.red;
+			Gizmos.DrawCube(Palm.position+Wrist.up*1.5f, new Vector3(0.5f, 0.5f, 0.5f));
 
-		Gizmos.color = Color.magenta;
-		Gizmos.DrawRay(Palm.position+Wrist.up*1.5f, -Wrist.up * palmDistance);
+			Gizmos.color = Color.magenta;
+			Gizmos.DrawRay(Palm.position+Wrist.up*1.5f, -Wrist.up * palmDistance);
 
-		Gizmos.color = Color.magenta;
-		Gizmos.DrawRay(Palm.position+Wrist.up*1.5f + Wrist.right * 5, -Wrist.up * palmDistance);
+			Gizmos.color = Color.magenta;
+			Gizmos.DrawRay(Palm.position+Wrist.up*1.5f + Wrist.right * 5, -Wrist.up * palmDistance);
 
-		Gizmos.color = Color.magenta;
-		Gizmos.DrawRay(Palm.position+Wrist.up*1.5f - Wrist.right * 5, -Wrist.up * palmDistance);
+			Gizmos.color = Color.magenta;
+			Gizmos.DrawRay(Palm.position+Wrist.up*1.5f - Wrist.right * 5, -Wrist.up * palmDistance);
+		}
+		
 	}
 
 	#region InputHandlers
