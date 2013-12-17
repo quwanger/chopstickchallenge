@@ -10,42 +10,22 @@ public class CC_ArmController : MonoBehaviour {
 		}
 	}
 
+	private CC_Controller.Side side;
+
 	#region Joints
-	private Transform Arm{ get{ return transform.GetChild(0); } }
+	private Transform Arm, Root, Elbow, Forearm, Wrist;
 
-	public Transform Root{ get{ return transform.GetChild(1); } }
+	private Transform Index1, Index2, Index3, Index4;
 
-	private Transform Elbow{ get{ return Root.GetChild(0); } }
+	private Transform Middle1, Middle2, Middle3, Middle4;
 
-	private Transform Forearm{ get{ return Elbow.GetChild(0); } }
+	private Transform Ring1, Ring2, Ring3, Ring4;
 
-	public Transform Wrist{ get{ return Forearm.GetChild(0); } }
+	private Transform Pinkie1, Pinkie2, Pinkie3, Pinkie4;
 
-	private Transform Index1{ get{ return Wrist.GetChild(0); } }
-	private Transform Index2{ get{ return Index1.GetChild(1); } }
-	private Transform Index3{ get{ return Index2.GetChild(1); } }
-	private Transform Index4{ get{ return Index3.GetChild(1); } }
+	private Transform Thumb1, Thumb2, Thumb3;
 
-	private Transform Middle1{ get{ return Wrist.GetChild(1); } }
-	private Transform Middle2{ get{ return Middle1.GetChild(0); } }
-	private Transform Middle3{ get{ return Middle2.GetChild(0); } }
-	private Transform Middle4{ get{ return Middle3.GetChild(0); } }
-
-	private Transform Ring1{ get{ return Wrist.GetChild(4); } }
-	private Transform Ring2{ get{ return Ring1.GetChild(1); } }
-	private Transform Ring3{ get{ return Ring2.GetChild(1); } }
-	private Transform Ring4{ get{ return Ring3.GetChild(1); } }
-
-	private Transform Pinkie1{ get{ return Wrist.GetChild(3); } }
-	private Transform Pinkie2{ get{ return Pinkie1.GetChild(1); } }
-	private Transform Pinkie3{ get{ return Pinkie2.GetChild(1); } }
-	private Transform Pinkie4{ get{ return Pinkie3.GetChild(1); } }
-
-	private Transform Thumb1{ get{ return Wrist.GetChild(5); } }
-	private Transform Thumb2{ get{ return Thumb1.GetChild(0); } }
-	private Transform Thumb3{ get{ return Thumb2.GetChild(0); } }
-
-	private Transform Palm{ get{ return Wrist.GetChild(2); } }
+	private Transform Palm;
 
 	#region colliders
 
@@ -84,6 +64,9 @@ public class CC_ArmController : MonoBehaviour {
 	CC_Pickup heldObj;
 	
 	void Awake() {
+		side = GetComponent<CC_Controller>().side;
+		initJoints();
+
 		restZPosition = position.z;
 		pickupHandler = Middle1.GetComponent<CC_PickupHandler>();
 	}
@@ -92,6 +75,35 @@ public class CC_ArmController : MonoBehaviour {
 		speed = 0.5f;
 		// PalmZone = Wrist.GetComponent<SphereCollider>();
 		// Debug.Log(PalmZone.gameObject);
+	}
+
+	private void initJoints() {
+		char s = (side == CC_Controller.Side.right) ? 'R' : 'L';
+		Arm = transform.FindChild("Arm_" + s);
+		Root = transform.FindChild("Root_" + s);
+		Elbow = Root.FindChild("Elbow_" + s);
+		//Forearm
+		//Wrist
+		//Index1
+		//Index2
+		//Index3
+		//Index4
+		//Middle1
+		//Middle2
+		//Middle3
+		//Middle4
+		//Ring1
+		//Ring2
+		//Ring3
+		//Ring4
+		//Pinkie1
+		//Pinkie2
+		//Pinkie3
+		//Pinkie4
+		//Thumb1
+		//Thumb2
+		//Thumb3
+		//Palm
 	}
 	
 	void Update () {
