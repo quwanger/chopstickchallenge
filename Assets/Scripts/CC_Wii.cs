@@ -142,7 +142,7 @@ public class CC_Wii : MonoBehaviour{
 				);
 			}
 
-			if(Wii.GetButton(leftRemote, "B")) {
+			/*if(Wii.GetButton(leftRemote, "B")) {
 				leftArmController.Clench();
 			}
 			
@@ -155,6 +155,18 @@ public class CC_Wii : MonoBehaviour{
 			}
 			
 			if(Wii.GetButton(rightRemote, "A")) {
+				rightArmController.Unclench();
+			}*/
+			
+			if(Wii.GetButtonDown(leftRemote, "B")) {
+				leftArmController.Clench();
+			}else if(Wii.GetButtonUp(leftRemote, "B")){
+				leftArmController.Unclench();
+			}
+			
+			if(Wii.GetButtonDown(rightRemote, "B")) {
+				rightArmController.Clench();
+			}else if(Wii.GetButtonUp(rightRemote, "B")){
 				rightArmController.Unclench();
 			}
 		}

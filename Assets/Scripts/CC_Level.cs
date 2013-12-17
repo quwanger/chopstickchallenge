@@ -13,7 +13,9 @@ public class CC_Level : MonoBehaviour {
 	
 	public GameObject[] cutouts;
 	public bool isBeingMotivated = false;
-		
+	
+	public float t;
+	
 	public GUIText results;
 	public GUIText finishMenu;
 	public GameObject goWin;
@@ -94,6 +96,8 @@ public class CC_Level : MonoBehaviour {
 			}
 		}
 		
+		t = GameObject.Find("CC_Level").GetComponent<CC_TimeManager>().timeInMillis;
+		
 		if(playerScore >= pointsToWin && gameOver == false){
 			//player wins
 			gameOver = true;
@@ -108,7 +112,7 @@ public class CC_Level : MonoBehaviour {
 			this.GetComponent<CC_TimeManager>().StopTimer();
 			//	stop controls
 			//	stop all other sounds
-		}else if((levelTime <= 0 && gameOver == false) || (availablePoints < pointsToWin && gameOver == false)){
+		}else if((t <= 0 && gameOver == false) || (availablePoints < pointsToWin && gameOver == false)){
 			//player loses
 			gameOver = true;
 			pointsToAdd = 0;
