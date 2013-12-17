@@ -147,40 +147,74 @@ public class CC_Controller : MonoBehaviour {
 		// 	rot -= 2.0f;
 		// 	this.transform.Rotate(rot, 0, 0);
 		// }
+		
+		
 
-		if(side == Side.left){
+		if(side == Side.left){			
 			translateArm(
 				Input.GetAxis("HorizontalL") * Sensitivity * TranslateSpeed,
-				Input.GetAxis("VerticalL") * Sensitivity * TranslateSpeed,
-				(Mathf.Pow(Input.GetAxis("TriggerL"), 2) - Mathf.Pow(Input.GetAxis("TriggerR"), 2)) * Sensitivity * TranslateSpeed
+				Input.GetAxis("VerticalR") * Sensitivity * TranslateSpeed,
+				//(Mathf.Pow(Input.GetAxis("LBumper"), 2) - Mathf.Pow(Input.GetAxis("RBumper"), 2)) * Sensitivity * TranslateSpeed,
+				Input.GetAxis("VerticalL") * Sensitivity * TranslateSpeed
 			);
-
-			if(Input.GetAxis("Fire1") == 1){
+			
+			if(Input.GetAxis("TriggerR") == 1 || Input.GetAxis ("TriggerL") == 1){
 				arm.Clench();
 			} else {
 				arm.Unclench();
 			}
-
-			if(Input.GetKey(KeyCode.Space))
-				rotateWrist(Input.GetAxis("HorizontalR") * RotateSpeed, -Input.GetAxis("VerticalR") * RotateSpeed, RotateSpeed * (Input.GetAxis("Fire3") - Input.GetAxis("Fire2")));
-			else
-				rotateArm(Input.GetAxis("HorizontalR") * RotateSpeed, -Input.GetAxis("VerticalR") * RotateSpeed, RotateSpeed * (Input.GetAxis("Fire3") - Input.GetAxis("Fire2")));
-
+			
+			rotateWrist(RotateSpeed * (Input.GetAxis("Fire3") - Input.GetAxis("Fire2")), -Input.GetAxis("VerticalR"), Input.GetAxis("HorizontalR"));
+		}
+		
+		if(side == Side.right){			
+			translateArm(
+				Input.GetAxis("2_HorizontalL") * Sensitivity * TranslateSpeed,
+				Input.GetAxis("2_VerticalR") * Sensitivity * TranslateSpeed,
+				//(Mathf.Pow(Input.GetAxis("2_LBumper"), 2) - Mathf.Pow(Input.GetAxis("2_RBumper"), 2)) * Sensitivity * TranslateSpeed,
+				Input.GetAxis("2_VerticalL") * Sensitivity * TranslateSpeed
+			);
+			
+			if(Input.GetAxis("2_TriggerR") == 1 || Input.GetAxis ("2_TriggerL") == 1){
+				arm.Clench();
+			} else {
+				arm.Unclench();
+			}
+			
+			rotateWrist(RotateSpeed * (Input.GetAxis("2_Fire3") - Input.GetAxis("2_Fire2")), -Input.GetAxis("2_VerticalR"), Input.GetAxis("2_HorizontalR"));
 		}
 	}
 
 	private void translateArm(float x, float y, float z) {
-		transform.position = Vector3.Lerp(
-			transform.position,
-			new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z + z),
-			TranslateLerp
-		);
+		if(side == Side.left) {
+			transform.position = Vector3.Lerp(
+				transform.position,
+				new Vector3(transform.position.x + x, transform.position.y - y, transform.position.z - z),
+				TranslateLerp
+			);
+		}
+		
+		if(side == Side.right) {
+			transform.position = Vector3.Lerp(
+				transform.position,
+				new Vector3(transform.position.x + x, transform.position.y - y, transform.position.z - z),
+				TranslateLerp
+			);
+		}
 	}
 
 	private void rotateWrist(float x, float y, float z) {
-		arm.Wrist.Rotate(arm.Wrist.up, x, Space.World);
-		arm.Wrist.Rotate(arm.Wrist.forward, y, Space.World);
-		arm.Wrist.Rotate(arm.Wrist.right, z, Space.World);
+		if(side == Side.left) {
+			arm.Wrist.Rotate(arm.Wrist.up, x, Space.World);
+			arm.Wrist.Rotate(arm.Wrist.forward, y, Space.World);
+			arm.Wrist.Rotate(arm.Wrist.right, -z, Space.World);
+		}
+		
+		if(side == Side.right) {
+			arm.Wrist.Rotate(arm.Wrist.up, -x, Space.World);
+			arm.Wrist.Rotate(arm.Wrist.forward, z, Space.World);
+			arm.Wrist.Rotate(arm.Wrist.right, -y, Space.World);
+		}
 	}
 
 	private void resetRotateWrist() {
