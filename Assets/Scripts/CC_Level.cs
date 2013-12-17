@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class CC_Level : MonoBehaviour {
 
+	public float ChopstickPickupDistance = 2.0f;
+
 	public List<CC_Sushi> sushi = new List<CC_Sushi>();
 	public List<CC_Chopstick> chopsticks = new List<CC_Chopstick>();
 	public CC_Mouth mouth;

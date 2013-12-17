@@ -4,9 +4,15 @@ ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
     100000: //RootNode
+    100002: chopstick
+    100004: locator1
     400000: //RootNode
+    400002: chopstick
+    400004: locator1
     2300000: //RootNode
+    2300002: chopstick
     3300000: //RootNode
+    3300002: chopstick
     4300000: chopstick
     9500000: //RootNode
   materials:
@@ -57,5 +63,5 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   additionalBone: 1
-  animationType: 2
+  animationType: 0
   userData: 
