@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CC_Chopstick : CC_Behaviour {
+public class CC_Chopstick : CC_Pickup {
 	
 	public float MagneticConstant = 1.0f;
 	

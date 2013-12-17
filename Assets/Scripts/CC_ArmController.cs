@@ -52,11 +52,13 @@ public class CC_ArmController : MonoBehaviour {
 	public bool clenched = false;
 	public bool wiiClench = false;
 
-	public float palmDistance = 0.62f;
+	private int clenchTimer = 10;
+
+	public float palmDistance = 2.5f;
 
 	// private SphereCollider PalmZone;
 
-	GameObject heldObj;
+	CC_Pickup heldObj;
 	
 	void Awake() {
 		
@@ -72,7 +74,9 @@ public class CC_ArmController : MonoBehaviour {
 		InputHandle();
 
 		if (wiiClench || Input.GetKey(KeyCode.W) || Input.GetAxis("Fire1") == 1) {
-			PickUp();
+			if(animation["Clench"].time != 0)
+				PickUp();
+
 			MoveObj();
 			if(!animation.IsPlaying("Clench") && clenched == false){
 				animation.Play("Clench");
@@ -104,7 +108,7 @@ public class CC_ArmController : MonoBehaviour {
 		if (heldObj == null)
 			return;
 
-		heldObj.transform.position = Index1.position;
+		heldObj.transform.position = Index1.position + heldObj.fromHand;
 	}
 
 	private void PickUp(){
@@ -112,17 +116,22 @@ public class CC_ArmController : MonoBehaviour {
 		//if (Physics.SphereCast(Wrist.position, palmDistance, Wrist.up, out hit, CCUtils.LayerMask(8))) {
 		//	Debug.Log(hit.collider.gameObject);
 		//}
-		int[] asdf = {8, 9};
+		int[] mask = {8, 9};
 
-		if (Physics.Raycast(Wrist.position, -Wrist.up, out hit, palmDistance, CCUtils.LayerMask(asdf))) {
-			Debug.Log(hit.collider.gameObject);
-			HoldObj(hit.collider.gameObject);
+		Debug.Log("PickUp");
+		if (Physics.Raycast(Palm.position + Wrist.up*1.5f, -Wrist.up, out hit, palmDistance, CCUtils.LayerMask(mask)) ||
+			Physics.Raycast(Palm.position + Wrist.up*1.5f -  Wrist.right * 5, -Wrist.up, out hit, palmDistance, CCUtils.LayerMask(mask)) ||
+			Physics.Raycast(Palm.position + Wrist.up*1.5f  + Wrist.right * 5, -Wrist.up, out hit, palmDistance, CCUtils.LayerMask(mask))) {
+			Debug.Log("PickUp obj " + hit.collider.gameObject);
+			if(hit.collider.gameObject.GetComponent<CC_Pickup>() != null && heldObj == null)
+				HoldObj(hit.collider.gameObject.GetComponent<CC_Pickup>());
 		}
 	}
 
-	private void HoldObj(GameObject obj) {
+	private void HoldObj(CC_Pickup obj) {
 		heldObj = obj;
 		heldObj.rigidbody.freezeRotation = true;
+		heldObj.fromHand = heldObj.transform.position - Palm.position;
 	}
 
 	private void LetGo() {
@@ -162,14 +171,24 @@ public class CC_ArmController : MonoBehaviour {
 	}
 
 	void OnDrawGizmos() {
+		// Gizmos.color = Color.red;
+		// Gizmos.DrawRay(Palm.position, Palm.up * 5);
 		Gizmos.color = Color.cyan;
 		Gizmos.DrawRay(Palm.position, Palm.forward * 5);
-		Gizmos.color = Color.red;
-		Gizmos.DrawRay(Palm.position, Palm.up * 5);
 		Gizmos.color = Color.yellow;
 		Gizmos.DrawRay(Palm.position, Palm.right * 5);
-		Gizmos.color = Color.white;
-		Gizmos.DrawRay(Palm.position, -Wrist.up * palmDistance);
+
+		Gizmos.color= Color.red;
+		Gizmos.DrawCube(Palm.position+Wrist.up*1.5f, new Vector3(0.5f, 0.5f, 0.5f));
+
+		Gizmos.color = Color.magenta;
+		Gizmos.DrawRay(Palm.position+Wrist.up*1.5f, -Wrist.up * palmDistance);
+
+		Gizmos.color = Color.magenta;
+		Gizmos.DrawRay(Palm.position+Wrist.up*1.5f + Wrist.right * 5, -Wrist.up * palmDistance);
+
+		Gizmos.color = Color.magenta;
+		Gizmos.DrawRay(Palm.position+Wrist.up*1.5f - Wrist.right * 5, -Wrist.up * palmDistance);
 	}
 }
 

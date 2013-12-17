@@ -62,7 +62,7 @@ public class CC_Level : MonoBehaviour {
 			availablePoints += s.GetComponent<CC_Sushi>().PointValue;
 		}
 		
-		Debug.Log(availablePoints);
+		//Debug.Log(availablePoints);
 		
 		this.GetComponent<CC_TimeManager>().StartTimer();
 	}
@@ -133,7 +133,7 @@ public class CC_Level : MonoBehaviour {
 			}
 			if(Input.GetKeyDown(KeyCode.Alpha2)){
 				soundManager.playSound(SoundType.back);
-				//StartCoroutine(doFade("Menu"));
+				StartCoroutine(doFade("Menu"));
 			}
 		}
 		
@@ -214,7 +214,6 @@ public class CC_Level : MonoBehaviour {
 	}
 	
 	public void CardboardReturn(GameObject c){
-		Debug.Log("WOOOOOOO");
 		iTween.MoveTo(c, iTween.Hash("x", c.GetComponent<CC_Cardboard>().initialX, "time", 1.0f));
 		isBeingMotivated = false;
 	}
