@@ -158,7 +158,7 @@ public class CC_Controller : MonoBehaviour {
 				Input.GetAxis("VerticalL") * Sensitivity * TranslateSpeed
 			);
 			
-			if(Input.GetAxis("TriggerR") == 1 || Input.GetAxis ("TriggerL") == 1){
+			if(Input.GetAxis("RBumper") == 1 || Input.GetAxis ("LBumper") == 1){
 				arm.Clench();
 			} else {
 				arm.Unclench();
@@ -175,7 +175,7 @@ public class CC_Controller : MonoBehaviour {
 				Input.GetAxis("2_VerticalL") * Sensitivity * TranslateSpeed
 			);
 			
-			if(Input.GetAxis("2_TriggerR") == 1 || Input.GetAxis ("2_TriggerL") == 1){
+			if(Input.GetAxis("2_RBumper") == 1 || Input.GetAxis ("2_LBumper") == 1){
 				arm.Clench();
 			} else {
 				arm.Unclench();
