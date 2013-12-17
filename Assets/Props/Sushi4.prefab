@@ -16,7 +16,7 @@ GameObject:
   - 64: {fileID: 6400000}
   m_Layer: 0
   m_Name: Sushi4
-  m_TagString: Untagged
+  m_TagString: Sushi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,6 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe57461cf69454b95e4c0f6acc7453, type: 3}
   m_Name: 
   players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   PointValue: 15000
   GripConstant: 1
 --- !u!1001 &100100000

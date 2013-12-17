@@ -203,6 +203,12 @@ public class CC_Level : MonoBehaviour {
 			ThrowSetException("chopstick");
 		}
 	}
+
+	// public List<CC_Pickup> pickupObjs{
+	// 	get{
+	// 		return sushi.Concat(chopsticks);
+	// 	}
+	// }
 	
 	public IEnumerator CardboardCutout(){
 		isBeingMotivated = true;

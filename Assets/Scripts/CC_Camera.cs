@@ -7,12 +7,13 @@ public class CC_Camera : CC_Behaviour
 	public float defaultDistance = 10.0f;
 
 	public float distance;
+	public float verticalDistance = 10.0f;
 
 	private Camera camera;
 	private DepthOfFieldScatter depthEffect;
 	private Vector3 target;
 
-	public float edgeBoundAngle = 0.0f;
+	public float edgeBoundAngle = 100.0f;
 
 	public Transform obj1;
 	public Transform obj2;
@@ -49,7 +50,7 @@ public class CC_Camera : CC_Behaviour
 
 		//if (!GeometryUtility.TestPlanesAABB(GeometryUtility.CalculateFrustumPlanes(camera), obj1.collider.bounds)) // Check if object is within bounds of frustum
 
-		transform.position = Vector3.Lerp(transform.position, target - Vector3.back * distance + Vector3.up * distance/5.0f, 0.05f);
+		transform.position = Vector3.Lerp(transform.position, target - Vector3.back * distance + Vector3.up * distance/5.0f + Vector3.up * verticalDistance, 0.05f);
 
 		transform.LookAt(target);
 

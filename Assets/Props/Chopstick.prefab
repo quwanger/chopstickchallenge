@@ -16,7 +16,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Chopstick
-  m_TagString: Untagged
+  m_TagString: Chopstick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,6 +107,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea5ff744995ad4b0d8be8f83e12866f1, type: 3}
   m_Name: 
+  players: []
+  fromHand: {x: 0, y: 0, z: 0}
+  handDistance: 10
   MagneticConstant: 1
 --- !u!1001 &100100000
 Prefab:
