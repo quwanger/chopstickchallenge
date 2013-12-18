@@ -49,14 +49,14 @@ public class CC_Wii : MonoBehaviour{
 				Wii.CalibrateMotionPlus(leftRemote);
 			} else if(Wii.GetButtonDown(leftRemote, "TWO")) {
 				Debug.Log("Uncalibrate Left Remote");
-				Wii.UncalibrateMotionPlus(leftRemote);
+				//Wii.UncalibrateMotionPlus(leftRemote);
 			}
 
 			if(Wii.GetButtonDown(rightRemote, "PLUS")) {
 				Wii.CalibrateMotionPlus(rightRemote);
 			} else if (Wii.GetButtonDown(rightRemote, "MINUS")) {
 				Debug.Log("Calibrate Right Remote");
-				Wii.UncalibrateMotionPlus(rightRemote);
+				//Wii.UncalibrateMotionPlus(rightRemote);
 			}
 			
 			/************************* IR ******************************/
@@ -116,7 +116,9 @@ public class CC_Wii : MonoBehaviour{
 					new Vector3(leftArmController.transform.position.x + speed.x,leftArmController.transform.position.y + speed.y,leftArmController.transform.position.z + (-zDepth)),
 					0.03f
 				);
-			} else if(Wii.GetButton(rightRemote, "UP")) {
+			}
+			
+			if(Wii.GetButton(rightRemote, "UP")) {
 				rightArmController.transform.position = Vector3.Lerp(
 					rightArmController.transform.position, 
 					new Vector3(rightArmController.transform.position.x + speed.x,rightArmController.transform.position.y + speed.y,rightArmController.transform.position.z + (-zDepth)),
@@ -130,7 +132,9 @@ public class CC_Wii : MonoBehaviour{
 					new Vector3(leftArmController.transform.position.x + speed.x,leftArmController.transform.position.y + speed.y,leftArmController.transform.position.z + zDepth),
 					0.03f
 				);
-			} else if(Wii.GetButton(rightRemote, "DOWN")) {
+			}
+			
+			if(Wii.GetButton(rightRemote, "DOWN")) {
 				rightArmController.transform.position = Vector3.Lerp(
 					rightArmController.transform.position, 
 					new Vector3(rightArmController.transform.position.x + speed.x,rightArmController.transform.position.y + speed.y,rightArmController.transform.position.z + zDepth),
@@ -138,17 +142,38 @@ public class CC_Wii : MonoBehaviour{
 				);
 			}
 
-			if(Wii.GetButtonDown(leftRemote, "B")) {
+			if(Wii.GetButton(leftRemote, "B")) {
 				leftArmController.Clench();
-			} else if(Wii.GetButtonDown(rightRemote, "B")) {
+			}
+			
+			if(Wii.GetButton(rightRemote, "B")) {
 				rightArmController.Clench();
 			}
 
-			if(Wii.GetButtonUp(leftRemote, "B")) {
+			if(Wii.GetButton(leftRemote, "A")) {
 				leftArmController.Unclench();
-			} else if(Wii.GetButtonUp(rightRemote, "B")) {
+			}
+			
+			if(Wii.GetButton(rightRemote, "A")) {
 				rightArmController.Unclench();
 			}
+			
+			/*if(Wii.GetButtonDown(leftRemote, "B")) {
+				Debug.Log("DKD");
+				leftArmController.Clench();
+			}
+			
+			if(Wii.GetButtonUp(leftRemote, "B")){
+				leftArmController.Unclench();
+			}
+			
+			if(Wii.GetButtonDown(rightRemote, "B")) {
+				rightArmController.Clench();
+			}
+			
+			if(Wii.GetButtonUp(rightRemote, "B")){
+				rightArmController.Unclench();
+			}*/
 		}
 
 		// Rotations
@@ -156,13 +181,13 @@ public class CC_Wii : MonoBehaviour{
 			//Debug.Log(Wii.GetMotionPlus(leftRemote));
 
 			if(Wii.IsMotionPlusCalibrated(leftRemote)) {
+				
 				// Get motion data
 				Vector3 motionLeft = Wii.GetMotionPlus(leftRemote);
 				
 				// To manually calibrate during the game. This will be put in the pause menu once it's implemented
-				if(Input.GetKeyDown("space") || Wii.GetButtonDown(leftRemote,"HOME")) {
+				if(Input.GetKeyDown("space") || Wii.GetButton(leftRemote,"HOME")) {
 					//leftArm.localRotation = Quaternion.identity;
-					leftArmController.Wrist.rotation = Quaternion.Euler(resetX,resetY,resetZ);
 					leftArmController.Root.rotation = Quaternion.Euler(0,90,0);
 				}
 
@@ -182,17 +207,16 @@ public class CC_Wii : MonoBehaviour{
 				Vector3 motionRight = Wii.GetMotionPlus(rightRemote);
 				
 				// To manually calibrate during the game. This will be put in the pause menu once it's implemented
-				if(Input.GetKeyDown("space") || Wii.GetButtonDown(rightRemote,"HOME")) {
+				if(Input.GetKeyDown("space") || Wii.GetButton(rightRemote,"HOME")) {
 					//rightArm.localRotation = Quaternion.identity;
-					rightArmController.Wrist.rotation = Quaternion.Euler(resetX,resetY,resetZ);
-					rightArmController.Root.rotation = Quaternion.Euler(0,90,0);
+					rightArmController.Root.rotation = Quaternion.Euler(180,-90,0);
 				}
 				
 				// Rotate the object
 				rightArmController.Root.Rotate(rightArmController.Root.forward,-motionRight.x*2,Space.World);
 				rightArmController.Root.Rotate(rightArmController.Root.up,motionRight.y*2,Space.World);
-				rightArmController.Wrist.Rotate(rightArmController.Wrist.forward,-motionRight.x*2,Space.World);
-				rightArmController.Wrist.Rotate(rightArmController.Wrist.up,motionRight.y*2,Space.World);
+				//rightArmController.Wrist.Rotate(rightArmController.Wrist.forward,-motionRight.x*2,Space.World);
+				//rightArmController.Wrist.Rotate(rightArmController.Wrist.up,motionRight.y*2,Space.World);
 			}
 		}
 	}
