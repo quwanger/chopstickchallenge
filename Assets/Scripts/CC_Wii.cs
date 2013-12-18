@@ -142,7 +142,7 @@ public class CC_Wii : MonoBehaviour{
 				);
 			}
 
-			/*if(Wii.GetButton(leftRemote, "B")) {
+			if(Wii.GetButton(leftRemote, "B")) {
 				leftArmController.Clench();
 			}
 			
@@ -156,19 +156,24 @@ public class CC_Wii : MonoBehaviour{
 			
 			if(Wii.GetButton(rightRemote, "A")) {
 				rightArmController.Unclench();
-			}*/
+			}
 			
-			if(Wii.GetButtonDown(leftRemote, "B")) {
+			/*if(Wii.GetButtonDown(leftRemote, "B")) {
+				Debug.Log("DKD");
 				leftArmController.Clench();
-			}else if(Wii.GetButtonUp(leftRemote, "B")){
+			}
+			
+			if(Wii.GetButtonUp(leftRemote, "B")){
 				leftArmController.Unclench();
 			}
 			
 			if(Wii.GetButtonDown(rightRemote, "B")) {
 				rightArmController.Clench();
-			}else if(Wii.GetButtonUp(rightRemote, "B")){
-				rightArmController.Unclench();
 			}
+			
+			if(Wii.GetButtonUp(rightRemote, "B")){
+				rightArmController.Unclench();
+			}*/
 		}
 
 		// Rotations
@@ -183,7 +188,6 @@ public class CC_Wii : MonoBehaviour{
 				// To manually calibrate during the game. This will be put in the pause menu once it's implemented
 				if(Input.GetKeyDown("space") || Wii.GetButton(leftRemote,"HOME")) {
 					//leftArm.localRotation = Quaternion.identity;
-					leftArmController.Wrist.rotation = Quaternion.Euler(resetX,resetY,resetZ);
 					leftArmController.Root.rotation = Quaternion.Euler(0,90,0);
 				}
 
@@ -205,15 +209,14 @@ public class CC_Wii : MonoBehaviour{
 				// To manually calibrate during the game. This will be put in the pause menu once it's implemented
 				if(Input.GetKeyDown("space") || Wii.GetButton(rightRemote,"HOME")) {
 					//rightArm.localRotation = Quaternion.identity;
-					rightArmController.Wrist.rotation = Quaternion.Euler(resetX,resetY,resetZ);
-					rightArmController.Root.rotation = Quaternion.Euler(0,90,0);
+					rightArmController.Root.rotation = Quaternion.Euler(180,-90,0);
 				}
 				
 				// Rotate the object
 				rightArmController.Root.Rotate(rightArmController.Root.forward,-motionRight.x*2,Space.World);
 				rightArmController.Root.Rotate(rightArmController.Root.up,motionRight.y*2,Space.World);
-				rightArmController.Wrist.Rotate(rightArmController.Wrist.forward,-motionRight.x*2,Space.World);
-				rightArmController.Wrist.Rotate(rightArmController.Wrist.up,motionRight.y*2,Space.World);
+				//rightArmController.Wrist.Rotate(rightArmController.Wrist.forward,-motionRight.x*2,Space.World);
+				//rightArmController.Wrist.Rotate(rightArmController.Wrist.up,motionRight.y*2,Space.World);
 			}
 		}
 	}
