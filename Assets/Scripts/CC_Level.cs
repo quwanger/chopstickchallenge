@@ -14,12 +14,16 @@ public class CC_Level : MonoBehaviour {
 	public GameObject[] cutouts;
 	public bool isBeingMotivated = false;
 	
+	public float t;
+	
 	public GUIText results;
 	public GUIText finishMenu;
 	public GameObject goWin;
 	public GameObject goLose;
 	public bool gameOver = false;
 	public bool isWinner = false;
+	
+	public bool searchingForWiimotes = false;
 	
 	private float alphaFadeValue = 0.0f;
     private float transitionTimeIn = 2.0f;
@@ -92,6 +96,8 @@ public class CC_Level : MonoBehaviour {
 			}
 		}
 		
+		t = GameObject.Find("CC_Level").GetComponent<CC_TimeManager>().timeInMillis;
+		
 		if(playerScore >= pointsToWin && gameOver == false){
 			//player wins
 			gameOver = true;
@@ -106,7 +112,7 @@ public class CC_Level : MonoBehaviour {
 			this.GetComponent<CC_TimeManager>().StopTimer();
 			//	stop controls
 			//	stop all other sounds
-		}else if((levelTime <= 0 && gameOver == false) || (availablePoints < pointsToWin && gameOver == false)){
+		}else if((t <= 0 && gameOver == false) || (availablePoints < pointsToWin && gameOver == false)){
 			//player loses
 			gameOver = true;
 			pointsToAdd = 0;
@@ -121,20 +127,27 @@ public class CC_Level : MonoBehaviour {
 		
 		if(gameOver){
 			if(isWinner){
-				if(Input.GetKeyDown(KeyCode.Alpha1)){
+				if(Input.GetKeyDown(KeyCode.Alpha1) || Wii.GetButton(0, "ONE") || Wii.GetButton(1, "ONE")){
 					soundManager.playSound(SoundType.accept);
 					StartCoroutine(doFade(nextLevel));
 				}
 			}else{
-				if(Input.GetKeyDown(KeyCode.Alpha1)){
+				if(Input.GetKeyDown(KeyCode.Alpha1) || Wii.GetButton(0, "ONE") || Wii.GetButton(1, "ONE")){
 					soundManager.playSound(SoundType.accept);
 					StartCoroutine(doFade(Application.loadedLevel.ToString()));
 				}
 			}
-			if(Input.GetKeyDown(KeyCode.Alpha2)){
+			if(Input.GetKeyDown(KeyCode.Alpha2) || Wii.GetButton(0, "TWO") || Wii.GetButton(1, "TWO")){
 				soundManager.playSound(SoundType.back);
 				StartCoroutine(doFade("Menu"));
 			}
+		}
+		
+		if(searchingForWiimotes){
+			if(!Wii.IsSearching()){
+				searchingForWiimotes=false;
+				Debug.Log("Wiimote Search Over");
+			}	
 		}
 		
 		if(DebugMode){
@@ -151,6 +164,12 @@ public class CC_Level : MonoBehaviour {
 			}else if(Input.GetKeyDown(KeyCode.C)){
 				StartCoroutine(CardboardCutout());
 			}
+		}
+		
+		if(Input.GetKeyDown(KeyCode.BackQuote)){
+			Debug.Log("Begin Wiimote Calibration");
+			Wii.StartSearch();
+			searchingForWiimotes = true;
 		}
 	}
 	

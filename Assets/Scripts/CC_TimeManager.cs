@@ -31,6 +31,7 @@ public class CC_TimeManager : MonoBehaviour {
 		running = true;
 		level = GameObject.Find("CC_Level").GetComponent<CC_Level>();
 		startTime = Time.time + level.GetComponent<CC_Level>().levelTime;
+		timeInMillis = startTime - Time.time;
 	}
 	
 	public void StopTimer() {
