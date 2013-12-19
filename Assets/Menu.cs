@@ -31,6 +31,9 @@ public class Menu : MonoBehaviour {
 	void Awake() {
 		AudioListener.volume = 0.0f;
 		gold = new Color(255,246,0);
+		GameObject.Find ("controlscheme").guiText.material.SetColor("_Color", gold);
+		GameObject.Find ("wii-mac").guiText.material.SetColor("_Color", gold);
+		GameObject.Find ("xbox-pc").guiText.material.SetColor("_Color", gold);
 	}
 	
 	void Start(){
@@ -61,7 +64,7 @@ public class Menu : MonoBehaviour {
 			
 		if(inputActive)
 		{	
-			if(Input.GetKeyDown(KeyCode.A))
+			if(Input.GetKeyDown(KeyCode.W))
 			{
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
 				if(inputIndex == 1){
@@ -73,7 +76,7 @@ public class Menu : MonoBehaviour {
 				}	
 			}
 	
-			if(Input.GetKeyDown(KeyCode.D))
+			if(Input.GetKeyDown(KeyCode.S))
 			{	
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
 				if(inputIndex == 1){
@@ -197,7 +200,7 @@ public class Menu : MonoBehaviour {
 		// options
 		if(optionsActive == true)
 		{
-			if(Input.GetKeyDown(KeyCode.A))
+			if(Input.GetKeyDown(KeyCode.W))
 			{
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
 				if(optionsIndex == 1){
@@ -209,7 +212,7 @@ public class Menu : MonoBehaviour {
 				}	
 			}
 	
-			if(Input.GetKeyDown(KeyCode.D))
+			if(Input.GetKeyDown(KeyCode.S))
 			{	
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
 				if(optionsIndex == 1){
@@ -298,6 +301,11 @@ public class Menu : MonoBehaviour {
 		GameObject.Find("inputKeyboard").guiText.enabled = false;
 		GameObject.Find("inputWii").guiText.enabled = false;
 		GameObject.Find("inputXbox").guiText.enabled = false;
+		GameObject.Find("help-menu").guiText.enabled = true;
+		GameObject.Find("level-menu").guiText.enabled = false;
+		GameObject.Find("controlscheme").guiText.enabled = false;
+		GameObject.Find("wii-mac").guiText.enabled = false;
+		GameObject.Find("xbox-pc").guiText.enabled = false;
 		
 		GameObject.Find("logo").guiTexture.enabled = true;
 		
@@ -324,6 +332,11 @@ public class Menu : MonoBehaviour {
 		GameObject.Find("wiiImage").guiTexture.enabled = false;
 		GameObject.Find("xboxImage").guiTexture.enabled = false;
 		GameObject.Find("keyboardImage").guiTexture.enabled = false;
+		GameObject.Find("help-menu").guiText.enabled = false;
+		GameObject.Find("level-menu").guiText.enabled = true;
+		GameObject.Find("controlscheme").guiText.enabled = false;
+		GameObject.Find("wii-mac").guiText.enabled = false;
+		GameObject.Find("xbox-pc").guiText.enabled = false;
 
 		GameObject.Find("logo").guiTexture.enabled = false;
 	}
@@ -348,6 +361,11 @@ public class Menu : MonoBehaviour {
 		GameObject.Find("inputKeyboard").guiText.enabled = true;
 		GameObject.Find("inputWii").guiText.enabled = true;
 		GameObject.Find("inputXbox").guiText.enabled = true;
+		GameObject.Find("help-menu").guiText.enabled = false;
+		GameObject.Find("level-menu").guiText.enabled = false;
+		GameObject.Find("controlscheme").guiText.enabled = true;
+		GameObject.Find("wii-mac").guiText.enabled = true;
+		GameObject.Find("xbox-pc").guiText.enabled = true;
 		
 		GameObject.Find("logo").guiTexture.enabled = false;
 	}
@@ -372,6 +390,11 @@ public class Menu : MonoBehaviour {
 		GameObject.Find("inputKeyboard").guiText.enabled = true;
 		GameObject.Find("inputWii").guiText.enabled = true;
 		GameObject.Find("inputXbox").guiText.enabled = true;
+		GameObject.Find("help-menu").guiText.enabled = false;
+		GameObject.Find("level-menu").guiText.enabled = false;
+		GameObject.Find("controlscheme").guiText.enabled = true;
+		GameObject.Find("wii-mac").guiText.enabled = true;
+		GameObject.Find("xbox-pc").guiText.enabled = true;
 		
 		GameObject.Find("logo").guiTexture.enabled = false;
 	}

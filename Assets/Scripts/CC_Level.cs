@@ -128,25 +128,22 @@ public class CC_Level : MonoBehaviour {
 		}
 		
 		if(gameOver){
-			Debug.Log ("GAME OVER");
-			
-			
-			if(Input.GetKeyDown(KeyCode.Alpha2) || Wii.GetButton(0, "TWO") || Wii.GetButton(1, "TWO")){;
-				soundManager.playSound(SoundType.back);
-				StartCoroutine(doFade("Menu"));
-			}else if(isWinner){
-				if(Input.GetKeyDown(KeyCode.Alpha1) || Wii.GetButton(0, "ONE") || Wii.GetButton(1, "ONE")){
+			if(isWinner){
+				if(Input.GetKeyDown(KeyCode.Alpha1)){
 					soundManager.playSound(SoundType.accept);
 					StartCoroutine(doFade(nextLevel));
 				}
 			}else{
-				if(Input.GetKeyDown(KeyCode.Alpha1) || Wii.GetButton(0, "ONE") || Wii.GetButton(1, "ONE")){
+				if(Input.GetKeyDown(KeyCode.Alpha1)){
 					soundManager.playSound(SoundType.accept);
 					StartCoroutine(doFade(Application.loadedLevelName.ToString()));
 				}
 			}
 			
-			
+			if(Input.GetKeyDown(KeyCode.Alpha2)){;
+				soundManager.playSound(SoundType.back);
+				StartCoroutine(doFade("Menu"));
+			}
 		}
 		
 		if(searchingForWiimotes){
