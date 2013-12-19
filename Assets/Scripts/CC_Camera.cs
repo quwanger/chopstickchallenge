@@ -8,6 +8,7 @@ public class CC_Camera : CC_Behaviour
 
 	public float distance;
 	public float verticalDistance = 10.0f;
+	public float minDistance = 20.0f;
 
 	private Camera camera;
 	private DepthOfFieldScatter depthEffect;
@@ -52,6 +53,8 @@ public class CC_Camera : CC_Behaviour
 		zDist = zDist / (2 * Mathf.Atan((camera.fov * Mathf.Deg2Rad - edgeBoundAngle * Mathf.Deg2Rad) / 2));
 
 		distance = Mathf.Max(xDist, zDist);
+		
+		distance = (distance > minDistance) ? distance : minDistance;
 
 		//if (!GeometryUtility.TestPlanesAABB(GeometryUtility.CalculateFrustumPlanes(camera), obj1.collider.bounds)) // Check if object is within bounds of frustum
 
