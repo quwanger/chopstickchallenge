@@ -95,10 +95,8 @@ public class Menu : MonoBehaviour {
 			instructionImages(inputIndex);
 		}
 		
-		
 		if(mmActive)
 		{
-			//Main menu up and down navigation
 			if(Input.GetKeyDown(KeyCode.W))
 			{
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
@@ -132,7 +130,7 @@ public class Menu : MonoBehaviour {
 				if(Input.GetKeyDown(KeyCode.Return))
 				{
 					this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.accept);
-					Application.LoadLevel("main");
+					inputSelection();
 				}
 			}
 			
@@ -178,35 +176,28 @@ public class Menu : MonoBehaviour {
 			{
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.accept);
 				levelSelected = "main";
-				Application.LoadLevel(levelSelected);
+				inputSelection();
 			}
 			
 			if(Input.GetKeyDown(KeyCode.Alpha2))
 			{
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.accept);
 				levelSelected = "Sushi_Restaurant";
-				Application.LoadLevel(levelSelected);
+				inputSelection();
 			}
 			
 			if(Input.GetKeyDown(KeyCode.Alpha3))
 			{
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.accept);
 				levelSelected = "Hospital";
-				Application.LoadLevel(levelSelected);
-			}
-			
-			if(Input.GetKeyDown(KeyCode.Alpha4))
-			{
-				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.accept);
-				levelSelected = "Heaven";
-				Application.LoadLevel(levelSelected);
+				inputSelection();
 			}
 		}
 		
 		// options
 		if(optionsActive == true)
 		{
-			/*if(Input.GetKeyDown(KeyCode.A))
+			if(Input.GetKeyDown(KeyCode.A))
 			{
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
 				if(optionsIndex == 1){
@@ -230,7 +221,7 @@ public class Menu : MonoBehaviour {
 				}
 			}
 			
-			textHighlighting(optionsIndex);*/
+			textHighlighting(optionsIndex);
 			instructionImages(optionsIndex);
 		}
 	}
@@ -262,8 +253,6 @@ public class Menu : MonoBehaviour {
 	
 	void instructionImages(int tempIndex)
 	{
-		tempIndex = 1;
-		
 		if(tempIndex==0)
 		{
 			GameObject.Find("wiiImage").guiTexture.enabled = true;
@@ -356,9 +345,9 @@ public class Menu : MonoBehaviour {
 		GameObject.Find("level3").guiTexture.enabled = false;
 		GameObject.Find("level4").guiTexture.enabled = false;
 		
-		GameObject.Find("inputKeyboard").guiText.enabled = false;
-		GameObject.Find("inputWii").guiText.enabled = false;
-		GameObject.Find("inputXbox").guiText.enabled = false;
+		GameObject.Find("inputKeyboard").guiText.enabled = true;
+		GameObject.Find("inputWii").guiText.enabled = true;
+		GameObject.Find("inputXbox").guiText.enabled = true;
 		
 		GameObject.Find("logo").guiTexture.enabled = false;
 	}
@@ -382,7 +371,7 @@ public class Menu : MonoBehaviour {
 
 		GameObject.Find("inputKeyboard").guiText.enabled = true;
 		GameObject.Find("inputWii").guiText.enabled = true;
-		GameObject.Find("inputXbox").guiText.enabled = false;
+		GameObject.Find("inputXbox").guiText.enabled = true;
 		
 		GameObject.Find("logo").guiTexture.enabled = false;
 	}

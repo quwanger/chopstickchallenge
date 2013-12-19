@@ -2540,7 +2540,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100154, guid: 33e0ee18e5897493a8ab4d5e260f12f4, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33e0ee18e5897493a8ab4d5e260f12f4, type: 2}
@@ -2835,7 +2835,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &683570085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3959,6 +3959,10 @@ Prefab:
       propertyPath: m_BackGroundColor.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: 123bfe9824e6a488084d12771fb22780, type: 2}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400000, guid: 123bfe9824e6a488084d12771fb22780, type: 2}
     - {fileID: 11400002, guid: 123bfe9824e6a488084d12771fb22780, type: 2}
@@ -4655,7 +4659,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: .100000001
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 50
   DopplerLevel: 1
