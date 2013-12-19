@@ -1993,7 +1993,7 @@ MonoBehaviour:
   DebugMode: 0
   pointsToAdd: 0
   pointsToWin: 100000
-  levelTime: 180
+  levelTime: 90
   availablePoints: 0
 --- !u!114 &501305227
 MonoBehaviour:
@@ -7293,6 +7293,10 @@ Prefab:
     - target: {fileID: 11400000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
       propertyPath: ChopstickPickupDistance
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
+      propertyPath: levelTime
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}

@@ -5712,7 +5712,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c4617715a761444abd4ae4d9e30aeff, type: 3}
   m_Name: 
-  ChopstickPickupDistance: 20
+  ChopstickPickupDistance: 10
   sushi: []
   chopsticks: []
   mouth: {fileID: 65541673}
@@ -5740,7 +5740,7 @@ MonoBehaviour:
   DebugMode: 1
   pointsToAdd: 0
   pointsToWin: 300000
-  levelTime: 240
+  levelTime: 150
   availablePoints: 0
 --- !u!4 &816507631
 Transform:
@@ -9686,11 +9686,11 @@ Prefab:
       objectReference: {fileID: 155853959}
     - target: {fileID: 11400000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
       propertyPath: ChopstickPickupDistance
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
       propertyPath: levelTime
-      value: 240
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
