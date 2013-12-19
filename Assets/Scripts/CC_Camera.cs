@@ -36,7 +36,12 @@ public class CC_Camera : CC_Behaviour
 	// Update is called once per frame
 	void Update() {
 		// Get target
-		target = Vector3.Lerp(obj1.transform.position, obj2.transform.position, 0.5f);
+		Vector3 midPoint = Vector3.Lerp(obj1.transform.position, obj2.transform.position, 0.5f);
+		
+		if(Vector3.zero == target)
+			target = midPoint;
+		
+		target = Vector3.Lerp(target, midPoint, 0.1f);
 		//transform.position = target;
 
 		// Find Distance needed

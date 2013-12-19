@@ -360,6 +360,8 @@ MonoBehaviour:
   fromHand: {x: 0, y: 0, z: 0}
   handDistance: 10
   MagneticConstant: 1
+  originalPosition: {x: 0, y: 0, z: 0}
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
   pickupPoint: {fileID: 0}
 --- !u!1 &141141367
 GameObject:
@@ -2541,7 +2543,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef8ec83a9f9d4a6c8593e1be43aff79, type: 3}
   m_Name: 
-  controllerType: 1
+  controllerType: 0
   side: 1
   Sensitivity: 1
   TranslateLerp: .0299999993
@@ -2562,6 +2564,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c785682dbfafa094091594eba5b2a195, type: 3}
   m_Name: 
+  players: []
   speed: 0
   Root: {fileID: 0}
   Wrist: {fileID: 0}
@@ -3134,6 +3137,8 @@ MonoBehaviour:
   fromHand: {x: 0, y: 0, z: 0}
   handDistance: 10
   MagneticConstant: 1
+  originalPosition: {x: 0, y: 0, z: 0}
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
   pickupPoint: {fileID: 0}
 --- !u!64 &782326205
 MeshCollider:
@@ -3380,7 +3385,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: d82649a86a0394aa5a3f3b9007e38256, type: 2}
       propertyPath: controllerType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: d82649a86a0394aa5a3f3b9007e38256, type: 2}
       propertyPath: side
@@ -3964,7 +3969,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400030, guid: 5c4939dafaa08425d9a74512263a6052, type: 2}
   m_PrefabInternal: {fileID: 1894992789}
   m_GameObject: {fileID: 1028418464}
-  m_LocalRotation: {x: -.16495268, y: -.22515206, z: -.177136779, w: .943779469}
+  m_LocalRotation: {x: -.164952695, y: -.225152075, z: -.177136794, w: .943779528}
   m_LocalPosition: {x: .0559925996, y: -.0548980013, z: -.058800675}
   m_LocalScale: {x: .296371251, y: .232558459, z: .325063705}
   m_Children: []
@@ -4544,8 +4549,8 @@ MonoBehaviour:
   players: []
   defaultDistance: 10
   distance: 0
-  verticalDistance: 10
-  edgeBoundAngle: 125
+  verticalDistance: 0
+  edgeBoundAngle: 100
   obj1: {fileID: 2035627820}
   obj2: {fileID: 1152357089}
   debugRayDistance: 5
@@ -4559,20 +4564,6 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c58c67633bf0c4991b913a6d2bf5d600, type: 3}
   m_Name: 
-  rightRemote: 0
-  leftRemote: 0
-  wiiObject: {fileID: 683570084}
-  speed: {x: 0, y: 0, z: 0}
-  zDepth: 0
-  wii: {fileID: 0}
-  leftArmController: {fileID: 1652150050}
-  rightArmController: {fileID: 637858402}
-  lastInput: {x: 0, y: 0, z: 0}
-  handVelLeft: {x: 0, y: 0, z: 0}
-  handVelRight: {x: 0, y: 0, z: 0}
-  resetX: 0
-  resetY: 0
-  resetZ: 0
 --- !u!114 &1205669408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4828,7 +4819,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400052, guid: 5c4939dafaa08425d9a74512263a6052, type: 2}
   m_PrefabInternal: {fileID: 1894992789}
   m_GameObject: {fileID: 1336894063}
-  m_LocalRotation: {x: -.0111985253, y: -.021392297, z: .0305537712, w: .999241412}
+  m_LocalRotation: {x: -.0111985262, y: -.0213922989, z: .030553773, w: .999241471}
   m_LocalPosition: {x: -.0115778605, y: -.0270218924, z: .0232340749}
   m_LocalScale: {x: .521910787, y: .105411559, z: .179020688}
   m_Children: []
@@ -6044,7 +6035,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef8ec83a9f9d4a6c8593e1be43aff79, type: 3}
   m_Name: 
-  controllerType: 1
+  controllerType: 0
   side: 0
   Sensitivity: 1
   TranslateLerp: .0299999993
@@ -6084,6 +6075,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c785682dbfafa094091594eba5b2a195, type: 3}
   m_Name: 
+  players: []
   speed: 0
   Root: {fileID: 0}
   Wrist: {fileID: 0}
@@ -6324,7 +6316,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400018, guid: 5c4939dafaa08425d9a74512263a6052, type: 2}
   m_PrefabInternal: {fileID: 1894992789}
   m_GameObject: {fileID: 1698184528}
-  m_LocalRotation: {x: -.00139294239, y: -.0465484448, z: .00022438087, w: .998915017}
+  m_LocalRotation: {x: -.0013929425, y: -.0465484485, z: .000224380885, w: .998915076}
   m_LocalPosition: {x: -.00606010109, y: -.0708685517, z: .278864145}
   m_LocalScale: {x: .431976616, y: .338966519, z: .473797888}
   m_Children: []
@@ -6926,7 +6918,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5c4939dafaa08425d9a74512263a6052, type: 2}
       propertyPath: controllerType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 5c4939dafaa08425d9a74512263a6052, type: 2}
       propertyPath: m_LocalPosition.x

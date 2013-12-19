@@ -14,7 +14,7 @@ public class CC_Controller : MonoBehaviour {
 	public float RotateLerp = 0.01f;
 
 	public float TranslateSpeed = 15.0f;
-	public float RotateSpeed = 2.0f;
+	public float RotateSpeed = 10.0f;
 	public float ZTranslateSpeed = 0.07f;
 
 	//public CC_ArmController leftArmController;
@@ -151,37 +151,49 @@ public class CC_Controller : MonoBehaviour {
 		
 
 		if(side == Side.left){			
-			translateArm(
-				Input.GetAxis("HorizontalL") * Sensitivity * TranslateSpeed,
-				Input.GetAxis("VerticalR") * Sensitivity * TranslateSpeed,
-				//(Mathf.Pow(Input.GetAxis("LBumper"), 2) - Mathf.Pow(Input.GetAxis("RBumper"), 2)) * Sensitivity * TranslateSpeed,
-				Input.GetAxis("VerticalL") * Sensitivity * TranslateSpeed
-			);
+			if(Input.GetAxis("LBumper") != 1) {
+				translateArm(
+					Input.GetAxis("HorizontalL") * Sensitivity * TranslateSpeed,
+					Input.GetAxis("VerticalR") * Sensitivity * TranslateSpeed,
+					//(Mathf.Pow(Input.GetAxis("LBumper"), 2) - Mathf.Pow(Input.GetAxis("RBumper"), 2)) * Sensitivity * TranslateSpeed,
+					Input.GetAxis("VerticalL") * Sensitivity * TranslateSpeed
+				);
+			}
 			
-			if(Input.GetAxis("RBumper") == 1 || Input.GetAxis ("LBumper") == 1){
+			if(Input.GetAxis("RBumper") == 1){
 				arm.Clench();
 			} else {
 				arm.Unclench();
 			}
 			
-			rotateWrist(RotateSpeed * (Input.GetAxis("Fire3") - Input.GetAxis("Fire2")), -Input.GetAxis("VerticalR"), Input.GetAxis("HorizontalR"));
+			rotateWrist((Input.GetAxis("Fire3") - Input.GetAxis("Fire1")), -Input.GetAxis("VerticalR"), Input.GetAxis("HorizontalR") * RotateSpeed);
+			
+			if(Input.GetAxis("LBumper") == 1) {
+				rotateWrist(Input.GetAxis("HorizontalR") * RotateSpeed, -Input.GetAxis("VerticalR") * RotateSpeed, (Input.GetAxis("Fire3") - Input.GetAxis("Fire1")));
+			}
 		}
 		
-		if(side == Side.right){			
-			translateArm(
-				Input.GetAxis("2_HorizontalL") * Sensitivity * TranslateSpeed,
-				Input.GetAxis("2_VerticalR") * Sensitivity * TranslateSpeed,
-				//(Mathf.Pow(Input.GetAxis("2_LBumper"), 2) - Mathf.Pow(Input.GetAxis("2_RBumper"), 2)) * Sensitivity * TranslateSpeed,
-				Input.GetAxis("2_VerticalL") * Sensitivity * TranslateSpeed
-			);
+		if(side == Side.right){		
+			if(Input.GetAxis("2_LBumper") != 1) {
+				translateArm(
+					Input.GetAxis("2_HorizontalL") * Sensitivity * TranslateSpeed,
+					Input.GetAxis("2_VerticalR") * Sensitivity * TranslateSpeed,
+					//(Mathf.Pow(Input.GetAxis("2_LBumper"), 2) - Mathf.Pow(Input.GetAxis("2_RBumper"), 2)) * Sensitivity * TranslateSpeed,
+					Input.GetAxis("2_VerticalL") * Sensitivity * TranslateSpeed
+				);
+			}
 			
-			if(Input.GetAxis("2_RBumper") == 1 || Input.GetAxis ("2_LBumper") == 1){
+			if(Input.GetAxis("2_RBumper") == 1){
 				arm.Clench();
 			} else {
 				arm.Unclench();
 			}
 			
-			rotateWrist(RotateSpeed * (Input.GetAxis("2_Fire3") - Input.GetAxis("2_Fire2")), -Input.GetAxis("2_VerticalR"), Input.GetAxis("2_HorizontalR"));
+			rotateWrist((Input.GetAxis("2_Fire3") - Input.GetAxis("2_Fire1")), -Input.GetAxis("2_VerticalR"), Input.GetAxis("2_HorizontalR") * RotateSpeed);
+			
+			if(Input.GetAxis("2_LBumper") == 1) {
+				rotateWrist(Input.GetAxis("2_HorizontalR") * RotateSpeed, -Input.GetAxis("2_VerticalR") * RotateSpeed, (Input.GetAxis("2_Fire3") - Input.GetAxis("2_Fire1")));
+			}
 		}
 	}
 

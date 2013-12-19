@@ -4,6 +4,9 @@ using System.Collections;
 public class CC_Chopstick : CC_Pickup {
 	
 	public float MagneticConstant = 1.0f;
+	
+	public Vector3 originalPosition;
+	public Quaternion originalRotation;
 
 	public Transform pickupPoint;
 	private CC_Chopstick otherChopstick;
@@ -13,6 +16,11 @@ public class CC_Chopstick : CC_Pickup {
 	public Vector3 position {get{ return transform.position; }}
 	
 	private GameObject heldObj;
+	
+	void Awake () {
+		originalPosition = this.transform.position;
+		originalRotation = this.transform.rotation;
+	}
 	
 	// Use this for initialization
 	void Start () {
@@ -35,7 +43,6 @@ public class CC_Chopstick : CC_Pickup {
 			heldObj = null;
 		}
 		
-		Debug.Log ((pickupPoint.position - otherChopstick.pickupPoint.position).magnitude);
 		if((pickupPoint.position - otherChopstick.pickupPoint.position).magnitude < level.ChopstickPickupDistance){
 			pickupAble = true;
 		}
@@ -61,6 +68,10 @@ public class CC_Chopstick : CC_Pickup {
 	void OnCollisionEnter(Collision collision){
 		if(collision.gameObject.GetComponent<CC_Chopstick>()){
 			level.soundManager.playSound(CC_Level.SoundType.chopstickCollide);
+		}else if(collision.gameObject.name == "ground" || collision.gameObject.name == "floor"){
+			level.soundManager.playSound(CC_Level.SoundType.demotivational);
+			this.transform.position = originalPosition;
+			this.transform.rotation = originalRotation;
 		}else{
 			//hits anything else
 		}

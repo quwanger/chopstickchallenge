@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CC_ArmController : MonoBehaviour {
+public class CC_ArmController : CC_Behaviour {
 	public float speed;
 
 	private Vector3 position {
@@ -167,11 +167,33 @@ public class CC_ArmController : MonoBehaviour {
 			heldObj.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 			heldObj.transform.parent = Palm;
 			// heldObj.fromHand = heldObj.transform.position - Palm.position;
+			
+			CC_Chopstick chopstick = heldObj.GetComponent<CC_Chopstick>();
+			
+			if(chopstick != null){
+				CC_Camera camera = level.mainCamera.GetComponent<CC_Camera>();
+				if(camera.obj1 == Palm){
+					camera.obj1 = chopstick.pickupPoint;
+				} else if(camera.obj2 == Palm){
+					camera.obj2 = chopstick.pickupPoint;
+				}
+			}
 		}
 	}
 
 	private void LetGo() {
 		if (heldObj != null) {
+			CC_Chopstick chopstick = heldObj.GetComponent<CC_Chopstick>();
+			
+			if(chopstick != null){
+				CC_Camera camera = level.mainCamera.GetComponent<CC_Camera>();
+				if(camera.obj1 == chopstick.pickupPoint){
+					camera.obj1 = Palm;
+				} else if(camera.obj2 == chopstick.pickupPoint){
+					camera.obj2 = Palm;
+				}
+			}
+			
 			heldObj.rigidbody.constraints = RigidbodyConstraints.None;
 			heldObj.transform.parent = null;
 			// heldObj.rigidbody.freezeRotation = false;
