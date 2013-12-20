@@ -2593,6 +2593,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef8ec83a9f9d4a6c8593e1be43aff79, type: 3}
   m_Name: 
+  controllerType: 1
   side: 1
   Sensitivity: 1
   TranslateLerp: .0299999993
@@ -4112,7 +4113,7 @@ Transform:
   m_GameObject: {fileID: 1059069842}
   m_LocalRotation: {x: 0, y: -0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 17.0508385}
-  m_LocalScale: {x: 2.06639767, y: 1.13256955, z: 1.67082083}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children: []
   m_Father: {fileID: 2088128968}
 --- !u!64 &1059069844
@@ -6111,6 +6112,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef8ec83a9f9d4a6c8593e1be43aff79, type: 3}
   m_Name: 
+  controllerType: 1
   side: 0
   Sensitivity: 1
   TranslateLerp: .0299999993
@@ -6860,6 +6862,18 @@ Prefab:
       propertyPath: m_Materials.Array.data[14]
       value: 
       objectReference: {fileID: 2100000, guid: 0d92036d1c3c84d89866e29c52c64e0d, type: 2}
+    - target: {fileID: 400004, guid: 312119b9f55244d07a274d17657db9a7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 312119b9f55244d07a274d17657db9a7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 312119b9f55244d07a274d17657db9a7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400028, guid: 312119b9f55244d07a274d17657db9a7, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 312119b9f55244d07a274d17657db9a7, type: 3}
