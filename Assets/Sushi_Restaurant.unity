@@ -4031,7 +4031,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef8ec83a9f9d4a6c8593e1be43aff79, type: 3}
   m_Name: 
-  controllerType: 2
+  controllerType: 1
   side: 1
   Sensitivity: 1
   TranslateLerp: .0299999993
@@ -8838,6 +8838,10 @@ Prefab:
       propertyPath: rightArmController
       value: 
       objectReference: {fileID: 856780842}
+    - target: {fileID: 11400002, guid: 21aa90cff0c191b4c9831994c99694c2, type: 2}
+      propertyPath: controllerType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21aa90cff0c191b4c9831994c99694c2, type: 2}
   m_RootGameObject: {fileID: 856780839}

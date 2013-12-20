@@ -196,6 +196,13 @@ public class Menu : MonoBehaviour {
 				levelSelected = "Hospital";
 				inputSelection();
 			}
+
+			if(Input.GetKeyDown(KeyCode.Alpha4))
+			{
+				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.accept);
+				levelSelected = "Heaven";
+				inputSelection();
+			}
 		}
 		
 		// options
