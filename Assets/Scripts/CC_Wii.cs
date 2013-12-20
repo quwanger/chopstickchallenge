@@ -144,10 +144,12 @@ public class CC_Wii : MonoBehaviour{
 
 			if(Wii.GetButton(leftRemote, "B")) {
 				leftArmController.Clench();
+				Debug.Log("HITTING B left");
 			}
 			
 			if(Wii.GetButton(rightRemote, "B")) {
 				rightArmController.Clench();
+				Debug.Log("HITTING B right");
 			}
 
 			if(Wii.GetButton(leftRemote, "A")) {

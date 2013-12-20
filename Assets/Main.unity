@@ -1055,6 +1055,10 @@ Prefab:
       propertyPath: m_Name
       value: RightArm
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 21aa90cff0c191b4c9831994c99694c2, type: 2}
+      propertyPath: controllerType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21aa90cff0c191b4c9831994c99694c2, type: 2}
   m_RootGameObject: {fileID: 637858398}
@@ -2540,7 +2544,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100154, guid: 33e0ee18e5897493a8ab4d5e260f12f4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33e0ee18e5897493a8ab4d5e260f12f4, type: 2}
@@ -2589,7 +2593,6 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef8ec83a9f9d4a6c8593e1be43aff79, type: 3}
   m_Name: 
-  controllerType: 0
   side: 1
   Sensitivity: 1
   TranslateLerp: .0299999993
@@ -2597,6 +2600,8 @@ MonoBehaviour:
   TranslateSpeed: 15
   RotateSpeed: 2
   ZTranslateSpeed: .0700000003
+  leftArmController: {fileID: 0}
+  rightArmController: {fileID: 0}
   arm: {fileID: 0}
   zDepth: 15
 --- !u!114 &637858402
@@ -2835,7 +2840,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &683570085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3431,7 +3436,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: d82649a86a0394aa5a3f3b9007e38256, type: 2}
       propertyPath: controllerType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: d82649a86a0394aa5a3f3b9007e38256, type: 2}
       propertyPath: side
@@ -4617,6 +4622,20 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c58c67633bf0c4991b913a6d2bf5d600, type: 3}
   m_Name: 
+  rightRemote: 0
+  leftRemote: 0
+  wiiObject: {fileID: 683570084}
+  speed: {x: 0, y: 0, z: 0}
+  zDepth: 0
+  wii: {fileID: 0}
+  leftArmController: {fileID: 1652150050}
+  rightArmController: {fileID: 637858402}
+  lastInput: {x: 0, y: 0, z: 0}
+  handVelLeft: {x: 0, y: 0, z: 0}
+  handVelRight: {x: 0, y: 0, z: 0}
+  resetX: 0
+  resetY: 0
+  resetZ: 0
 --- !u!114 &1205669408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6092,7 +6111,6 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef8ec83a9f9d4a6c8593e1be43aff79, type: 3}
   m_Name: 
-  controllerType: 0
   side: 0
   Sensitivity: 1
   TranslateLerp: .0299999993
@@ -6100,6 +6118,8 @@ MonoBehaviour:
   TranslateSpeed: 15
   RotateSpeed: 2
   ZTranslateSpeed: .0700000003
+  leftArmController: {fileID: 0}
+  rightArmController: {fileID: 0}
   arm: {fileID: 0}
   zDepth: 15
 --- !u!111 &1652150049

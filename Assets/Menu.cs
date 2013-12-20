@@ -37,6 +37,7 @@ public class Menu : MonoBehaviour {
 	}
 	
 	void Start(){
+		inputIndex = 0;
 		this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.intro);
 		mainMenu();
 	}
@@ -64,7 +65,7 @@ public class Menu : MonoBehaviour {
 			
 		if(inputActive)
 		{	
-			if(Input.GetKeyDown(KeyCode.W))
+			/*if(Input.GetKeyDown(KeyCode.W))
 			{
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
 				if(inputIndex == 1){
@@ -86,7 +87,7 @@ public class Menu : MonoBehaviour {
 				else if(inputIndex == 0){
 					inputIndex += 1;
 				}
-			}
+			}*/
 			
 			if(Input.GetKeyDown(KeyCode.Return))
 			{
@@ -94,7 +95,7 @@ public class Menu : MonoBehaviour {
 				Application.LoadLevel(levelSelected);				
 			}
 			
-			textHighlighting(inputIndex);
+			//textHighlighting(inputIndex);
 			instructionImages(inputIndex);
 		}
 		
@@ -200,7 +201,7 @@ public class Menu : MonoBehaviour {
 		// options
 		if(optionsActive == true)
 		{
-			if(Input.GetKeyDown(KeyCode.W))
+			/*if(Input.GetKeyDown(KeyCode.W))
 			{
 				this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.hover);
 				if(optionsIndex == 1){
@@ -224,7 +225,7 @@ public class Menu : MonoBehaviour {
 				}
 			}
 			
-			textHighlighting(optionsIndex);
+			textHighlighting(optionsIndex);*/
 			instructionImages(optionsIndex);
 		}
 	}
@@ -358,9 +359,9 @@ public class Menu : MonoBehaviour {
 		GameObject.Find("level3").guiTexture.enabled = false;
 		GameObject.Find("level4").guiTexture.enabled = false;
 		
-		GameObject.Find("inputKeyboard").guiText.enabled = true;
+		GameObject.Find("inputKeyboard").guiText.enabled = false;
 		GameObject.Find("inputWii").guiText.enabled = true;
-		GameObject.Find("inputXbox").guiText.enabled = true;
+		GameObject.Find("inputXbox").guiText.enabled = false;
 		GameObject.Find("help-menu").guiText.enabled = false;
 		GameObject.Find("level-menu").guiText.enabled = false;
 		GameObject.Find("controlscheme").guiText.enabled = true;
@@ -387,9 +388,9 @@ public class Menu : MonoBehaviour {
 		GameObject.Find("level3").guiTexture.enabled = false;
 		GameObject.Find("level4").guiTexture.enabled = false;
 
-		GameObject.Find("inputKeyboard").guiText.enabled = true;
+		GameObject.Find("inputKeyboard").guiText.enabled = false;
 		GameObject.Find("inputWii").guiText.enabled = true;
-		GameObject.Find("inputXbox").guiText.enabled = true;
+		GameObject.Find("inputXbox").guiText.enabled = false;
 		GameObject.Find("help-menu").guiText.enabled = false;
 		GameObject.Find("level-menu").guiText.enabled = false;
 		GameObject.Find("controlscheme").guiText.enabled = true;

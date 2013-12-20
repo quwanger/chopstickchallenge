@@ -2593,7 +2593,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef8ec83a9f9d4a6c8593e1be43aff79, type: 3}
   m_Name: 
-  controllerType: 0
+  controllerType: 1
   side: 0
   Sensitivity: 1
   TranslateLerp: .0299999993
@@ -2601,6 +2601,8 @@ MonoBehaviour:
   TranslateSpeed: 15
   RotateSpeed: 2
   ZTranslateSpeed: .0700000003
+  leftArmController: {fileID: 521892367}
+  rightArmController: {fileID: 791834273}
   arm: {fileID: 0}
   zDepth: 15
 --- !u!111 &521892366
@@ -2908,6 +2910,20 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c58c67633bf0c4991b913a6d2bf5d600, type: 3}
   m_Name: 
+  rightRemote: 0
+  leftRemote: 0
+  wiiObject: {fileID: 155853958}
+  speed: {x: 0, y: 0, z: 0}
+  zDepth: 0
+  wii: {fileID: 0}
+  leftArmController: {fileID: 521892367}
+  rightArmController: {fileID: 791834273}
+  lastInput: {x: 0, y: 0, z: 0}
+  handVelLeft: {x: 0, y: 0, z: 0}
+  handVelRight: {x: 0, y: 0, z: 0}
+  resetX: 0
+  resetY: 0
+  resetZ: 0
 --- !u!114 &552032624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5561,7 +5577,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef8ec83a9f9d4a6c8593e1be43aff79, type: 3}
   m_Name: 
-  controllerType: 0
+  controllerType: 1
   side: 1
   Sensitivity: 1
   TranslateLerp: .0299999993
@@ -5569,6 +5585,8 @@ MonoBehaviour:
   TranslateSpeed: 15
   RotateSpeed: 2
   ZTranslateSpeed: .0700000003
+  leftArmController: {fileID: 0}
+  rightArmController: {fileID: 0}
   arm: {fileID: 0}
   zDepth: 15
 --- !u!114 &791834273
@@ -8500,7 +8518,7 @@ Transform:
   m_GameObject: {fileID: 1464751311}
   m_LocalRotation: {x: 0, y: 0, z: .470697194, w: .882294834}
   m_LocalPosition: {x: 9.37249851, y: 91.9723206, z: -68.1237411}
-  m_LocalScale: {x: 1.0342474, y: 2.6722579, z: 1}
+  m_LocalScale: {x: 1.0342474, y: 2.67225766, z: 1}
   m_Children: []
   m_Father: {fileID: 100668803}
 --- !u!23 &1464751314
@@ -12013,6 +12031,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 2.25495182e-06
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 21aa90cff0c191b4c9831994c99694c2, type: 2}
+      propertyPath: controllerType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21aa90cff0c191b4c9831994c99694c2, type: 2}
   m_RootGameObject: {fileID: 791834270}
@@ -12082,8 +12104,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: d82649a86a0394aa5a3f3b9007e38256, type: 2}
       propertyPath: controllerType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: d82649a86a0394aa5a3f3b9007e38256, type: 2}
+      propertyPath: leftArmController
+      value: 
+      objectReference: {fileID: 521892367}
+    - target: {fileID: 11400006, guid: d82649a86a0394aa5a3f3b9007e38256, type: 2}
+      propertyPath: rightArmController
+      value: 
+      objectReference: {fileID: 791834273}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d82649a86a0394aa5a3f3b9007e38256, type: 2}
   m_RootGameObject: {fileID: 521892363}

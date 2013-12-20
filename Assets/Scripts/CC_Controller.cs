@@ -17,8 +17,8 @@ public class CC_Controller : MonoBehaviour {
 	public float RotateSpeed = 10.0f;
 	public float ZTranslateSpeed = 0.07f;
 
-	//public CC_ArmController leftArmController;
-	//public CC_ArmController rightArmController;
+	public CC_ArmController leftArmController;
+	public CC_ArmController rightArmController;
 
 	public CC_ArmController arm;
 	public float zDepth = 15.0f;
