@@ -1034,44 +1034,6 @@ Prefab:
   m_RootGameObject: {fileID: 860928300}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &259521352
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-  m_PrefabInternal: {fileID: 616017259}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 259521354}
-  - 114: {fileID: 259521353}
-  m_Layer: 0
-  m_Name: Wii
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!114 &259521353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: a5d1708f691fc412d8345903e5d680bf,
-    type: 2}
-  m_PrefabInternal: {fileID: 616017259}
-  m_GameObject: {fileID: 259521352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dba9559d80dc84c2f92d7aa30050c217, type: 3}
-  m_Name: 
---- !u!4 &259521354
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-  m_PrefabInternal: {fileID: 616017259}
-  m_GameObject: {fileID: 259521352}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
 --- !u!1 &290233022
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,46 +2578,6 @@ Prefab:
   m_RootGameObject: {fileID: 1028692528}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1001 &616017259
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-  m_RootGameObject: {fileID: 259521352}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &618606445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3472,7 +3394,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: d82649a86a0394aa5a3f3b9007e38256, type: 2}
       propertyPath: controllerType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d82649a86a0394aa5a3f3b9007e38256, type: 2}
@@ -3549,7 +3471,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef8ec83a9f9d4a6c8593e1be43aff79, type: 3}
   m_Name: 
-  controllerType: 1
+  controllerType: 0
   side: 0
   Sensitivity: 1
   TranslateLerp: .0299999993
@@ -4248,7 +4170,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef8ec83a9f9d4a6c8593e1be43aff79, type: 3}
   m_Name: 
-  controllerType: 1
+  controllerType: 0
   side: 1
   Sensitivity: 1
   TranslateLerp: .0299999993
@@ -6167,7 +6089,6 @@ GameObject:
   - 81: {fileID: 1419576583}
   - 114: {fileID: 1419576582}
   - 82: {fileID: 1419576581}
-  - 114: {fileID: 1419576580}
   - 114: {fileID: 1419576579}
   m_Layer: 0
   m_Name: Main Camera
@@ -6196,31 +6117,6 @@ MonoBehaviour:
   obj1: {fileID: 1998020252}
   obj2: {fileID: 834042966}
   debugRayDistance: 5
---- !u!114 &1419576580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: 9531cb9ea37d74d0ea1fb6e93e20f83a,
-    type: 2}
-  m_PrefabInternal: {fileID: 2030398525}
-  m_GameObject: {fileID: 1419576578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58c67633bf0c4991b913a6d2bf5d600, type: 3}
-  m_Name: 
-  rightRemote: 0
-  leftRemote: 0
-  wiiObject: {fileID: 259521352}
-  speed: {x: 0, y: 0, z: 0}
-  zDepth: 0
-  wii: {fileID: 259521353}
-  leftArmController: {fileID: 839471054}
-  rightArmController: {fileID: 953124012}
-  lastInput: {x: 0, y: 0, z: 0}
-  handVelLeft: {x: 0, y: 0, z: 0}
-  handVelRight: {x: 0, y: 0, z: 0}
-  resetX: 0
-  resetY: 0
-  resetZ: 0
 --- !u!82 &1419576581
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6815,7 +6711,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 21aa90cff0c191b4c9831994c99694c2, type: 2}
       propertyPath: controllerType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21aa90cff0c191b4c9831994c99694c2, type: 2}
@@ -8588,11 +8484,11 @@ Prefab:
     - target: {fileID: 11400002, guid: 9531cb9ea37d74d0ea1fb6e93e20f83a, type: 2}
       propertyPath: wiiObject
       value: 
-      objectReference: {fileID: 259521352}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 9531cb9ea37d74d0ea1fb6e93e20f83a, type: 2}
       propertyPath: wii
       value: 
-      objectReference: {fileID: 259521353}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 9531cb9ea37d74d0ea1fb6e93e20f83a, type: 2}
       propertyPath: leftArmController
       value: 
@@ -8613,7 +8509,8 @@ Prefab:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400002, guid: 9531cb9ea37d74d0ea1fb6e93e20f83a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9531cb9ea37d74d0ea1fb6e93e20f83a, type: 2}
   m_RootGameObject: {fileID: 1419576578}
   m_IsPrefabParent: 0

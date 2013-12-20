@@ -853,44 +853,6 @@ Prefab:
   m_RootGameObject: {fileID: 116026997}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &155853958
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-  m_PrefabInternal: {fileID: 903583272}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 155853960}
-  - 114: {fileID: 155853959}
-  m_Layer: 0
-  m_Name: Wii
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!114 &155853959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: a5d1708f691fc412d8345903e5d680bf,
-    type: 2}
-  m_PrefabInternal: {fileID: 903583272}
-  m_GameObject: {fileID: 155853958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dba9559d80dc84c2f92d7aa30050c217, type: 3}
-  m_Name: 
---- !u!4 &155853960
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-  m_PrefabInternal: {fileID: 903583272}
-  m_GameObject: {fileID: 155853958}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
 --- !u!1 &160877723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,7 +2555,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef8ec83a9f9d4a6c8593e1be43aff79, type: 3}
   m_Name: 
-  controllerType: 1
+  controllerType: 0
   side: 0
   Sensitivity: 1
   TranslateLerp: .0299999993
@@ -2806,7 +2768,6 @@ GameObject:
   - 114: {fileID: 552032622}
   - 82: {fileID: 552032621}
   - 114: {fileID: 552032624}
-  - 114: {fileID: 552032623}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2900,30 +2861,6 @@ MonoBehaviour:
   dx11BokehTexture: {fileID: 2800000, guid: a4cdca73d61814d33ac1587f6c163bca, type: 3}
   dx11BokehScale: 1.20000005
   dx11BokehIntensity: 2.5
---- !u!114 &552032623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 552032620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58c67633bf0c4991b913a6d2bf5d600, type: 3}
-  m_Name: 
-  rightRemote: 0
-  leftRemote: 0
-  wiiObject: {fileID: 155853958}
-  speed: {x: 0, y: 0, z: 0}
-  zDepth: 0
-  wii: {fileID: 0}
-  leftArmController: {fileID: 521892367}
-  rightArmController: {fileID: 791834273}
-  lastInput: {x: 0, y: 0, z: 0}
-  handVelLeft: {x: 0, y: 0, z: 0}
-  handVelRight: {x: 0, y: 0, z: 0}
-  resetX: 0
-  resetY: 0
-  resetZ: 0
 --- !u!114 &552032624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5577,7 +5514,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef8ec83a9f9d4a6c8593e1be43aff79, type: 3}
   m_Name: 
-  controllerType: 1
+  controllerType: 0
   side: 1
   Sensitivity: 1
   TranslateLerp: .0299999993
@@ -6261,11 +6198,11 @@ Prefab:
     - target: {fileID: 11400002, guid: 9531cb9ea37d74d0ea1fb6e93e20f83a, type: 2}
       propertyPath: wiiObject
       value: 
-      objectReference: {fileID: 155853958}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 9531cb9ea37d74d0ea1fb6e93e20f83a, type: 2}
       propertyPath: wii
       value: 
-      objectReference: {fileID: 155853959}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 9531cb9ea37d74d0ea1fb6e93e20f83a, type: 2}
       propertyPath: leftArmController
       value: 
@@ -6593,46 +6530,6 @@ Transform:
   m_Children:
   - {fileID: 83471387}
   m_Father: {fileID: 60933084}
---- !u!1001 &903583272
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a5d1708f691fc412d8345903e5d680bf, type: 2}
-  m_RootGameObject: {fileID: 155853958}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &910606307
 GameObject:
   m_ObjectHideFlags: 0
@@ -8518,7 +8415,7 @@ Transform:
   m_GameObject: {fileID: 1464751311}
   m_LocalRotation: {x: 0, y: 0, z: .470697194, w: .882294834}
   m_LocalPosition: {x: 9.37249851, y: 91.9723206, z: -68.1237411}
-  m_LocalScale: {x: 1.0342474, y: 2.67225766, z: 1}
+  m_LocalScale: {x: 1.0342474, y: 2.6722579, z: 1}
   m_Children: []
   m_Father: {fileID: 100668803}
 --- !u!23 &1464751314
@@ -9689,7 +9586,7 @@ Prefab:
     - target: {fileID: 11400000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
       propertyPath: Wii
       value: 
-      objectReference: {fileID: 155853958}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
       propertyPath: goWin
       value: 
@@ -9701,7 +9598,7 @@ Prefab:
     - target: {fileID: 11400000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
       propertyPath: myWii
       value: 
-      objectReference: {fileID: 155853959}
+      objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: c62593c7bbe314949b3d57131d9b3237, type: 2}
       propertyPath: ChopstickPickupDistance
       value: 10
@@ -12033,7 +11930,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 21aa90cff0c191b4c9831994c99694c2, type: 2}
       propertyPath: controllerType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21aa90cff0c191b4c9831994c99694c2, type: 2}
@@ -12104,7 +12001,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: d82649a86a0394aa5a3f3b9007e38256, type: 2}
       propertyPath: controllerType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: d82649a86a0394aa5a3f3b9007e38256, type: 2}
       propertyPath: leftArmController

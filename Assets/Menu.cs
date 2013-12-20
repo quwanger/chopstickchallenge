@@ -7,8 +7,8 @@ public class Menu : MonoBehaviour {
 	public bool fadeOut = false;
 	public Texture Overlay;
 	public int index = 0;
-	public int optionsIndex = 0;
-	public int inputIndex = 0;
+	public int optionsIndex = 2;
+	public int inputIndex = 2;
 	
 	public GameObject start;
 	public GameObject level;
@@ -37,7 +37,6 @@ public class Menu : MonoBehaviour {
 	}
 	
 	void Start(){
-		inputIndex = 0;
 		this.gameObject.GetComponent<CC_SoundManager>().playSound(CC_Level.SoundType.intro);
 		mainMenu();
 	}
@@ -259,8 +258,8 @@ public class Menu : MonoBehaviour {
 	{
 		if(tempIndex==0)
 		{
-			GameObject.Find("wiiImage").guiTexture.enabled = true;
-			GameObject.Find("xboxImage").guiTexture.enabled = false;
+			GameObject.Find("wiiImage").guiTexture.enabled = false;
+			GameObject.Find("xboxImage").guiTexture.enabled = true;
 			GameObject.Find("keyboardImage").guiTexture.enabled = false;
 		}
 		
@@ -360,8 +359,8 @@ public class Menu : MonoBehaviour {
 		GameObject.Find("level4").guiTexture.enabled = false;
 		
 		GameObject.Find("inputKeyboard").guiText.enabled = false;
-		GameObject.Find("inputWii").guiText.enabled = true;
-		GameObject.Find("inputXbox").guiText.enabled = false;
+		GameObject.Find("inputWii").guiText.enabled = false;
+		GameObject.Find("inputXbox").guiText.enabled = true;
 		GameObject.Find("help-menu").guiText.enabled = false;
 		GameObject.Find("level-menu").guiText.enabled = false;
 		GameObject.Find("controlscheme").guiText.enabled = true;
@@ -389,8 +388,8 @@ public class Menu : MonoBehaviour {
 		GameObject.Find("level4").guiTexture.enabled = false;
 
 		GameObject.Find("inputKeyboard").guiText.enabled = false;
-		GameObject.Find("inputWii").guiText.enabled = true;
-		GameObject.Find("inputXbox").guiText.enabled = false;
+		GameObject.Find("inputWii").guiText.enabled = false;
+		GameObject.Find("inputXbox").guiText.enabled = true;
 		GameObject.Find("help-menu").guiText.enabled = false;
 		GameObject.Find("level-menu").guiText.enabled = false;
 		GameObject.Find("controlscheme").guiText.enabled = true;
